@@ -79,15 +79,6 @@ module.exports = {
   plugins: [
     ["@vuepress-reco/vuepress-plugin-pagation"],
     ["vuepress-plugin-boxx"],
-    [
-      "@vuepress/last-updated",
-      {
-        transformer: (timestamp, lang) => {
-          moment.locale(lang);
-          return moment(timestamp).format("YYYY-MM-DD HH:mm:ss");
-        },
-      },
-    ],
     ["vuepress-plugin-nuggets-style-copy", {
       copyText: "复制代码",
       tip: {
