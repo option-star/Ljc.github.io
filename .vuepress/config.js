@@ -3,7 +3,7 @@
 module.exports = {
   "title": "佳成",
   "description": "生命太短，没有时间留给遗憾，若不是终点，请微笑一直向前。",
-  "base": "/Ljc.github.io/",
+  "base": "/",
   "dest": "public",
   "head": [
     [
