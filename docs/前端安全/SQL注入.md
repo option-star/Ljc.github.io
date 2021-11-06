@@ -12,11 +12,20 @@ isShowComments: true
 
 ## 什么是SQL注入
 
+SQL注入，就是通过SQL命令插入到Web表单提交、输入域名、页面请求的查询字符串，最终欺骗服务器执行恶意的SQL命令。
 
+## 实例
 
+```js
+// 填入特殊密码
+1'or'1'='1
 
-
-
+// 拼接后的SQL
+SELECT *
+FROM test.user
+WHERE username = 'laowang'
+AND password = '1'or'1'='1'
+```
 
 ## 防范
 
@@ -46,5 +55,7 @@ console.log('sql', sql, )
 res = await query(sql,[ctx.request.body.username, ctx.request.body.password])
 ```
 
+## 参考
 
+1.   [CSRF, XSS, Sql注入原理和处理方案](https://juejin.cn/post/6844903729217568776)
 
