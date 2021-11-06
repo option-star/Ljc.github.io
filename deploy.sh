@@ -1,6 +1,8 @@
 # 确保脚本抛出遇到的错误
 set -e
 
+rm -rf pubilc
+
 # 生成静态文件
 npm run build
 
@@ -15,6 +17,7 @@ git config --global user.email "2713554182@qq.com"
 git config --global user.name "李佳成"
 git checkout -b gh-page
 git add .
+git commit -m "deploy"
 # 如果你想要部署到 https://USERNAME.github.io
 git push -f https://option-star:${GITHUB_TOKEN}@github.com/option-star/Ljc.github.io.git master:gh-page
 
