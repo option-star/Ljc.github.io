@@ -11,6 +11,7 @@ cd public
 # echo 'www.yourwebsite.com' > CNAME
 
 git init
+git checkout -b gh-page
 git add -A
 git commit -m 'deploy'
 git config --global user.email "2713554182@qq.com"
