@@ -12,12 +12,14 @@ cd public
 # 如果是发布到自定义域名
 # echo 'www.yourwebsite.com' > CNAME
 
-git init
 git config --global user.email "2713554182@qq.com"
 git config --global user.name "李佳成"
+
+git init
 git checkout -b gh-page
 git add .
 git commit -m "deploy"
+
 # 如果你想要部署到 https://USERNAME.github.io
 git push -f https://option-star:${GITHUB_TOKEN}@github.com/option-star/Ljc.github.io.git master:gh-page
 
