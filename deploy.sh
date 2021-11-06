@@ -12,7 +12,7 @@ cd public
 # 如果是发布到自定义域名
 # echo 'www.yourwebsite.com' > CNAME
 
-githubUrl = https://option-star:${GITHUB_TOKEN}@github.com/option-star/Ljc.github.io.git
+githubUrl=https://option-star:${GITHUB_TOKEN}@github.com/option-star/Ljc.github.io.git
 git config --global user.email "2713554182@qq.com"
 git config --global user.name "李佳成"
 
