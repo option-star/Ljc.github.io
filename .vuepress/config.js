@@ -47,7 +47,7 @@ module.exports = {
     "blogConfig": {
       "category": {
         "location": 2, // 导航栏菜单中所占位置
-        "text": "分类"
+        "text": "技术"
       },
       "tag": {
         "location": 3, // 导航栏菜单中所占位置
