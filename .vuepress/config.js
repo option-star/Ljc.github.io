@@ -94,6 +94,13 @@ module.exports = {
         open: true
       }
     }],
+    ['@vuepress/pwa', {
+      serviceWorker: true,
+      updatePopup: {
+        message: "发现新内容可用",
+        buttonText: "刷新"
+      }
+    }],
     [
       /* 看板娘 */
       'vuepress-plugin-helper-live2d', {
