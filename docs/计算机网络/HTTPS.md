@@ -108,6 +108,8 @@ SSL是独立于HTTP的协议，所以在应用层的SMTP和Telnet等协议均可
 
 :::
 
+![TLS/SSL协议](https://gitee.com/ljcdzh/my_pic/raw/master/img/202111081716418.webp)
+
 ### SSL和TLS的关系
 
 -   1994年，NetScape公司设计了SSL协议（Secure Sockets Layer）的1.0版，但是未发布。
