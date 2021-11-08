@@ -14,15 +14,11 @@ https://blog.csdn.net/macrossdzh/article/details/5691924
 
 https://juejin.cn/post/6844903501571604488#heading-16
 
-
-
 ::: tip
 
 搭建博客过程中，github上具有HTTPS与SSH两种方式登录验证，比较而言SSH比HTTPS，不会出现连接超时的状况，特来探讨一下SSH
 
 :::
-
-
 
 ## 什么是SSH
 
