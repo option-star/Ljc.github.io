@@ -1,0 +1,559 @@
+---
+title: 
+date: 2021-11-17
+sidebar: 'auto'
+tags:
+- webpack
+categories:
+- Webpack
+isShowComments: true
+---
+
+## 1. grunt
+
+- 一句话：自动化。对于需要反复重复的任务，例如压缩（minification）、编译、单元测试、linting等，自动化工具可以减轻你的劳动，简化你的工作。当在`Gruntfile`文件正确配置好任务，任务运行器就会自动帮你或你的小组完成大部分无聊的工作。
+- 最老牌的打包工具，它运用配置的思想来打包脚本，一切皆配置。
+
+### 1.1 实例
+
+案例：es6 编译成es5
+
+#### 1.1.1 安装
+
+1. **初始化**
+
+```shell
+npm init
+```
+
+2. **yarn**
+
+```shell
+yarn add grunt  grunt-babel @babel/core @babel/preset-env -D
+```
+
+#### 1.1.2 文件结构
+
+```js
+|- src
+ 	- app.js
+|-Gruntfile.js
+|-package.json
+```
+
+> app.js
+
+```js
+let sum = (a,b)=>a+b;
+```
+
+> Gruntifile.js
+
+```js
+module.exports = function (grunt) {
+    //1.加载 babel任务
+    grunt.loadNpmTasks("grunt-babel");
+    //2. 初始化配置文件
+    grunt.initConfig({
+      babel: {
+        options: {
+          sourceMap: true,
+          presets: ["@babel/preset-env"],
+        },
+        dist: {
+          files: {
+            "dist/app.js": "src/app.js",
+          },
+        },
+      },
+    });
+    //3. default指的是入口任务
+    grunt.registerTask("default", ["babel"]);
+  };
+  
+```
+
+> package.json
+
+```js
+{
+  "name": "gruntdemo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "grunt"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.16.0",
+    "@babel/preset-env": "^7.16.4",
+    "grunt": "^1.4.1",
+    "grunt-babel": "^8.0.0"
+  }
+}
+```
+
+#### 1.1.3 执行
+
+```js
+npm run build
+```
+
+#### 1.1.4 运行结果
+
+![image-20211117144232360](https://gitee.com/ljcdzh/my_pic/raw/master/img/202111171443836.png)
+
+![image-20211117144248834](https://gitee.com/ljcdzh/my_pic/raw/master/img/202111171442869.png)
+
+### 1.2 优点
+
+- 出现的比较早
+
+### 1.3 缺点
+
+- 配置项太多（只有一个配置文件`Gruntfile.js`）
+- 不同的插件可能有自己的扩展字段
+- 学习成本高，运用的时候需要明白各种插件的配置规则和配合方法
+
+
+
+## 2. gulp
+
+### 2.1 简介
+
+- 基于node的`stream`流打包
+- 定位是基于任务流的自动构建工具
+- Gulp是通过task对整个开发过程进行构建
+
+### 2.2 实例
+
+将es6转换为es5
+
+#### 2.2.1 安装
+
+**初始化**
+
+```js
+npm init
+```
+
+**yarn**c
+
+```js
+yarn add gulp-cli gulp gulp-babel @babel/core @babel/preset-env
+```
+
+#### 2.2.2 文件结构
+
+```js
+|- src
+ 	- app.js
+|-gulpfile.js
+|-package.json
+```
+
+> app.js
+
+```js
+let sum = (a,b)=>a+b;
+```
+
+> gulpfile
+
+```js
+const gulp = require("gulp");
+const babel = require("gulp-babel");
+function defaultTask(callback) {
+  gulp
+    .src("src/app.js")//1. 读取源文件
+    .pipe(
+      babel({//2. 传给babel任务
+        presets: ["@babel/preset-env"],
+      })
+    ).pipe(gulp.dest("dist"));//3. 写到dist里
+    callback();
+}
+
+exports.default = defaultTask;
+```
+
+> package.json
+
+```js
+{
+  "name": "2.gulp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "gulp"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.11.4",
+    "@babel/preset-env": "^7.11.0",
+    "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
+    "gulp-cli": "^2.3.0"
+  }
+}
+```
+
+#### 2.2.3 执行
+
+```js
+npm run build
+```
+
+#### 2.2.4 结果
+
+![image-20211117150653291](https://gitee.com/ljcdzh/my_pic/raw/master/img/202111171506351.png)
+
+
+
+
+
+### 2.3 优点
+
+- 流式的写法简单直观
+- API简单，代码量少
+- 易于学习和使用
+- 适合多页面应用开发
+
+### 2.4 缺点
+
+- 打包方面比较弱
+- 异常处理比较麻烦
+- 工作流程顺序难以精细控制
+- 不太适合单页或者自定义模块的开发： 如果单页面中有很多图片、字体，需要逐一解决，不如webpack一起处理好
+
+## 3. webpack
+
+### 3.1 简介
+
+- webpack 是模块化管理工具和打包工具。通过loader的转换，任何形式的资源都可以视作模块，比如CommonJs模块、AMD模块、ES6模块等。它可以将许多松散的模块按照依赖和规则打包成符合生产环境部署的前端资源
+- 将按需加载的模块进行代码分隔，等到实际需要的时候再异步加载
+- 它的定位是模块打包器，而Gulp/Grunt属于构建工具。Webpack可以替代Gulp/Grunt的一些功能，但不是一个职能的工具，可以配合使用
+
+### 3.2 实例
+
+#### 3.2.1 安装
+
+**初始化**
+
+```js
+npm init
+```
+
+**安装**
+
+```js
+yarn add webpack webpack-cli babel-loader @babel/core @babel/preset-env -D
+```
+
+#### 3.2.2 文件结构
+
+```js
+|- src
+ 	- app.js
+|-webpack.config.js
+|-package.json
+```
+
+> app.js
+
+```js
+let sum = (a,b)=>a+b;
+```
+
+> package.json
+
+```js
+{
+  "name": "webpackdemo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build":"webpack"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.16.0",
+    "@babel/preset-env": "^7.16.4",
+    "babel-loader": "^8.2.3",
+    "webpack": "^5.64.1",
+    "webpack-cli": "^4.9.1"
+  }
+}
+```
+
+> webpack.config.js
+
+```js
+const path = require("path");
+module.exports = {
+  mode: "development", //开发模式
+  devtool: false, //不生成 sourcemap
+  entry: "./src/app.js", //入口文件
+  output: {
+    path: path.resolve(__dirname, "dist"),
+    filename: "bundle.js",
+  },
+  module: {
+    rules: [
+      {
+        test: /\.jsx?$/,
+        use: {
+          loader: "babel-loader",
+          options: {
+            presets: ["@babel/preset-env"],
+          },
+        },
+        include: path.join(__dirname, "src"),
+        exclude: /node_modules/,
+      },
+    ],
+  },
+  plugins: [],
+  devServer: {},
+};
+```
+
+#### 3.2.3 执行
+
+```js
+npm run build
+```
+
+#### 3.2.4 结果
+
+![image-20211117153852825](https://gitee.com/ljcdzh/my_pic/raw/master/img/202111171538896.png)
+
+### 3.3 优点
+
+- 可以模块化的打包任何资源
+- 适配任何模块的系统
+- 适合SPA单页面应用的开发
+
+### 3.4 缺点
+
+- 学习成本高、配置复杂
+- 通过babel编译后的js代码打包后体积过大
+
+## 4. rollup
+
+### 4.1 简介
+
+- rollup下一代ES6模块化工具，最大的亮点是利用ES6模块设计，利用tree-shaking生成更简介、更简单的代码
+- 一般而言，对于应用使用Webpack，对于类库使用Rollup
+- 需要代码拆分（Code Splitting），或者很多静态资源需要处理，再或者构建的项目需要引入很多CommonJS模块的依赖时，使用webpack
+- 代码库时基于ES6模块，而且希望代码能够被其他人直接使用，使用Rollup
+
+### 4.2 优点
+
+- 用标准化的格式（es6）来写代码，通过tree-shaking减少死代码尽可能地缩小包体积
+
+### 4.3 缺点
+
+- 对代码拆分、静态资源、CommonJS模块支持不好
+
+### 4.4 实例
+
+将es6编译成es5
+
+#### 4.4.1 安装
+
+**初始化**
+
+```js
+npm init 
+```
+
+**安装**
+
+```js
+yarn add rollup @babel/core @babel/preset-env babel-plugin-external-helpers rollup-plugin-babel rollup-plugin-node-resolve -D
+```
+
+#### 4.4.2 文件结构
+
+```js
+|- src
+ 	- main.js
+|-rollup.config.js
+|-package.json
+```
+
+> app.js
+
+```js
+let sum = (a,b)=>a+b;
+export default sum;
+```
+
+> rollup.config.js
+
+```js
+import resolve from "rollup-plugin-node-resolve";
+import babel from "rollup-plugin-babel";
+
+export default {
+  input: "src/main.js", //webpack entry(输入文件)
+  output: {
+    //webpack output（文件输出）
+    file: "dist/bundle.js", //output filename
+    format: "cjs",//common.js   module.exports = ?
+    exports: "default",
+  },
+  plugins: [
+    resolve(),
+    babel({//babel-loader
+      presets: ["@babel/preset-env"],
+      exclude: "node_modules/**", // 只编译我们的源代码
+    }),
+  ],
+};
+
+```
+
+> package.json
+
+```js
+{
+  "name": "rollup",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "rollup -c ./rollup.config.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.16.0",
+    "@babel/preset-env": "^7.16.4",
+    "babel-plugin-external-helpers": "^6.22.0",
+    "rollup": "^2.60.0",
+    "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-node-resolve": "^5.2.0"
+  }
+}
+
+```
+
+#### 4.4.3 执行
+
+```js
+npm run build
+```
+
+#### 4.4.4 结果
+
+![image-20211117155751346](https://gitee.com/ljcdzh/my_pic/raw/master/img/202111171557449.png)
+
+## 5. parcel
+
+### 5.1 简介
+
+- Parcel是快速、零配置的Web应用程序打包器
+- 目前Parcel只能用看来构建用于运行在浏览器中的网页，这也是它的出发点和专注点
+- Parcel: 内置了一个开发服务器，这会在你更改文件时自动启动应用程序，并支持模块热替换，以便快速开发。
+
+### 5.2 优点
+
+- Parcel内置了常见场景的构建方案及其依赖，无需安装各种依赖
+- Parcel能以HTML为入口，自动检测和打包依赖资源
+- Parcel默认支持模块热替换，真正的开箱即用
+
+### 5.3 缺点
+
+- 不支持SourceMap
+- 不支持剔除无效代码（Tree-shaking）
+- 配置不灵活
+
+### 5.4 实例
+
+将es6转化为es5
+
+#### 5.4.1 安装
+
+**初始化**
+
+```js
+npm init
+```
+
+**yarn**
+
+```js
+yarn add parcel
+```
+
+#### 5.4.2 文件结构
+
+```js
+|- src
+ 	- app.js
+	- index.html
+|-package.json
+```
+
+> app.js
+
+```js
+let sum = (a,b)=>a+b;
+console.log(sum);
+```
+
+> index.html
+
+```js
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="app.js"></script>
+</body>
+</html>
+```
+
+> package.json
+
+```js
+{
+  "name": "parceljs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel src/index.html -p 8089"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "parcel": "^2.0.1"
+  }
+}
+```
+
+#### 5.4.3 执行
+
+```js
+npm run start
+```
+
+#### 5.4.4 结果
+
+![image-20211117162630486](https://gitee.com/ljcdzh/my_pic/raw/master/img/202111171626558.png)
+
