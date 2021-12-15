@@ -201,7 +201,7 @@ let fn = obj.fn;
 fn(); //this->window 
 ```
 
-![image-20211111090610844](https://gitee.com/ljcdzh/my_pic/raw/master/img/202111110906888.png)
+![、7](https://gitee.com/ljcdzh/my_pic/raw/master/img/202111110906888.png)
 
 ### （4）
 
