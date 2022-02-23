@@ -1,3 +1,15 @@
+---
+title: js面试
+date: 2021-11-11
+sidebar: 'auto'
+tags:
+- js
+categories:
+- JavaScript
+isShowComments: true
+---
+
+
 ## 1 数据类型
 
 ### 1.1 JS原始数据类型有哪些？引用数据类型有哪些？

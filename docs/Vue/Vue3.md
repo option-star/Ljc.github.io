@@ -477,3 +477,98 @@ const res = Reflect.set(target, key, value, receiver);
 return res
 ```
 
+
+
+
+
+
+
+## 源码解析
+
+### 1. package.json
+
+```js
+"dev": "node scripts/dev.js",
+```
+
+
+
+### 2. dev.js
+
+> scripts/dev.js
+
+````js
+/*
+Run Rollup in watch mode for development.
+
+To specific the package to watch, simply pass its name and the desired build
+formats to watch (defaults to "global"):
+
+```
+# name supports fuzzy match. will watch all packages with name containing "dom"
+nr dev dom
+
+# specify the format to output
+nr dev core --formats cjs
+
+# Can also drop all __DEV__ blocks with:
+__DEV__=false nr dev
+```
+*/
+
+const execa = require('execa') // 可以进行开启进程，执行打包用的。
+const { fuzzyMatchTarget } = require('./utils')
+const args = require('minimist')(process.argv.slice(2)) // 获取命令行参数列表
+// 这里根据参数打包对应的模块，没有传递参数，默认打包vue
+const target = args._.length ? fuzzyMatchTarget(args._)[0] : 'vue'
+const formats = args.formats || args.f
+const sourceMap = args.sourcemap || args.s
+const commit = execa.sync('git', ['rev-parse', 'HEAD']).stdout.slice(0, 7)
+
+execa(
+  'rollup', // rollup执行打包
+  [
+    '-wc', // 监控使用配置文件
+    '--environment', // 使用环境
+    [
+      `COMMIT:${commit}`,
+      `TARGET:${target}`, // 打包目标
+      `FORMATS:${formats || 'global'}`, // 默认打包格式global
+      sourceMap ? `SOURCE_MAP:true` : `` // 添加sourcemap
+    ]
+      .filter(Boolean) // 过滤空
+      .join(',')
+  ],
+  {
+    stdio: 'inherit'
+  }
+)
+
+````
+
+1. 先引入`execa`用于开启进程，执行打包。
+2. 引入`minimist`，用于获取命令行参数列表。
+3. 通过`execa`开启进程，执行命令，通过`rollup`执行打包。
+
+### 3. rollup如何进行打包？
+
+#### rollup.config.js
+
+rollup的执行文件为：`/rollup.config.js`:
+
+```js
+```
+
+1. 先获取packages目录
+2. 然后通过`process.env.TARGET`，获取到要打包的文件
+3. 然后获取打包目录下的package.json。
+
+先看一下package.json
+
+#### package.json
+
+由于默认打包的是vue模块，其package.json的目录为：`packages/vue/package.json`
+
+```js
+```
+
