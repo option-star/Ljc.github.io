@@ -1,3 +1,14 @@
+---
+title: Vue面试题
+date: 2022-03-22
+sidebar: 'auto'
+categories:
+- 04Vue
+isShowComments: true
+---
+
+
+
 ## 一、Vue基础
 
 ### 1. Vue的基本原理
