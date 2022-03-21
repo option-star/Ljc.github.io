@@ -2154,10 +2154,6 @@ beforeRouteEnter(to, from, next) {
 
 
 
-## 五、Vuex
-
-
-
 
 
 ## 六、Vue3.0
@@ -2194,12 +2190,4 @@ beforeRouteEnter(to, from, next) {
 - 支持 Fragment（多个根节点）和 Protal（在 dom 其他部分渲染组建内容）组件，针对一些特殊的场景做了处理。
 
 - 基于 tree shaking 优化，提供了更多的内置功能。
-
-
-
-
-
-
-
-## 七、虚拟DOM
 

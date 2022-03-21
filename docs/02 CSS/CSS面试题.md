@@ -1,5 +1,5 @@
 ---
-title: 02CSS
+title: CSS02CSS基础
 date: 2022-03-19
 sidebar: 'auto'
 categories:
