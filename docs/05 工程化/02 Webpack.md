@@ -1,11 +1,9 @@
 ---
-title: Loader和Plugin的不同
-date: 2021-11-17
+title: 工程化02: webpack 
+date: 2022-03-23
 sidebar: 'auto'
-tags:
-- webpack
 categories:
-- Webpack
+- 05 工程化
 isShowComments: true
 ---
 

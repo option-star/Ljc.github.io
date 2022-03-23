@@ -1,12 +1,9 @@
 ---
-title: SSH
-date: 2021-11-08
+title: 计网04: SSH协议
+date: 2021-11-09
 sidebar: 'auto'
-tags:
-- SSH
-- 计算机网络
 categories:
-- 计算机网络
+- 09计网
 isShowComments: true
 ---
 

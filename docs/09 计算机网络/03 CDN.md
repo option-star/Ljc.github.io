@@ -1,3 +1,14 @@
+---
+title: 计网03: CDN
+date: 2021-11-09
+sidebar: 'auto'
+categories:
+- 09计网
+isShowComments: true
+---
+
+
+
 ## 1. 什么是CDN
 
 ​	CDN 的全称叫 Content Delivery Network，中文名叫「内容分发网络」，它是解决由于长距离而网络访问速度慢的问题。

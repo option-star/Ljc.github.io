@@ -1,12 +1,9 @@
 ---
-title: HTTPS
-date: 2021-11-08
+title: 计网05: HTTPS
+date: 2021-11-09
 sidebar: 'auto'
-tags:
-- HTTPS
-- 计算机网络
 categories:
-- 计算机网络
+- 09计网
 isShowComments: true
 ---
 

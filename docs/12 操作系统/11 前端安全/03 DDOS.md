@@ -1,9 +1,9 @@
 ---
-title: DDOS攻击
+title: 安全03: DDOS攻击
 sidebar: 'auto'
 date: 2021-11-06
 categories:
-- 前端安全
+- 11前端安全
 isShowComments: true
 ---
 

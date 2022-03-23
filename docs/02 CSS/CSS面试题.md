@@ -1,5 +1,5 @@
 ---
-title: CSS02CSS基础
+title: CSS02: CSS基础
 date: 2022-03-19
 sidebar: 'auto'
 categories:
@@ -14,7 +14,7 @@ isShowComments: true
 | **选择器**     | **格式**      | **优先级权重** |
 | -------------- | ------------- | -------------- |
 | id选择器       | #id           | 100            |
-| 类选择器       | #classname    | 10             |
+| 类选择器       | .class        | 10             |
 | 属性选择器     | a[ref=“eee”]  | 10             |
 | 伪类选择器     | li:last-child | 10             |
 | 标签选择器     | div           | 1              |
@@ -47,21 +47,17 @@ isShowComments: true
 
 ![img](https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/5/30/17263443113eb879~tplv-t2oaga2asx-zoom-in-crop-mark:1304:0:0:0.awebp)
 
-CSS3中的盒模型有以下两种：标准盒子模型、IE盒子模型
-
-盒模型都是由四个部分组成的，分别是margin、border、padding和content
-
-标准盒模型和IE盒模型的区别在于设置width和height时，所对应的范围不同：
-
-- 标准盒模型的width和height属性的范围只包含了content，
-- IE盒模型的width和height属性的范围包含了border、padding和content。
-
-可以通过修改元素的box-sizing属性来改变元素的盒模型：
-
-- `box-sizeing: content-box`表示标准盒模型（默认值）
-- `box-sizeing: border-box`表示IE盒模型（怪异盒模型）
 
 
+​	盒模型由内向外：内容 content + 内边距 padding + 边框 border + 外边距 margin
+
+分为两类：
+
+1. 标准盒模型：`border-sizing:content-box`
+   width 和 height 设置内容 content 的宽和高
+
+2. 替代盒模型：`border-sizing:border-box`
+   width 和 height 设置内容 content + 内边距 padding + 边框 border 的宽和高
 
 
 
@@ -248,8 +244,23 @@ link 和 @import 都能导入一个样式文件，区别如下：
 
 ### 15. 伪元素与伪类的区别和作用？
 
-- **伪类**用于当已有的元素**处于某种状态时，为其添加对应的样式**，这个状态是根据用户行为而动态变化的。比如说当用户悬停在指定的元素时，我们可以通过`:hover`来描述这个元素的状态。
-- **伪元素**用于**创建一些不在文档树中的元素，并为其添加样式**。它们允许我们为元素的某些部分设置样式。比如说，我们可以通过`::before`来在一个元素前增加一些文本，并为这些文本添加样式。虽然用户可以看到这些文本，但是这些文本实际上不在文档树中。
+伪类和伪元素都是选择器，适用于：
+
+- 无法更改HTML
+- 要选择的元素不固定
+- 要选择的元素状态或位置关系固定
+
+#### 1）伪类
+
+​		**伪类**用于当已有的元素**处于某种状态时，为其添加对应的样式**，这个状态是根据用户行为而动态变化的。比如说当用户悬停在指定的元素时，我们可以通过`:hover`来描述这个元素的状态。
+
+
+
+#### 2） 伪元素
+
+​	**伪元素**用于**创建一些不在文档树中的元素，并为其添加样式**。它们允许我们为元素的某些部分设置样式。比如说，我们可以通过`::before`来在一个元素前增加一些文本，并为这些文本添加样式。虽然用户可以看到这些文本，但是这些文本实际上不在文档树中。
+
+
 
 ### 16. 对requestAnimationframe的理解？
 
@@ -403,11 +414,58 @@ my-image { background: (low.png); }
 
 
 
+### 25. 如何写CSS注释，作用是什么？
+
+​	以`/*`开头，`*/`结束。可阻止其中 CSS 解析，给代码增加说明，提升可读性
+
+### 26. 如何取出CSS注释？
+
+- 用正则`/\/*[\s\S]*?*\//`全局匹配注释，替换为空字符串
+- 用工程化工具，如`cssnano`来去除注释
 
 
 
+### 27. !important 的作用和弊端，如何避免？
+
+- **作用**
+  		!important 可以忽略选择器 CSS 选择器优先级，让声明的属性总是生效
+- **弊端**
+
+  - 破坏原 CSS 级联规则，增加调试难度
+
+  - 修改样式变得困难
+
+  - 污染全局样式
+- **避免**
+    - 用 CSS 选择器优先级解决样式冲突
+    - 不在全局、会被复用的插件中使用 !important
+    - 通过 CSS 命名或 Shadow DOM 限制 CSS 作用域
 
 
+### 28. 对比块、内联和 内联盒子
+
+- **块盒子**：`display:block`
+
+  - 换行
+  - width和height生效
+  - 竖直方向padding和margin生效
+
+  
+
+- **内联盒子**：display:inline
+
+  - 不换行
+  - width和height无效
+  - 竖直方向padding和margin无效
+  
+  
+  
+- **内联块盒子**：display:inline-block
+  
+    - 不换行
+    - width和height生效
+    - 竖直方向padding和margin生效
+    
 
 
 
@@ -507,7 +565,7 @@ vm/vh 是与视图窗口有关的单位，vw 表示相对于视图窗口的宽�
 
 ### 5. flex布局
 
-### 概念
+#### 概念
 
 `Flexible Box` 简称 `flex`，意为”弹性布局”，可以简便、完整、响应式地实现各种页面布局
 
@@ -628,7 +686,7 @@ vm/vh 是与视图窗口有关的单位，vw 表示相对于视图窗口的宽�
 
   
 
-### [#](https://alioooooner.github.io/zyhblog/blog/mian-shi-ti/1-css.html#小结-2)小结
+#### 小结
 
 flex 布局是 CSS3 新增的一种布局方式，可以通过将一个元素的 display 属性值设置为 flex 从而使它成为一个 flex 容器，它的所有子元素都会成为它的项目。
 

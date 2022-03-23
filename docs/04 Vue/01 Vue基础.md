@@ -1,5 +1,5 @@
 ---
-title: VUE02Vue基础
+title: VUE02: Vue基础
 date: 2022-03-21
 sidebar: 'auto'
 categories:
