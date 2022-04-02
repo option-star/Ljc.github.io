@@ -1393,3 +1393,95 @@ nums.forEach((item, index) => {
 
 
 
+## 33. JS循环
+
+### 1） map(数组方法)
+
+> 特性
+
+1. map不会改变原数组，但会返回新数组
+2. 可以使用break中断循环，可以使用return返回到外层函数
+
+> 实例
+
+```js
+let newarr=arr.map(i=>{
+return i+=1;
+console.log(i);
+})
+console.log(arr)//1,3,4---不会改变原数组
+console.log(newarr)//[2,4,5]---返回新数组
+```
+
+
+
+### 2) forEach(数组方法)
+
+> 特性
+
+1. 效率和for循环相同
+2. 没有返回值
+3. 不能使用break中断循环，不能使用return返回外层函数
+
+> 实例
+
+```js
+let newarr=arr.forEach(i=>{
+ i+=1;
+console.log(i);//2,4,5
+})
+console.log(arr)//[1,3,4]
+console.log(newarr)//undefined
+```
+
+
+
+### 3) for in (大部分用于对象)
+
+> 特性
+
+- 用于循环遍历数组或对象属性
+
+> 实例
+
+```js
+   let person={name:"小白",age:28,city:"北京"}
+   let text=""
+   for (let i in person){
+      text+=person[i]
+   }
+//   输出结果为：小白28北京
+//其次在尝试一些数组
+   let arry=[3,3,3,4,5]
+   for (let i in arry){
+        console.log(i)
+    }
+//能输出出来，证明也是可以的
+```
+
+
+
+### 4) for of (不能遍历对象)
+
+> 特性
+
+1. （可遍历map，object,array,set string等）用来遍历数据，比如组中的值
+2. 避免了for in的所有缺点，可以使用break,continue和return，不仅支持数组的遍历，还可以遍历类似数组的对象。
+
+```js
+   let arr=["nick","freddy","mike","james"];
+    for (let item of arr){
+        console.log(item)
+    }
+//暑促结果为nice freddy mike james
+//遍历对象
+   let person={name:"老王",age:23,city:"唐山"}
+   for (let item of person){
+        console.log(item)
+    }
+//我们发现它是不可以的
+
+```
+
+
+
