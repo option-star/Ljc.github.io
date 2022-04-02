@@ -1,5 +1,5 @@
 ---
-title: 安全01: XSS攻击
+title: 安全01:XSS攻击
 sidebar: 'auto'
 date: 2021-11-06
 categories:
