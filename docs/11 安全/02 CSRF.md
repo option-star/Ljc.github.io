@@ -3,7 +3,7 @@ title: 安全02 CSRF攻击
 date: 2021-11-06
 sidebar: 'auto'
 categories:
-- 11前端安全
+- 11安全
 isShowComments: true
 ---
 

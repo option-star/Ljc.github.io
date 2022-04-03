@@ -1,3 +1,12 @@
+---
+title: 性能04 webpack优化
+date: 2022-03-29
+sidebar: 'auto'
+categories:
+- 08性能
+isShowComments: true
+---
+
 ## 1. 如何提高webpack的打包速度？
 
 ### （1）优化 Loader

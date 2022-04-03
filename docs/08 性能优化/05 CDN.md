@@ -1,3 +1,12 @@
+---
+title: 性能05 CDN
+date: 2022-03-29
+sidebar: 'auto'
+categories:
+- 08性能
+isShowComments: true
+---
+
 ## 1. CDN的 概念
 
 ​	CDN（Content Delivery Network，**内容分发网络**）是指一种通过互联网互相连接的电脑网络系统，利用最靠近每位用户的服务器，更快、更可靠地将音乐、图片、视频、应用程序及其他文件发送给用户，来提供高性能、可扩展性及低成本的网络内容传递给用户。

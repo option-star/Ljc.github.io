@@ -1,5 +1,5 @@
 ---
-title: 计网03:CDN
+title: 计网03 CDN
 date: 2021-11-09
 sidebar: 'auto'
 categories:

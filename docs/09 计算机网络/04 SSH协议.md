@@ -1,5 +1,5 @@
 ---
-title: 计网04:SSH协议
+title: 计网04 SSH协议
 date: 2021-11-09
 sidebar: 'auto'
 categories:

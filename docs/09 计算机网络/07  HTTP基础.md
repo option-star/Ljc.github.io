@@ -1,9 +1,9 @@
 ---
-title: 计网08:HTTP基础
+title: 计网07 HTTP基础
 date: 2022-03-31
 sidebar: 'auto'
 categories:
-- 计算机网络
+- 09计网
 isShowComments: true
 ---
 

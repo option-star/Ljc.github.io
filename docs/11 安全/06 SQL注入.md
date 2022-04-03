@@ -1,9 +1,9 @@
 ---
-title: 安全06:SQL注入
+title: 安全06 SQL注入
 sidebar: 'auto'
 date: 2021-11-06
 categories:
-- 11前端安全
+- 11安全
 isShowComments: true
 ---
 
