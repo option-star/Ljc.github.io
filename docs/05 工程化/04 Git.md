@@ -1,9 +1,9 @@
 ---
-title: 工程化04:Git
+title: 工程化04 Git
 date: 2022-03-23
 sidebar: 'auto'
 categories:
-- 05 工程化
+- 05工程化
 isShowComments: true
 ---
 

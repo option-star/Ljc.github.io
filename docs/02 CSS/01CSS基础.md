@@ -1,5 +1,5 @@
 ---
-title: CSS01 CSS基础
+title: CSS01 基础
 date: 2022-03-19
 sidebar: 'auto'
 categories:

@@ -203,19 +203,39 @@ isShowComments: true
 > 自适应两栏布局
 
 ```html
-.left{
-     width: 100px;
-     height: 200px;
-     background: red;
-     float: left;
- }
- .right{
-     height: 300px;
-     background: blue;
-     overflow: hidden;
- }
- 
-<div class="left"></div>
-<div class="right"></div>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>案例4 - 自适应两栏布局</title>
+    <style>
+        /*  BFC的区域不会与float box重叠； */
+        .aside {
+            float:left;
+            width: 100px;
+            height: 150px;
+            background: #f66;
+        }
+
+        .main {
+            /* BFC ： float + position + display + overflow */
+            height: 200px;
+            background: green;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="aside"></div>
+    <div class="main"></div>
+</body>
+
+</html>
 ```
 
+> 效果
+
+![image-20220402153739529](https://gitee.com/ljcdzh/my_pic/raw/master/img/202204021537587.png)
