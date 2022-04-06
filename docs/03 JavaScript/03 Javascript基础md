@@ -1485,3 +1485,8 @@ console.log(newarr)//undefined
 
 
 
+## 34. e.target和e.currentTarget的区别？
+
+- e.target ： **触发**事件的元素
+- e.currentTarget ： **绑定**事件的元素
+

@@ -895,9 +895,40 @@ Funciton.prototype.myCall = function (context) {
 
 ## 18. 实现浅拷贝
 
+> 定义
+
+![image-20220405101456115](https://raw.githubusercontent.com/option-star/imgs/master/202204051014183.png)
+
+​	创建一个新对象，这个对象有着原始对象属性值的一份精确拷贝。如果属性是基本类型，拷贝的就是基本类型的值，如果属性值是应用类型，拷贝的就是内存地址，所以如果其中一个对象改变了这个地址，就会影响另一个对象
+
+
+
+
+
 
 
 ## 19. 实现深拷贝
+
+> 定义
+
+![img](https://raw.githubusercontent.com/option-star/imgs/master/202204051018549.webp)
+
+​	将一个对象从内存中完整拷贝一份出来，从堆内存中开辟一个新的区域存放新对象，且修改新对象不会影响原对象
+
+
+
+> JSON.stringify处理深拷贝，存在局限性：
+
+- 无法处理BigInt类型的属性值 Uncaugth TypeError: Do not know how to serialize a BigInt
+- 某些键值对会消失
+  - 属性值是 undefined/symbol/function 类型的
+  - 属性名是 symbol 类型的
+-  属性值如果是 正则对象/错误对象 会转换为“{}”，值和之前是不一样的
+- 日期对象变为字符串之后就无法在转换回日期对象了
+- 一但内部出现“套娃操作”（obj.obj=obj），直接处理不了  Uncaught TypeError: Converting circular structure to JSON
+-  处理起来没有问题的类型：number、string、boolean、普通对象、数组对象...
+
+> 实现
 
 - 定义一个工具函数，判断传入值是否是空或函数、对象
 
@@ -931,61 +962,90 @@ Funciton.prototype.myCall = function (context) {
   	5.循环引用时重点
   */
   //当value不为null且是一个对象或函数返回true
-  function isObject(value){
-      const valueType = typeof value
-      return (value !==null)&&(valueType === 'object' || valueType === 'function')
+  const isObject = (value) => {
+      const type = typeof value
+      return value !== null && (type === "object" || type === "function")
   }
   
-  function deepClone(originValue, map = new WeakMap()){
-      //处理值为set 和 map的情况
-      if(originValue instanceof Set){
-          return new Set([...originValue])
+  const Clone = (target, map = new WeakMap()) => {
+      // 处理set
+      if (target instanceof Set) return new Set([...target]);
+  
+      // 处理map
+      if (target instanceof Map) return new Map([...target]);
+  
+      // 处理symbol
+      if (typeof target === "symbol") return Symbol(target.description);
+  
+      // 处理函数
+      if (typeof target === "function") return target;
+  
+      // 处理普通值
+      if (!isObject(target)) return target
+  
+      // 处理数组
+      let _target = Array.isArray(target) ? [] : {}
+  
+      // 处理循环
+      if (map.has(target)) return map.get(target)
+      map.set(target, _target);
+  
+      // 克隆
+      for (const key in target) {
+          _target[key] = Clone(target[key], map);
       }
-      if(originValue instanceof Map){
-          return new Map([...originValue])
-      }
-      
-      // 如果是Symbol的value，创建一个symbol
-      if(typeof originValue === 'symbol'){
-          return Symbol(originValue.description)
-      }
-      
-      //函数无需深拷贝
-      if(typeof originValue === 'function'){
-          return originValue
-      }
-      
-      //判断是不是对象，不是直接返回
-      if (!isObject(originValue)){
-          return originValue
-      }
-      
-      //处理循环引用
-      if(map.has(originValue)){
-          return map.get(originValue);
-      }
-      
-      
-      //判断是不是数组
-      const newObj = Array.isArray(originValue)?[]:{};	//判断数组还是对象
-      map.set(originValue, newObj);
-      
-      //处理key为stirng类型的
-      Object.keys(originValue).forEach(key=>{
-          newObj[key] = deepClone(originValue[key], map);
-      })
-      
-      //对Symbol特殊处理
-      const sumbolKeys = Object.getOwnPropertySymbols(originValue)
-      for(let key of sumbolKeys){
-          newObj[key] = deepClone(originValue[key], map);
-      }
-      
-      return newObj;
+  
+      // symbol特殊处理
+      const symbolKeys = Object.getOwnPropertySymbols(target);
+      for (let key of symbolKeys) _target[key] = Clone(target[key], map)
+  
+      return _target
   }
   ```
-
   
+  
+
+> 测试
+
+```js
+const map = new Map();
+map.set('key', 'value');
+map.set('ConardLi', 'code秘密花园');
+
+const set = new Set();
+set.add('ConardLi');
+set.add('code秘密花园');
+const target = {
+    field1: 1,
+    field2: undefined,
+    field3: {
+        child: 'child'
+    },
+    field4: [2, 4, 8],
+    empty: null,
+    map,
+    set,
+    bool: new Boolean(true),
+    num: new Number(2),
+    str: new String(2),
+    symbol: Symbol(1),
+    date: new Date(),
+    reg: /\d+/,
+    error: new Error(),
+    func1: () => {
+        console.log('code秘密花园');
+    },
+    func2: function (a, b) {
+        return a + b;
+    }
+};
+
+
+const result = Clone(target);
+
+console.log(target);
+console.log(result);
+```
 
 
 

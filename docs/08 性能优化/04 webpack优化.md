@@ -231,3 +231,4 @@ import { a } from './test.js'
 4. 使用`Happypack`实现多线程加速编译
 5. 使用`webpack-uglify-parallel`来提升`uglifyPlugin`的压缩速度。原理上 webpack-uglify-parallel 采⽤了多核并⾏压缩来提升压缩速度
 6. 使⽤ Tree-shaking 和 Scope Hoisting 来剔除多余代码
+
