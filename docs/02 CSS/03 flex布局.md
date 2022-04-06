@@ -197,15 +197,15 @@ isShowComments: true
 
 设置子容器是否换行排列，不但可以顺序换行而且支持逆序换行。
 
-![img](https://gitee.com/ljcdzh/my_pic/raw/master/img/202203291436588.webp)
+![img](https://cdn.jsdelivr.net/gh/option-star/imgs/202204060944416.webp)
 
 > **nowrap**: 不换行
 
-![img](https://gitee.com/ljcdzh/my_pic/raw/master/img/202203291437531.webp)
+![img](https://cdn.jsdelivr.net/gh/option-star/imgs/202204060945521.webp)
 
 > **warp**: 换行
 
-![img](https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/leancloud-assets/0566bf9682ffa0890624.png~tplv-t2oaga2asx-zoom-in-crop-mark:1304:0:0:0.awebp)
+![img](https://cdn.jsdelivr.net/gh/option-star/imgs/202204060945776.webp)
 
 > **warp-reverse**: 逆序换行
 

@@ -108,7 +108,6 @@ isShowComments: true
 .wrapper {
   display: grid;
 }
-复制代码
 ```
 
 
@@ -121,7 +120,6 @@ isShowComments: true
 .wrapper-1 {
   display: inline-grid;
 }
-复制代码
 ```
 
 
@@ -147,7 +145,6 @@ isShowComments: true
   /*  声明了两行，行高分别为 50px 50px  */
   grid-template-rows: 50px 50px;
 }
-复制代码
 ```
 
 以上表示固定列宽为 200px 100px 200px，行高为 50px 50px
@@ -168,7 +165,6 @@ isShowComments: true
   /*  2行，而且行高都为 50px  */
   grid-template-rows: repeat(2, 50px);
 }
-复制代码
 ```
 
 **auto-fill 关键字**：表示自动填充，让一行（或者一列）中尽可能的容纳更多的单元格。`grid-template-columns: repeat(auto-fill, 200px)` 表示列宽是 200 px，但列的数量是不固定的，只要浏览器能够容纳得下，就可以放置元素，代码以及效果如下图所示：
@@ -180,7 +176,6 @@ isShowComments: true
   grid-gap: 5px;
   grid-auto-rows: 50px;
 }
-复制代码
 ```
 
 
@@ -216,7 +211,6 @@ isShowComments: true
   grid-gap: 5px;
   grid-auto-rows: 50px;
 }
-复制代码
 ```
 
 
@@ -258,7 +252,6 @@ isShowComments: true
   grid-gap: 10px 20px;
   grid-auto-rows: 50px;
 }
-复制代码
 .wrapper-1 {
   display: grid;
   grid-template-columns: 200px 100px 100px;
@@ -266,7 +259,6 @@ isShowComments: true
   grid-row-gap: 10px;
   grid-column-gap: 20px;
 }
-复制代码
 ```
 
 以上两种写法效果是一样的。
@@ -296,7 +288,6 @@ isShowComments: true
   background-color: #fff;
   color: #444;
 }
-复制代码
 ```
 
 上面代码表示划分出 6 个单元格，其中值得注意的是 `.` 符号代表空的单元格，也就是没有用到该单元格。
@@ -313,7 +304,7 @@ isShowComments: true
 .header {
   grid-area: header;
 }
-复制代码
+
 ```
 
 以上代码表示将类 `.sidebar` `.content`  `.header`所在的元素放在上面  `grid-template-areas` 中定义的 `sidebar`  `content` `header` 区域中
@@ -404,7 +395,6 @@ isShowComments: true
   justify-items: start | end | center | stretch;
   align-items: start | end | center | stretch;
 }
-复制代码
 ```
 
 其代码实现以及效果如下：
@@ -426,7 +416,6 @@ isShowComments: true
 .wrapper-3 {
   justify-items: stretch;
 }
-复制代码
 ```
 
 - start：对齐单元格的起始边缘
@@ -472,7 +461,6 @@ isShowComments: true
   justify-content: start | end | center | stretch | space-around | space-between | space-evenly;
   align-content: start | end | center | stretch | space-around | space-between | space-evenly;  
 }
-复制代码
 ```
 
 下面以 `justify-content` 属性为例进行讲解，`align-content` 属性同理，只是方向为垂直方向
@@ -495,7 +483,6 @@ isShowComments: true
 .wrapper-2 {
   justify-content: center;
 }
-复制代码
 ```
 
 
@@ -653,7 +640,6 @@ isShowComments: true
   justify-self: start | end | center | stretch;
   align-self: start | end | center | stretch;
 }
-复制代码
 .item {
   justify-self: start;
 }
@@ -666,7 +652,6 @@ isShowComments: true
 .item-3 {
   justify-self: stretch;
 }
-复制代码
 ```
 
 - start：对齐单元格的起始边缘
@@ -715,7 +700,6 @@ isShowComments: true
   grid-gap: 10px 20px;
   grid-auto-rows: 50px;
 }
-复制代码
 ```
 
 
@@ -740,7 +724,7 @@ isShowComments: true
   grid-gap: 10px 20px;
   grid-auto-rows: 50px;
 }
-复制代码
+
 ```
 
 
