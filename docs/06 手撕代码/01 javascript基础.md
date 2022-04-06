@@ -1049,3 +1049,76 @@ console.log(result);
 
 
 
+## 20. 手写发布订阅
+
+> 实现
+
+```js
+class EventBus {
+    constructor() {
+        this.eventBus = {}
+    }
+
+    /* 事件注册 */
+    on(name, callback, _this) {
+        if (!this.eventBus[name]) {
+            this.eventBus[name] = [{ callback, _this }];
+        } else {
+            this.eventBus[name].push({ callback, _this })
+        }
+    }
+
+    /* 取消监听 */
+    off(name, callback) {
+        if (this.eventBus[name]) {
+            this.eventBus[name].forEach(item => {
+                if (item.callback === callback) {
+                    let index = this.eventBus[name].indexOf(item)
+                    this.eventBus[name].splice(index, 1)
+                }
+            })
+        }
+    }
+
+    /* 调用监听 */
+    emit(name, ...args) {
+        if (this.eventBus[name]) {
+            for (const item of this.eventBus[name]) {
+                const { callback, _this } = item;
+                callback.apply(_this, args)
+            }
+        }
+    }
+}
+```
+
+> 测试
+
+```js
+
+const eventBus = new EventBus()
+
+// main.js
+
+eventBus.on('abc', function () {
+    console.log('监听abc1', this);
+}, { name: 'Fhup' })
+
+const handlerCallback = function () {
+    console.log('监听abc2', this);
+}
+
+eventBus.on('abc', handlerCallback, { name: 'xxx' })
+
+// // utils.js
+eventBus.emit('abc', 123)
+
+
+
+eventBus.off('abc', handlerCallback)
+console.log('---------');
+eventBus.emit('abc', 123)
+```
+
+
+

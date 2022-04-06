@@ -24,7 +24,7 @@ isShowComments: true
 3.   用户浏览器接受到响应后解析执行，脚本也被执行
 4.   脚本就可以窃取用户的数据，发送给黑客的服务器
 
-![截图](https://gitee.com/ljcdzh/my_pic/raw/master/img/202111060819994.png)
+![截图](https://cdn.jsdelivr.net/gh/option-star/imgs/202204062112881.png)
 
 
 
@@ -67,7 +67,7 @@ Y1MDAxODYxLCJfbWF4QWdlIjo4NjQwMDAwMH0="
 3.   用户浏览器接受响应后解析执行，脚本也被执行
 4.   脚本就可以窃取用户数据发送给黑客网站
 
-![截图](https://gitee.com/ljcdzh/my_pic/raw/master/img/202111060906009.png)
+![截图](https://cdn.jsdelivr.net/gh/option-star/imgs/202204062112338.png)
 
 > 攻击实例
 
@@ -97,7 +97,7 @@ DOM 型 XSS 攻击中，取出和执行恶意代码由浏览器端完成，属�
 
 ​	例如，黑客构造带有恶意代码的 URL 诱导用户打开 http://www.xxx.com/index.html/?content=，浏览器收到请求后解析执行，如果使用 document.write() 、document.outerHTML 、DOM .innerHTML未经转义输出，就可能遭到攻击。
 
-![2图](https://gitee.com/ljcdzh/my_pic/raw/master/img/202111060916056.png)
+![2图](https://cdn.jsdelivr.net/gh/option-star/imgs/202204062112789.png)
 
 
 
@@ -152,7 +152,7 @@ filterStr('<div></div>') // &lt;div&gt;&lt;/div&gt;
 
 设置HTTP Header的Content-Security-Policy
 
-![img](https://gitee.com/ljcdzh/my_pic/raw/master/img/202111060858557.jpeg)
+![img](https://cdn.jsdelivr.net/gh/option-star/imgs/202204062115661.jpeg)
 
 ```js
 Content-Security-Policy:

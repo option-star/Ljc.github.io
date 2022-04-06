@@ -28,7 +28,7 @@ isShowComments: true
 5.   a.com 以受害者的名义执行了act=xx。
 6.   攻击完成，攻击者在受害者不知情的情况下，冒充受害者，让a.com执行了自己定义的操作
 
-![clipboard](https://gitee.com/ljcdzh/my_pic/raw/master/img/202111060947818.png)
+![clipboard](https://cdn.jsdelivr.net/gh/option-star/imgs/202204062115871.png)
 
 
 
