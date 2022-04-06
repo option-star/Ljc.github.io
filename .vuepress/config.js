@@ -65,7 +65,7 @@ module.exports = {
     "logo": "/logo.jfif", // 自定义logo设置
     "search": true, // 搜索设置
     "searchMaxSuggestions": 10,
-    "lastUpdated": "Last Updated",
+    "lastUpdated": "上次更新",
     "author": "佳成", // 作者
     "authorAvatar": "/avatar.png", // 作者头像
     "record": "远方有你伴余生", // 备案号
