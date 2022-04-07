@@ -55,26 +55,47 @@ src和href都是**用来引用外部的资源**，它们的区别如下：
 
 ## 4. script标签中defer和async的区别
 
-下图可以直观的看出三者之间的区别: <img src="https://gitee.com/ljcdzh/my_pic/raw/master/img/202203161206550.webp" alt="image.png" style="zoom:200%;" /> 其中蓝色代表js脚本网络加载时间，红色代表js脚本执行时间，绿色代表html解析。
+### 1） `script`
 
-### 1） 无`defer`与`async`
+​	浏览器在解析HTML的时候，如果遇到一个没有任何属性的script标签，就会暂停解析，先发送网络请求获取该JS脚本的代码内容，然后让JS引擎执行该代码，当代码执行完毕后恢复解析
 
-​	没有 defer 或 async，浏览器会立即加载并执行指定的脚本, 阻塞html的解析。
+> 过程图解
 
-### 2） async（异步下载）
+![script](https://cdn.jsdelivr.net/gh/option-star/imgs/202204062344312.webp)
 
-1. 异步加载
-2. 加载好，立即执行，阻塞load事件
-3.  可能在 DOMContentLoaded 触发之前或之后执行
-4. 一定在load触发前执行
-5. 载入多个JS脚本，不能保证有序
 
-### 3）defer（延迟执行）
 
-1. 异步加载
-2. HTML解析完成后，开始执行
-3. DOMContentLoaded 事件之前触发
-4. 载入多个JS脚本，有序
+### 2） async script
+
+​	当浏览器遇到带有 async 属性的 script 时，请求该脚本的网络请求是异步的，不会阻塞浏览器解析 HTML，一旦网络请求回来之后，如果此时 HTML 还没有解析完，浏览器会暂停解析，先让 JS 引擎执行代码，执行完毕后再进行解析。
+
+> 过程图解（HTML解析没完）
+
+![script](https://cdn.jsdelivr.net/gh/option-star/imgs/202204062348910.webp)
+
+> 过程图解（HTML解析完了）
+
+![defer2](https://cdn.jsdelivr.net/gh/option-star/imgs/202204062348757.webp)
+
+
+
+### 3）defer script
+
+​	当浏览器遇到带有 defer 属性的 script 时，获取该脚本的网络请求也是异步的，不会阻塞浏览器解析 HTML，一旦网络请求回来之后，如果此时 HTML 还没有解析完，浏览器不会暂停解析并执行 JS 代码，而是等待 HTML 解析完毕再执行 JS 代码，
+
+> 过程
+
+![script](https://cdn.jsdelivr.net/gh/option-star/imgs/202204062359829.webp)
+
+
+
+#### 4） 总结
+
+| script 标签      | JS 执行顺序      | 是否阻塞解析 HTML      |
+| ---------------- | ---------------- | ---------------------- |
+| `<script>`       | 在 HTML 中的顺序 | 阻塞                   |
+| `<script async>` | 网络请求返回顺序 | 可能阻塞，也可能不阻塞 |
+| `<script defer>` | 在 HTML 中的顺序 | 不阻塞                 |
 
 
 
@@ -494,3 +515,22 @@ label标签来定义表单控件的关系：当用户选择label标签时，浏�
 - drop：事件主体是目标元素，在目标元素完全接受被拖放元素时触发。
 - dragend：事件主体是被拖放元素，在整个拖放操作结束时触发。
 
+
+
+## 21. load与DOMContentLoaded的区别？
+
+:::tip
+
+- `load`：仅用于检测一个完全加载的页面 当一个资源及其依赖资源已完成加载时，将触发load事件。
+
+- `DOMContentLoaded`：当初始的 HTML 文档被完全加载和解析完成之后，DOMContentLoaded 事件被触发，而无需等待样式表、图像和子框架的完成加载。
+
+:::
+
+### 1）load事件触发时机
+
+​	当页面 DOM 结构中的 js、css、图片，以及 js 异步加载的 js、css 、图片都加载完成之后，才会触发 load 事件。
+
+### 2）DomContentLoaded事件触发时机
+
+DOMContentLoaded 事件在 **html文档加载完毕，并且 html 所引用的内联 js、以及外链 js 的同步代码都执行完毕后触发**。
