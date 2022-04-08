@@ -7,7 +7,7 @@ categories:
 isShowComments: true
 ---
 
-## 1. 手写Object.create
+## 1. Object.create
 
 **思路**：将传入的对象作为原型
 
@@ -31,7 +31,7 @@ Object.create = function create(prototype) {
 
 
 
-## 2. 手写 instanceof方法
+## 2. instanceof
 
 :::tip
 
@@ -48,21 +48,21 @@ Object.create = function create(prototype) {
 **实现**：
 
 ```js
-function myInstanceof(left, right) {
-    let proto = Object.getPrototypeOf(left); // 获取对象的原型
-    let prototype = right.prototype; // 获取构造函数的prototype对象
-    // 判断构造函数的prototype对象是否在对象的原型链上
-    while (true) {
-        if (!proto) return false;
-        if (proto === prototype) return true;
-        proto = Object.getPrototypeOf(proto);
-    }
+function Instanceof(left, right) {
+  const proto = Object.getPrototypeOf(left);
+  let prototype = right.prototype;
+
+  while (true) {
+    if (!proto) return false;
+    if (proto === prototype) return true;
+    proto = Object.getPrototypeOf(proto)
+  }
 }
 ```
 
 
 
-## 3. 手写new
+## 3. new
 
 **思路：**
 
@@ -105,7 +105,7 @@ myNew(构造函数, 初始化参数)
 
 
 
-## 4. 手写Promise
+## 4. Promise
 
 ```js
 // 先定义三个常量表示状态
@@ -332,7 +332,7 @@ module.exports = MyPromise
 
 
 
-## 5. 手写Promise.all
+## 5. Promise.all
 
 > 实现
 
@@ -418,7 +418,7 @@ Promise.MyAll([p1, p4, p5])
 
 
 
-## 6. 手写Promise.race
+## 6. Promise.race
 
 > 实现
 
@@ -481,7 +481,7 @@ Promise.MyRace([p5, p2, p3])
 
 
 
-## 7. 手写promise.any
+## 7. Promise.any
 
 :::tip
 
@@ -566,7 +566,7 @@ Promise.MyAny([p4, p5])
 
 
 
-## 8. 手写Promise.allSetted
+## 8. Promise.allSetted
 
 > 实现
 
@@ -681,34 +681,47 @@ Promise.allSettled([p4, p5])
 
 
 
-## 9. 手写Promise.finally
+## 9. Promise.finally
 
 :::tip
 
-​	Promise.prototype.finally()` 是 ES2018 新增的特性，它回一个 `Promise` ，在 `promise` 结束时，无论 `Promise` 运行成功还是失败，都会运行 `finally` ，类似于我们常用的  `try {...} catch {...} finally {...}
+​	`Promise.prototype.finally()` 是 ES2018 新增的特性，它回一个 `Promise` ，在 `promise` 结束时，无论 `Promise` 运行成功还是失败，都会运行 `finally` ，类似于我们常用的  `try {...} catch {...} finally {...}
 
 :::
 
 ```js
-Promise.prototype.MyFinally = (cb) => {
-    return this.then(
-        val => {
-            return Promise.resolve(cb()).then(() => {
-                return val
-            })
-        },
-        err => {
-            return Promise.reject(cb()).then(() => {
-                throw err
-            })
-        }
-    )
+const Finally = function (cb) {
+  return this.then(val => {
+    return Promise.resolve(cb()).then(() => val)
+  }, err => {
+    return Promise.resolve(cb()).then(() => {
+      throw err
+    })
+  })
 }
 ```
 
 
 
-## 10. 手写节流函数
+## 10. Promise.catch
+
+:::tip
+
+​	catch方法是then方法的语法糖，只接收reject态的数据
+
+:::
+
+```js
+const Catch = function (cb) {
+  return this.then(null, cb)
+}
+```
+
+
+
+
+
+## 11. 节流
 
 **定义**：
 
@@ -738,7 +751,7 @@ function throttle(fn, delay) {
 
 
 
-## 11. 手写防抖函数
+## 12. 防抖
 
 :::tip
 
@@ -814,17 +827,25 @@ function debounce(fn, wait) {
 
 
 
+## 12. call
 
+> 实现流程
 
-## 11. 手写类型判断函数
+判断调用对象是否为函数，即使我们是定义在函数的原型上的，但是可能出现使用 call 等方式调用的情况。
 
+判断传入上下文对象是否存在，如果不存在，则设置为 window 。
 
+处理传入的参数，截取第一个参数后的所有参数。
 
-## 12. 手写call函数
+将函数作为上下文对象的一个属性。
 
-**思路**：
+使用上下文对象来调用这个方法，并保存返回结果。
 
-**实现**
+删除刚才新增的属性。
+
+返回结果。
+
+> 实现
 
 ```js
 Funciton.prototype.myCall = function (context) {
@@ -832,39 +853,92 @@ Funciton.prototype.myCall = function (context) {
     if (typeof this !== "function") {
         console.error("type error");
     }
+    
     // 获取参数
     let args = [...arguments].slice(1);
-    // 存储函数执行结果
-    let result = null;
     // 判断context是否传入，如果未传入则设置为window
     context = context || window;
+    
     // 将调用函数设置对象的方法
-    context.fn = this;
+    let key = Symbol()
+    context[key] = this;
     // 调用函数
-    result = context.fn(...args)
+    let result  = null;
+    result = context[key](...args)
     // 将属性删除
-    delete context.fn;
+    delete context[key];
     return result;
 }
 ```
 
 
 
+## 13. apply
+
+> 实现步骤
+
+1. 判断调用对象是否是函数
+2. 判断传入上下文对象是否存在，如果不存在，则为window
+3. 将函数作为上下文对象的一个属性
+4. 判断参数值是否传入
+5. 使用上下文对象来调用这个方法，并保存结果
+6. 删除刚才新增的属性
+7. 返回结果
+
+> 实现
+
+```js
+Function.prototype.myApply = function (context) {
+  // 判断调用对象是否为函数
+  if (typeof this !== "function") {
+    throw new TypeError("Error")
+  }
+
+  // 判断context与args是否存在
+  context = context || window;
+  let args = arguments[1] || []
+
+  // 设置属性
+  let key = Symbol();
+  context[key] = this;
+
+  // 调用属性
+  let result = null;
+  result = context[key](...args)
+
+  // 删除属性
+  delete context[key];
+
+  return result;
+}
+```
 
 
-## 13. 手写apply函数
+
+## 14. bind
+
+```js
+Function.prototype.Bind = function (context, ...args) {
+  const fn = this;
+  args = args ? args : []
+  return function newFn(...newFnArgs) {
+    if (this instanceof newFn) {
+      return new fn(...args, ...newFnArgs)
+    }
+    return fn.apply(context, [...args, ...newFnArgs])
+  }
+}
+```
 
 
 
-## 14. 手写bind函数
+## 15. 柯里化
 
 
 
-## 15. 柯里化实现
 
 
-
-## 16. 实现AJAX请求
+## 16. AJAX
 
 :::tip
 
@@ -885,6 +959,34 @@ Funciton.prototype.myCall = function (context) {
 - 发送请求前，可以为这个对象添加一些信息和监听函数
 - 调用sent方法向服务器发送请求
 
+```js
+const SERVER_URL = "/server";
+let xhr = new XMLHttpRequest();
+// 创建 Http 请求
+xhr.open("GET", SERVER_URL, true);
+// 设置状态监听函数
+xhr.onreadystatechange = function() {
+  if (this.readyState !== 4) return;
+  // 当请求成功时
+  if (this.status === 200) {
+    handle(this.response);
+  } else {
+    console.error(this.statusText);
+  }
+};
+// 设置请求失败时的监听函数
+xhr.onerror = function() {
+  console.error(this.statusText);
+};
+// 设置请求头信息
+xhr.responseType = "json";
+xhr.setRequestHeader("Accept", "application/json");
+// 发送 Http 请求
+xhr.send(null);
+```
+
+
+
 
 
 
@@ -893,7 +995,7 @@ Funciton.prototype.myCall = function (context) {
 
 
 
-## 18. 实现浅拷贝
+## 18. 浅拷贝
 
 > 定义
 
@@ -907,11 +1009,9 @@ Funciton.prototype.myCall = function (context) {
 
 
 
-## 19. 实现深拷贝
+## 19. 深拷贝
 
 > 定义
-
-![img](https://raw.githubusercontent.com/option-star/imgs/master/202204051018549.webp)
 
 ​	将一个对象从内存中完整拷贝一份出来，从堆内存中开辟一个新的区域存放新对象，且修改新对象不会影响原对象
 
@@ -1049,7 +1149,7 @@ console.log(result);
 
 
 
-## 20. 手写发布订阅
+## 20. 发布订阅
 
 > 实现
 

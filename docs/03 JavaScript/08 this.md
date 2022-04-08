@@ -290,7 +290,7 @@ console.log(window.val + json.val); //=>“24”
 })(); 
 ```
 
-![image-20211111091858470](https://gitee.com/ljcdzh/my_pic/raw/master/img/202203202057097.png)
+![image-20211111091858470](https://cdn.jsdelivr.net/gh/option-star/imgs/202204071206827.png)
 
 
 
