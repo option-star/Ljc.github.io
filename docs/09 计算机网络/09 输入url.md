@@ -9,7 +9,7 @@ isShowComments: true
 
 
 
-![简单的网络模型](https://gitee.com/ljcdzh/my_pic/raw/master/img/202204031607656.jpeg)
+![简单的网络模型](https://cdn.jsdelivr.net/gh/option-star/imgs/202204091318167.png)
 
 
 
@@ -36,7 +36,7 @@ isShowComments: true
 
 > HTTP请求消息
 
-![HTTP 的消息格式](https://gitee.com/ljcdzh/my_pic/raw/master/img/202204031610220.jpeg)
+![HTTP 的消息格式](https://cdn.jsdelivr.net/gh/option-star/imgs/202204091318655.png)
 
 
 
@@ -46,7 +46,7 @@ isShowComments: true
 
 ​	所以，有一种服务器就专门保存了 `Web` 服务器域名与 `IP` 的对应关系，它就是 `DNS` 服务器。
 
-![域名解析的工作流程](https://gitee.com/ljcdzh/my_pic/raw/master/img/202204031613452.jpeg)
+![域名解析的工作流程](https://cdn.jsdelivr.net/gh/option-star/imgs/202204091318611.png)
 
 ## 3. 协议栈
 
@@ -54,7 +54,7 @@ isShowComments: true
 
 
 
-![img](https://gitee.com/ljcdzh/my_pic/raw/master/img/202204031613468.jpeg)
+![img](https://cdn.jsdelivr.net/gh/option-star/imgs/202204091319956.png)
 
 
 
@@ -64,19 +64,19 @@ isShowComments: true
 
 > 网络包报文
 
-![TCP 层报文](https://gitee.com/ljcdzh/my_pic/raw/master/img/202204031617601.jpeg)
+![TCP 层报文](https://cdn.jsdelivr.net/gh/option-star/imgs/202204091319864.png)
 
 ## 5. 远程定位 IP
 
 TCP 模块在执行连接、收发、断开等各阶段操作时，都需要委托 IP 模块将数据封装成**网络包**发送给通信对象。
 
-![IP 层报文](https://gitee.com/ljcdzh/my_pic/raw/master/img/202204031618045.jpeg)
+![IP 层报文](https://cdn.jsdelivr.net/gh/option-star/imgs/202204091319292.png)
 
 
 
 ## 6. 两点传输 - MAC
 
-![MAC 层报文](https://gitee.com/ljcdzh/my_pic/raw/master/img/202204031619687.jpeg)
+![MAC 层报文](https://cdn.jsdelivr.net/gh/option-star/imgs/202204091319474.png)
 
 
 
@@ -86,7 +86,7 @@ TCP 模块在执行连接、收发、断开等各阶段操作时，都需要委�
 
 
 
-![数据包](https://gitee.com/ljcdzh/my_pic/raw/master/img/202204031620004.png)
+![数据包](https://cdn.jsdelivr.net/gh/option-star/imgs/202204091319966.png)
 
 
 
