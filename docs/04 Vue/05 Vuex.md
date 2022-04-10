@@ -31,7 +31,7 @@ Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式。每一个 
 - `state`∶ 页面状态管理容器对象。集中存储Vuecomponents中data对象的零散数据，全局唯一，以进行统一的状态管理。页面显示所需的数据从该对象中进行读取，利用Vue的细粒度数据响应机制来进行高效的状态更新。
 - `getters`∶ state对象读取方法。图中没有单独列出该模块，应该被包含在了render中，Vue Components通过该方法读取全局state对象。
 
-### 2. Vuex中action和mutation的区别
+## 2. Vuex中action和mutation的区别
 
 mutation中的操作是一系列的同步函数，用于修改state中的变量的的状态。当使用vuex时需要通过commit来提交需要操作的内容。mutation 非常类似于事件：每个 mutation 都有一个字符串的 事件类型 (type) 和 一个 回调函数 (handler)。这个回调函数就是实际进行状态更改的地方，并且它会接受 state 作为第一个参数：
 
@@ -87,7 +87,7 @@ Action 函数接受一个与 store 实例具有相同方法和属性的 context 
 - 在视图更新时，先触发actions，actions再触发mutation
 - mutation的参数是state，它包含store中的数据；store的参数是context，它是 state 的父级，包含 state、getters
 
-### 3. Vuex 和 localStorage 的区别
+## 3. Vuex 和 localStorage 的区别
 
 **（1）最重要的区别**
 
@@ -106,7 +106,7 @@ Action 函数接受一个与 store 实例具有相同方法和属性的 context 
 
 **注意：** 对于不变的数据确实可以用localstorage可以代替vuex，但是当两个组件共用一个数据源（对象或数组）时，如果其中一个组件改变了该数据源，希望另一个组件响应该变化时，localstorage无法做到，原因就是区别1。
 
-### 4. Redux 和 Vuex 有什么区别，它们的共同思想
+## 4. Redux 和 Vuex 有什么区别，它们的共同思想
 
 **（1）Redux 和 Vuex区别**
 
@@ -121,9 +121,11 @@ Action 函数接受一个与 store 实例具有相同方法和属性的 context 
 - 单—的数据源
 - 变化可以预测
 
-本质上：redux与vuex都是对mvvm思想的服务，将数据从视图中抽离的一种方案; 形式上：vuex借鉴了redux，将store作为全局的数据中心，进行mode管理;
+本质上：redux与vuex都是对mvvm思想的服务，将数据从视图中抽离的一种方案; 形式上：vuex借鉴了redux，将store作为全局的数据中心，进行mode管理;‘
 
-### 5. 为什么要用 Vuex 或者 Redux
+
+
+## 5. 为什么要用 Vuex 或者 Redux
 
 由于传参的方法对于多层嵌套的组件将会非常繁琐，并且对于兄弟组件间的状态传递无能为力。我们经常会采用父子组件直接引用或者通过事件来变更和同步状态的多份拷贝。以上的这些模式非常脆弱，通常会导致代码无法维护。
 
@@ -131,7 +133,7 @@ Action 函数接受一个与 store 实例具有相同方法和属性的 context 
 
 另外，通过定义和隔离状态管理中的各种概念并强制遵守一定的规则，代码将会变得更结构化且易维护。
 
-### 6. Vuex有哪几种属性？
+## 6. Vuex有哪几种属性？
 
 有五种，分别是 State、 Getter、Mutation 、Action、 Module
 
@@ -141,17 +143,17 @@ Action 函数接受一个与 store 实例具有相同方法和属性的 context 
 - actions => 像一个装饰器，包裹mutations，使之可以异步。
 - modules => 模块化Vuex
 
-### 7. Vuex和单纯的全局对象有什么区别？
+## 7. Vuex和单纯的全局对象有什么区别？
 
 - Vuex 的状态存储是响应式的。当 Vue 组件从 store 中读取状态的时候，若 store 中的状态发生变化，那么相应的组件也会相应地得到高效更新。
 - 不能直接改变 store 中的状态。改变 store 中的状态的唯一途径就是显式地提交 (commit) mutation。这样可以方便地跟踪每一个状态的变化，从而能够实现一些工具帮助更好地了解我们的应用。
 
-### 8. 为什么 Vuex 的 mutation 中不能做异步操作？
+## 8. 为什么 Vuex 的 mutation 中不能做异步操作？
 
 - Vuex中所有的状态更新的唯一途径都是mutation，异步操作通过 Action 来提交 mutation实现，这样可以方便地跟踪每一个状态的变化，从而能够实现一些工具帮助更好地了解我们的应用。
 - 每个mutation执行完成后都会对应到一个新的状态变更，这样devtools就可以打个快照存下来，然后就可以实现 time-travel 了。如果mutation支持异步操作，就没有办法知道状态是何时更新的，无法很好的进行状态的追踪，给调试带来困难。
 
-### 9. Vuex的严格模式是什么,有什么作用，如何开启？
+## 9. Vuex的严格模式是什么,有什么作用，如何开启？
 
 在严格模式下，无论何时发生了状态变更且不是由mutation函数引起的，将会抛出错误。这能保证所有的状态变更都能被调试工具跟踪到。
 
@@ -164,7 +166,7 @@ const store = new Vuex.Store({
 复制代码
 ```
 
-### 10. 如何在组件中批量使用Vuex的getter属性
+## 10. 如何在组件中批量使用Vuex的getter属性
 
 使用mapGetters辅助函数, 利用对象展开运算符将getter混入computed 对象中
 
@@ -178,7 +180,7 @@ export default{
 复制代码
 ```
 
-### 11. 如何在组件中重复使用Vuex的mutation
+## 11. 如何在组件中重复使用Vuex的mutation
 
 使用mapMutations辅助函数,在组件中这么使用
 
