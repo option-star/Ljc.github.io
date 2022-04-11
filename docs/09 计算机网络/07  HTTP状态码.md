@@ -58,7 +58,8 @@ isShowComments: true
 - `304 Not Modified`： 不具有跳转的含义，表示资源未修改，重定向已存在的缓存文件，也称缓存重定向，用于缓存控制。
 - `305 Use Proxy`: 使用代理。被请求的资源必须通过指定的代理才能被访问
 - `306 Unused`: 在最新版的规范中，306状态码已经不再被使用
-- `307 Temporary Redirect`: 临时重定向。请求的资源现在临时从不同的URI 响应请求，与302类似
+- `307 Temporary Redirect`: 类似302的临时重定向，但请求方法不得改变。
+- `308 Permanent Redirect`： 类似301的永久重定向，但请求方法不得改变
 
 
 

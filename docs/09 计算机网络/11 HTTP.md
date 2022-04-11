@@ -1,5 +1,5 @@
 ---
-title: 计网11 HTTP
+title: 计网11 HTTP基础篇
 date: 2022-03-31
 sidebar: 'auto'
 categories:
@@ -91,3 +91,6 @@ isShowComments: true
 ​	可以，RFC规范并没有规定GET请求不能带body。
 
 ​	理论上，任何请求都可以带body的，只是因为RFC规范定义的GET请求是获取资源，所以根据这个语义不许需要用到body。
+
+
+
