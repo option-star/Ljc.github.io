@@ -55,13 +55,13 @@ isShowComments: true
 
 ### 1） 共享密钥加密
 
-![img](https://gitee.com/ljcdzh/my_pic/raw/master/img/202111081632618.jpeg)
+![img](https://cdn.jsdelivr.net/gh/option-star/imgs/202204111045730.jpeg)
 
 ​		加密和解密同用一个密钥的方式称为共享密钥加密，也被叫做对称密钥加密。以共享密钥方式加密时必须将密钥也发给对方,可究竟怎样才能安全地转交？
 
 ### 2）公开密钥加密
 
-![img](https://gitee.com/ljcdzh/my_pic/raw/master/img/202111081634880.jpeg)
+![img](https://cdn.jsdelivr.net/gh/option-star/imgs/202204111046342.jpeg)
 
 ​		公开密钥加密的方式很好的解决了安全问题。公开密钥加密使用一对非对称的密钥。一把为私钥，一把为公钥，其中私钥是不能让任何人得知的，而公钥则可以随便公布。发送密文的一段，使用对方的公钥进行加密，对方接收到加密信息后，使用自己的私钥进行解密。这样就避免了发送解密的私钥，解决了对称密钥共享的安全问题。(公钥加密对称加密的密钥，私钥则进行解密)。
 
@@ -72,7 +72,7 @@ isShowComments: true
 
 ### 3） 混合密钥加密（HTTPS）
 
-![img](https://gitee.com/ljcdzh/my_pic/raw/master/img/202111081635407.jpeg)
+![img](https://cdn.jsdelivr.net/gh/option-star/imgs/202204111046299.jpeg)
 
 ​		HTTPS采用共享密钥加密和公开密钥加密的混合加密机制。在交换密钥环节，使用公开密钥加密技术，之后通信报文交换的阶段，则可以使用共享密钥加密技术。
 
@@ -120,7 +120,7 @@ isShowComments: true
 
 ## 5. SSL/TLS握手流程是什么？
 
-![img](https://gitee.com/ljcdzh/my_pic/raw/master/img/202111081653280.png)
+![img](https://cdn.jsdelivr.net/gh/option-star/imgs/202204111046208.png)
 
 ### 1）ClientHello
 
