@@ -555,15 +555,18 @@ label标签来定义表单控件的关系：当用户选择label标签时，浏�
 
 :::
 
-
-
-### 1）load事件触发时机
+> load事件触发时机
 
 ​	当页面 DOM 结构中的 js、css、图片，以及 js 异步加载的 js、css 、图片都加载完成之后，才会触发 load 事件。
 
-### 2）DomContentLoaded事件触发时机
+>  DomContentLoaded事件触发时机
 
-DOMContentLoaded 事件在 **html文档加载完毕，并且 html 所引用的内联 js、以及外链 js 的同步代码都执行完毕后触发**。
+​	DOMContentLoaded 事件在 **html文档加载完毕，并且 html 所引用的内联 js、以及外链 js 的同步代码都执行完毕后触发**。
 
 
+
+## 22. 如何处理HTML5新标签的浏览器兼容问题？
+
+1. 通过`document.createElement`方法
+2. 使用成熟的框架，比如html5shim
 
