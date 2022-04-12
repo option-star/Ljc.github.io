@@ -133,6 +133,8 @@ Action 函数接受一个与 store 实例具有相同方法和属性的 context 
 
 另外，通过定义和隔离状态管理中的各种概念并强制遵守一定的规则，代码将会变得更结构化且易维护。
 
+
+
 ## 6. Vuex有哪几种属性？
 
 有五种，分别是 State、 Getter、Mutation 、Action、 Module
@@ -143,15 +145,21 @@ Action 函数接受一个与 store 实例具有相同方法和属性的 context 
 - actions => 像一个装饰器，包裹mutations，使之可以异步。
 - modules => 模块化Vuex
 
+
+
 ## 7. Vuex和单纯的全局对象有什么区别？
 
 - Vuex 的状态存储是响应式的。当 Vue 组件从 store 中读取状态的时候，若 store 中的状态发生变化，那么相应的组件也会相应地得到高效更新。
 - 不能直接改变 store 中的状态。改变 store 中的状态的唯一途径就是显式地提交 (commit) mutation。这样可以方便地跟踪每一个状态的变化，从而能够实现一些工具帮助更好地了解我们的应用。
 
+
+
 ## 8. 为什么 Vuex 的 mutation 中不能做异步操作？
 
 - Vuex中所有的状态更新的唯一途径都是mutation，异步操作通过 Action 来提交 mutation实现，这样可以方便地跟踪每一个状态的变化，从而能够实现一些工具帮助更好地了解我们的应用。
 - 每个mutation执行完成后都会对应到一个新的状态变更，这样devtools就可以打个快照存下来，然后就可以实现 time-travel 了。如果mutation支持异步操作，就没有办法知道状态是何时更新的，无法很好的进行状态的追踪，给调试带来困难。
+
+
 
 ## 9. Vuex的严格模式是什么,有什么作用，如何开启？
 
@@ -163,7 +171,6 @@ Action 函数接受一个与 store 实例具有相同方法和属性的 context 
 const store = new Vuex.Store({
     strict:true,
 })
-复制代码
 ```
 
 ## 10. 如何在组件中批量使用Vuex的getter属性
@@ -177,7 +184,7 @@ export default{
         ...mapGetters(['total','discountTotal'])
     }
 }
-复制代码
+复制代
 ```
 
 ## 11. 如何在组件中重复使用Vuex的mutation

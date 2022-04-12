@@ -38,8 +38,11 @@ isShowComments: true
 - !important声明的样式的优先级最高；
 - 如果优先级相同，则最后出现的样式生效；
 - 继承得到的样式的优先级最低；
-- 通用选择器（*）、子选择器（>）和相邻同胞选择器（+）并不在这四个等级中，所以它们的权值都为 0 ；
 - 样式表的来源不同时，优先级顺序为：内联样式 > 内部样式 > 外部样式 > 浏览器用户自定义样式 > 浏览器默认样式。
+
+
+
+
 
 ### 2.标准的CSS盒子模型及其和低版本的IE盒子模型的区别？
 
@@ -61,18 +64,15 @@ isShowComments: true
 2. IE盒模型：`border-sizing:border-box`
    width 和 height 设置内容 content + 内边距 padding + 边框 border 的宽和高
 
+ 
 
-
-
-### 3. CSS选择符有哪些？哪些属性可以继承？
-
-常见的选择符有一下：
-
-`id`选择器（`#content`），类选择器（`.content`）, 标签选择器（`div`, `p`, `span`等）, 相邻选择器（`h1+p`）, 子选择器（`ul>li`）, 后代选择器（`li a`）， 通配符选择器（`*`）, 属性选择器（`a[rel = "external"]`）， 伪类选择器（`a:hover`, `li:nth-child`）
+### 3. 哪些属性可以继承？
 
 可继承的样式属性： `font-size`, `font-family`, `color`, `ul`, `li`, `dl`, `dd`, `dt`;
 
-不可继承的样式属性： `border`, `padding`, `margin`, `width`, `height`；
+不可继承的样式属性： `border`, `padding`, `margin`, `width`, `height`；‘
+
+
 
 ### 4. CSS优先级算法如何计算？
 
@@ -88,6 +88,10 @@ isShowComments: true
 ```
 
 🍀**注意**：  `!important` 比 内联优先级高
+
+
+
+
 
 ### 5. display有哪些值？他们的作用有？
 
@@ -114,6 +118,10 @@ isShowComments: true
 
 其中，常用的有：`block`， `inline-block`， `none`， `table`， `line`。
 
+
+
+
+
 ### 6. 什么是响应式设计？响应式设计的基本原理是什么？如何兼容低版本的IE？
 
 响应式网站设计`（Responsive Web design`）是一个网站能够兼容多个终端，而不是为每一个终端做一个特定的版本。
@@ -126,9 +134,13 @@ isShowComments: true
 <meta name="’viewport’" content="”width=device-width," initial-scale="1." maximum-scale="1,user-scalable=no”"/>
 ```
 
+
+
 ### 7. 为什么要初始化CSS样式？
 
-因为浏览器的兼容问题，不同浏览器对标签的默认值是不同的，如果没有对浏览器的`CSS`初始化，会造成相同页面在不同浏览器的显示存在差异。
+​	因为浏览器兼容性问题，不同浏览器对不同标签有不同的默认值。
+
+
 
 ### 8. 浮动原理以及为什么会出现浮动和什么时候需要清除浮动？清除浮动的方式？
 
@@ -159,30 +171,43 @@ isShowComments: true
 ### 9. CSS优化、提高性能的方法有哪些？
 
 - 多个`css`可合并，并尽量减少`http`请求
-
 - 属性值为0时，不加单位
-
 - 将`css`文件放在页面最上面
-
 - 避免后代选择符，过度约束和链式选择符
-
 - 使用紧凑的语法
-
 - 避免不必要的重复
-
 - 使用语义化命名，便于维护
-
 - 尽量少的使用`!impotrant`，可以选择其他选择器
-
 - 精简规则，尽可能合并不同类的重复规则
-
 - 遵守盒子模型规则
 
-### 10. display的block、inline和inline-block的区别？
 
-- `block`：独占一行，默认继承父元素的宽度；多个块级元素从上到下进行排列；可以设置 with、height、margin 和 padding
-- `inline`：不会独占一行，宽度随着内容而变化；多个 inline 元素将按照从左到右的顺序在一行里排列显示，如果一行显示不下，则自动换行；inline 元素设置 with、height 无效，可以设置水平 margin，垂直 margin 无效，可以设置 padding；
-- `inline-block`：不会独占一行，可以设置 with、height、margin 和 padding
+
+### 10. 对比块、内联和 内联盒子
+
+- **块盒子**：`display:block`
+
+  - 换行
+  - width和height生效
+  - 竖直方向padding和margin生效
+
+  
+
+- **内联盒子**：`display:inline`
+
+  - 不换行
+  - width和height无效
+  - 竖直方向padding和margin无效
+
+  
+
+- **内联块盒子**：`display:inline-block`
+
+  - 不换行
+  - width和height生效
+  - 竖直方向padding和margin生效
+
+
 
 ### 11. 隐藏元素的方法有哪些？
 
@@ -222,6 +247,8 @@ isShowComments: true
 
 
 
+
+
 ### 12. link 和@import的区别？
 
 link 和 @import 都能导入一个样式文件，区别如下：
@@ -231,10 +258,14 @@ link 和 @import 都能导入一个样式文件，区别如下：
 3. link 没有**兼容性问题**，@import 不兼容 ie5 以下；
 4. link 可以通过 JS 操作 DOM 动态引入样式表改变样式，而 @import 不行。
 
+
+
 ### 13. transition 和 animation 的区别？
 
 1. transition **只有两个状态**：开始状态和结束状态，但 animation 可能是**多个状态**，有帧的概念
 2. transition 需要**借助别的方式来触发**，比如 CSS 的状态选择器（如 `:hover`）或借助 JavaScript 来触发；animation 可以**自动触发**。
+
+
 
 ### 14. display:none与visibility:hidden的区别？
 
@@ -243,6 +274,8 @@ link 和 @import 都能导入一个样式文件，区别如下：
 1. **不占据空间** ：display:none 让隐藏的元素**不占据空间**；visibility:hidden 让隐藏的元素**占据空间**。
 2. **回流**： display 要显示元素的话会**触发回流，进行渲染**；visibility 要显示元素的话会**进行重绘，不进行渲染**。
 3. **不继承**： display **不是继承属性**，其子元素也会跟着消失；visibility **是继承属性**。
+
+
 
 ### 15. 伪元素与伪类的区别和作用？
 
@@ -299,6 +332,8 @@ MDN对该方法的描述：
 
 ​	transform使浏览器为元素创建⼀个 GPU 图层，但改变绝对定位会使⽤到 CPU。 因此translate()更⾼效，可以缩短平滑动画的绘制时间。 ⽽translate改变位置时，元素依然会占据其原始空间，绝对定位就不会发⽣这种情况。
 
+
+
 ### 18. li 与 li 之间有看不见的空白间隔是什么原因引起的？如何解决？
 
 浏览器会把inline内联元素间的空白字符（空格、换行、Tab等）渲染成一个空格。为了美观，通常是一个`<li>`放在一行，这导致`<li>`换行后产生换行字符，它变成一个空格，占用了一个字符的宽度。
@@ -318,22 +353,16 @@ MDN对该方法的描述：
 ### 19. CSS3中有哪些新特性
 
 - 新增各种CSS选择器 （: not(.input)：所有 class 不是“input”的节点）
-
 - 圆角 （border-radius:8px）
-
 - 多列布局 （multi-column layout）
-
 - 阴影和反射 （Shadoweflect）
-
 - 文字特效 （text-shadow）
-
 - 文字渲染 （Text-decoration）
-
 - 线性渐变 （gradient）
-
 - 旋转 （transform）
-
 - 增加了旋转,缩放,定位,倾斜,动画,多背景
+
+
 
 ### 20. 替换元素的概念及计算规则
 
@@ -353,6 +382,10 @@ MDN对该方法的描述：
 - **CSS尺寸：** 特指可以通过CSS的width和height或者max-width/min-width和max-height/min-height设置的尺寸，对应盒尺寸中的content box。
 
 这三层结构的计算规则具体如下： （1）如果没有CSS尺寸和HTML尺寸，则使用固有尺寸作为最终的宽高。 （2）如果没有CSS尺寸，则使用HTML尺寸作为最终的宽高。 （3）如果有CSS尺寸，则最终尺寸由CSS属性决定。 （4）如果“固有尺寸”含有固有的宽高比例，同时仅设置了宽度或仅设置了高度，则元素依然按照固有的宽高比例显示。 （5）如果上面的条件都不符合，则最终宽度表现为300像素，高度为150像素。 （6）内联替换元素和块级替换元素使用上面同一套尺寸计算规则。
+
+
+
+
 
 ### 21. 常见的图片格式及使用场景
 
@@ -443,37 +476,12 @@ my-image { background: (low.png); }
     - 不在全局、会被复用的插件中使用 !important
     - 通过 CSS 命名或 Shadow DOM 限制 CSS 作用域
 
-### 28. 对比块、内联和 内联盒子
-
-- **块盒子**：`display:block`
-
-  - 换行
-  - width和height生效
-  - 竖直方向padding和margin生效
-
-  
-
-- **内联盒子**：display:inline
-
-  - 不换行
-  - width和height无效
-  - 竖直方向padding和margin无效
-  
-  
-  
-- **内联块盒子**：display:inline-block
-  
-    - 不换行
-    - width和height生效
-    - 竖直方向padding和margin生效
-    
 
 
+### 28. margin值为负值
 
-### 29. margin值为负值
-
-- 对于`margin-top`和`margin-left`，这两个属性会让盒子分别上移和左移，且会影响其他元素
-- 对于`margin-right`和`margin-bottom`, 当为负值时滋生不会移动，但会让盒子右方和 下方的元素向盒子移动。相当于对右方和下方元素来说，自身高度不会消息，以你它们可以移动覆盖。（可以利用此特性实现圣杯布局）
+- `margin-top`和`margin-left`负值 : 盒子向上移或左移
+- `margin-right`和`margin-right`负值： 盒子不会移动，而是右方和下方的盒子向盒子移动
 
 
 
@@ -517,6 +525,8 @@ vm/vh 是与视图窗口有关的单位，vw 表示相对于视图窗口的宽�
 - 百分比（%）：大部分相对于祖先元素，也有相对于自身的情况比如（border-radius、translate 等）
 - vw/vm：相对于视窗的尺寸
 
+
+
 ### 2. px、em、rem的区别及使用场景
 
 三者的区别：
@@ -529,382 +539,6 @@ vm/vh 是与视图窗口有关的单位，vw 表示相对于视图窗口的宽�
 
 - 对于只需要适配少部分移动设备，且分辨率对页面影响不大的，使用 px 即可。
 - 对于需要适配各种移动设备，使用 rem，例如需要适配 iphone 和 ipad 等分辨率差别比较挺大的设备。
-
-
-
-**方法二：float + margin**
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-![image-20211023212020396](https://gitee.com/ljcdzh/my_pic/raw/master/img/202203171951147.png)
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -1203,181 +837,6 @@ div{
 
 ![img](https://gitee.com/ljcdzh/my_pic/raw/master/img/202203151153085.webp)
 
-### 3. 水平居中对齐
-
-#### （1）绝对定位 + transform（不定）
-
-​	利用绝对定位，先将元素的左上角通过top:50%和left:50%定位到页面的中心，然后再通过translate来调整元素的中心点到页面的中心。该方法需要**考虑浏览器兼容问题。**
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        .children-box {
-            position: absolute;
-            background-color: yellow;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-        }
-    </style>
-</head>
-
-<body>
-    <div id="app">
-        <div class="children-box">111111</div>
-    </div>
-</body>
-
-</html>
-```
-
-#### （2）flex布局（不定）
-
-​	使用flex布局，通过align-items:center和justify-content:center设置容器的垂直和水平方向上为居中对齐，然后它的子元素也可以实现垂直和水平的居中。该方法要**考虑兼容的问题**，该方法在移动端用的较多：
-
-```css
-.parent {
-    display: flex;
-    justify-content:center;
-    align-items:center;
-}
-```
-
-#### （3）绝对定位 + margin:auto（定）
-
-​	利用绝对定位，设置四个方向的值都为0，并将margin设置为auto，由于宽高固定，因此对应方向实现平分，可以实现水平和垂直方向上的居中。该方法适用于**盒子有宽高**的情况：
-
-```css
-.parent {
-    position: relative;
-}
- 
-.child {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
-}
-```
-
-#### （4）绝对定位 + margin负值(定)
-
-​	利用绝对定位，先将元素的左上角通过top:50%和left:50%定位到页面的中心，然后再通过margin负值来调整元素的中心点到页面的中心。该方法适用于**盒子宽高已知**的情况。
-
-```css
-.parent {
-    position: relative;
-}
- 
-.child {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-top: -50px;     /* 自身 height 的一半 */
-    margin-left: -50px;    /* 自身 width 的一半 */
-}
-
-```
-
-
-
-#### （5）grid布局+ margin:auto(不定)
-
-```css
-<template>
-    <div id="app">
-        <div class="box">
-            <div class="children-box"></div>
-        </div>
-    </div>
-</template>
-<style type="text/css">
-.box {
-    width: 200px;
-    height: 200px;
-    border: 1px solid red;
-    display: grid;
-}
-.children-box {
-    width: 100px;
-    height: 100px;
-    background: yellow;
-    margin: auto;
-}
-</style>
-
-```
-
-#### （6）grid + align-self + justify-self
-
-```html
-<template>
-    <div id="app">
-        <div class="box">
-            <div class="children-box">11111111</div>
-        </div>
-    </div>
-</template>
-<style type="text/css">
-.box {
-    width: 200px;
-    height: 200px;
-    border: 1px solid red;
-    display: grid;
-}
-.children-box {
-    background: yellow;
-    align-self: center;
-    justify-self: center;
-}
-</style>
-```
-
-#### （7）table-cell
-
-```js
-<template>
-    <div id="app">
-        <div class="box">
-            <div class="children-box">111111</div>
-        </div>
-    </div>
-</template>
-<style type="text/css">
-.box {
-    width: 200px;
-    height: 200px;
-    border: 1px solid red;
-    display: table-cell;
-    text-align: center;
-    vertical-align: middle;
-}
-.children-box {
-   background: yellow;
-   display: inline-block;
-}
-</style>
-```
-
-
-
-
-
-
-
-
-
-
-
 
 
 ## 五、性能
@@ -1431,8 +890,6 @@ CSS transform会创建了一个新的复合图层，可以被GPU直接用来执�
 ​	采用 transform: translateZ(0) 采用 transform: translate3d(0, 0, 0) 使用 CSS 的 will-change属性。 will-change 可以设置为opacity、transform、top、left、bottom、right。
 
 :::
-
-
 
 ::: warning
 

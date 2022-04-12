@@ -237,6 +237,8 @@ module.export ={
 
 `bundlesize` 工具包可以进行自动化资源体积监控。
 
+
+
 ## 10. 文件指纹是什么？怎么用？
 
 文件指纹是打包后输出的文件名的后缀。
@@ -326,6 +328,8 @@ module.exports = {
 ## 11. 如何保证各个loader按照预想方式工作
 
 可以使用 `enforce` 强制执行 `loader` 的作用顺序，`pre` 代表在所有正常 loader 之前执行，`post` 是所有 loader 之后执行。(inline 官方不推荐使用)
+
+
 
 ## 12. 如何优化 Webpack 的构建速度？
 
@@ -438,8 +442,9 @@ Loader 支持链式调用，所以开发上需要严格遵循“单一职责”�
 - 加载本地 Loader 方法
 
     - Npm link
-
     - ResolveLoader
+    
+    
 
 ## 15.是否写过Plugin？简单描述一下编写Plugin的思路？
 
@@ -511,11 +516,11 @@ webpack在运行的生命周期中会广播出许多事件，Plugin 可以监听
 
 ### 7. 输出完成
 
-	在确定好输出内容后，根据配置确定输出的路径和文件名，把文件内容写入到文件系统
+在确定好输出内容后，根据配置确定输出的路径和文件名，把文件内容写入到文件系统
 
 ### 注意
 
-	在以上过程中，Webpack会在特定的时间点广播特定的时间，插件在监听到感兴趣的事件后会执行特定的逻辑，并且插件可以调用Webpack提供的API改变webpack的运行结果。
+在以上过程中，Webpack会在特定的时间点广播特定的时间，插件在监听到感兴趣的事件后会执行特定的逻辑，并且插件可以调用Webpack提供的API改变webpack的运行结果。
 
 ### 整体流程
 
@@ -575,7 +580,7 @@ class Compiler {
          */
 
         /**
-         * 4.1 根据入口和模块之间的依赖关系，组装成一个个包含哥哥模块的Chunk
+         * 4.1 根据入口和模块之间的依赖关系，组装成一个个包含各个模块的Chunk
          */
         let chunk = { // 构建chunk
             name: "main",
@@ -650,6 +655,8 @@ compiler.run();
 - 删除死代码（Tree Shaking）。将代码中永远不会走到的片段删除掉。可以通过在启动webpack时追加参数`--optimize-minimize`来实现
 - 提取公共代码
 
+
+
 ## 19. Import和CommonJs在webpack打包过程中有什么不同？
 
 1. es6模块调用commonjs模块: 可以直接使用commonjs模块，commonjs模块将不会被webpack的模板编译而是原样输出，并且commonjs模块没有default属性
@@ -657,6 +664,8 @@ compiler.run();
     如果被调用的es6模块只是import进来，但是并没有被用到，那么被调用的es6模块将会被标记为/* unused harmony default export */，在压缩时此模块将被删除(如果被调用的es6模块里有立即执行语句，那么这些语句将会被保留)
 3. commonjs模块引用es6模块： es6模块编译后会添加{__esModule:true}。如果被调用的es6模块中恰好后export default语句，那么编译后的es6模块将会添加default属性。
 4. commonjs模块调用commonjs模块： commonjs模块会原样输出
+
+
 
 
 
@@ -678,6 +687,10 @@ compiler.run();
 
 
 ## 22. webpack如何解决本地开发跨域问题
+
+```js
+de
+```
 
 
 
