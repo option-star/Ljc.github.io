@@ -52,6 +52,7 @@ function hump(param) {
         if (item instanceof Object || item instanceof Array) {
             hump(item);
         }
+        // 转化普通值得键值
         if (hump_(key) !== key) {
             param[hump_(key)] = param[key];
             delete param[key]
