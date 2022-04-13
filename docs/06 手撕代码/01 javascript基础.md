@@ -9,24 +9,18 @@ isShowComments: true
 
 ## 1. Object.create
 
-**思路**：将传入的对象作为原型
+> 思路
 
-**实现**：
+将传入的对象作为原型
+
+> 实现
 
 ```js
-/*
- * create : Object.create
- * @params
- *    prototype: 指向的原型
- * @return
- *    指向prototype的对象
- */
-Object.create = function create(prototype) {
-    if (prototype !== null && typeof prototype !== "object") throw new TypeError('Object prototype may only be an Object or null');
-    var Proxy = function Proxy() {} // 创建一个类
-    Proxy.prototype = prototype; // 将该类的原型替代为传入的原型
-    return new Proxy; // 返回类的实例对象
-};
+function Create (obj) {
+    function Proxy() {}
+    Proxy.prototype = obj
+    return new Proxy()
+}
 ```
 
 
@@ -39,13 +33,13 @@ Object.create = function create(prototype) {
 
 :::
 
-**思路**：
+> 思路
 
 1. 首先获取类型的原型
 2. 然后获取对象的原型
 3. 然后一直循环判断对象的原型是否等于类型的原型，直到对象原型为 `null`，因为原型链最终为 `null`
 
-**实现**：
+> 实现
 
 ```js
 function Instanceof(left, right) {
@@ -68,39 +62,19 @@ function Instanceof(left, right) {
 
 在调用new的过程中会发生以上四件事情：
 
-（1）首先创建了一个空对象
-
-（2）设置原型，将对象的原型设置为函数的 prototype 对象。
-
-（3）让函数的 this 指向这个对象，执行构造函数的代码（为这个新对象添加属性）
-
-（4）判断函数的返回值类型，如果是值类型，返回创建的对象。如果是引用类型，就返回这个引用类型的对象。
+1. 创建一个全新的对象；
+2. 这个新对象会被执行prototype连接；
+3. 这个新对象会绑定到函数调用的this上
+4. 如果函数没有返回其他对象，则会返回这个新对象
 
 **实现：**
 
-```js
-function myNew() {
-    // 创建一个新对象
-    let newObject = null;
-    // 获取传入的构造函数
-    let constructor = Array.prototype.shift.call(arguments);
-    let result = null;
-    // 判断参数是否是一个函数
-    if (typeof constructor !== 'function') {
-        return;
-    }
-    // 新建一个对象，对象的原型为构造函数的 prototype 对象
-    newObject = Object.create(constructor.prototype)
-
-    // 将this指向新对象，并执行函数
-    result = constructor.apply(newObject, arguments);
-    // 判断返回对象
-    let flag = result && (typeof result === "object" || typeof result === "function");
-    // 判断返回结果
-    return flag ? result : newObject;
+```js 
+const New = function (fn, ...args) {
+    let obj = Object.create(fn.prototype)
+    let res = fn.apply(obj, args)
+    return typeof res === "object" || typeof res === "function" ? res : obj;
 }
-// 使用方法
-myNew(构造函数, 初始化参数)
 ```
 
 
@@ -746,7 +720,6 @@ function throttle(fn, delay) {
     }
   };
 }
-
 ```
 
 
@@ -934,7 +907,15 @@ Function.prototype.Bind = function (context, ...args) {
 
 ## 15. 柯里化
 
+> 实现
 
+```js
+const curry = (fn, ...args) => {
+    return args.length > fn.length 
+    	? fn(...args)
+    	: (..._args) => curry(fn, ...args, ..._args)
+}
+```
 
 
 

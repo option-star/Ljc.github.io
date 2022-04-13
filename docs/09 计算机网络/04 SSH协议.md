@@ -16,7 +16,7 @@ isShowComments: true
 
 ## 什么是SSH
 
-![img](https://gitee.com/ljcdzh/my_pic/raw/master/img/202111080802132.gif)
+![img](https://cdn.jsdelivr.net/gh/option-star/imgs/202204131204102.gif)
 
 SSH （ [Secure Shell](https://baike.baidu.com/item/Secure Shell) ）一个提供数据通信安全、远程登录、远程指令执行等功能的安全网络协议。 为建立在应用层基础上的安全协议，为计算机上的Shell提供安全传输与使用。使用SSH，可以对数据进行加密，防止中间人攻击。且通过SSH传输的数据是经过压缩的，所以加快传输速度。
 
@@ -24,7 +24,7 @@ SSH （ [Secure Shell](https://baike.baidu.com/item/Secure Shell) ）一个提�
 
 SSH主要由三部分组成：
 
-![img](https://gitee.com/ljcdzh/my_pic/raw/master/img/202111080757808.gif)
+![img](https://cdn.jsdelivr.net/gh/option-star/imgs/202204131204213.gif)
 
 ### 1. 传输层协议[SSH-TRANS]
 
@@ -52,7 +52,7 @@ SSH主要由三部分组成：
 4. **会话请求阶段**：认证通过后，客户端向服务器端发送会话请求。
 5. **交互会话阶段**：会话请求通过后，服务器端和客户端进行信息交互。
 
-![img](https://gitee.com/ljcdzh/my_pic/raw/master/img/202111080825227.webp)
+![img](https://cdn.jsdelivr.net/gh/option-star/imgs/202204131205839.webp)
 
 ### 1. 版本号协商
 
