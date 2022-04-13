@@ -1,5 +1,5 @@
 ---
-title: 07 VDOM
+title: Vue07 虚拟DOM
 date: 2021-12-14
 sidebar: 'auto'
 categories:

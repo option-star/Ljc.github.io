@@ -1,5 +1,5 @@
 ---
-title: 05Vuex
+title: Vue05 Vuex
 date: 2021-12-14
 sidebar: 'auto'
 categories:
