@@ -15,8 +15,6 @@ isShowComments: true
 
 - 能力扩展。通过`webpack`的`Plugin`机制，我们在实现模块化打包和编译兼容的基础上，可以进一步实现诸如按需加载，代码压缩等一系列功能，帮助我们进一步提高自动化程度，工程效率以及打包输出的质量。
 
-
-
 ## 1. Loader和Plugin的不同
 
 > 作用不同
@@ -76,8 +74,6 @@ isShowComments: true
 - `i18n-loader`: 国际化
 
 - `cache-loader`: 可以在一些性能开销较大的 Loader 之前添加，目的是将结果缓存到磁盘里
-
-    
 
 ## 3. 有哪些常见的Plugin?
 
