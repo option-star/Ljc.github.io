@@ -1,10 +1,15 @@
-// const moment = require('moment');
-
 module.exports = {
+  /* 网站标题 */
   "title": "佳成",
+  /* 网站描述 */
   "description": "生命太短，没有时间留给遗憾，若不是终点，请微笑一直向前。",
   "base": "/blog/",
   "dest": "public",
+  locales: {
+    '/': {
+      lang: 'zh-CN'
+    }
+  },
   "head": [
     [
       "link",
@@ -21,6 +26,7 @@ module.exports = {
       }
     ]
   ],
+  /* 使用主题 */
   "theme": "reco",
   /* 主题配置文件 */
   "themeConfig": {
@@ -55,12 +61,6 @@ module.exports = {
       }
     },
     "friendLink": [
-      // {
-      //   "title": "午后南杂",
-      //   "desc": "Enjoy when you can, and endure when you must.",
-      //   "email": "1156743527@qq.com",
-      //   "link": "https://www.recoluan.com"
-      // },
     ],
     "logo": "/logo.jfif", // 自定义logo设置
     "search": true, // 搜索设置
