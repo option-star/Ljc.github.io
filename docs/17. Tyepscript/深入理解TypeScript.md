@@ -2821,20 +2821,14 @@ doStuff({ bar: 123, common: '123' });
 
 #### 1）字符串字面量
 
-你可以使用一个字符串字面量作为一个类型：
-
-```ts
-let foo: 'Hello';
-```
-
-在这里，我们创建了一个被称为 `foo` 变量，它仅接收一个字面量值为 `Hello` 的变量：
+> **字符串字面量做类型**：
 
 ```ts
 let foo: 'Hello';
 foo = 'Bar'; // Error: 'bar' 不能赋值给类型 'Hello'
 ```
 
-它们本身并不是很实用，但是可以在一个联合类型中组合创建一个强大的（实用的）抽象：
+> **与联合类型组合创建一个实用的抽象**：
 
 ```ts
 type CardinalDirection = 'North' | 'East' | 'South' | 'West';
@@ -2943,7 +2937,7 @@ sample = 'AnythingElse'; // ERROR!
 
 
 
-#### 辨析联合类型
+#### 5）辨析联合类型
 
 我们将会在此书的稍后章节讲解它。
 
@@ -4676,35 +4670,553 @@ const bar: FormState = {
 
 ### 21. 流动的类型
 
+**关键动机**： 当改变其中一个时，其他相关会自动更新，并且当事情变糟糕时，会得到一个友好提示。
+
+#### 1）复制类型和值
+
+> 错误写法
+
+​	复制类型时无法直接进行赋值操作。因为`const`仅仅赋值了`Foo`到一个变量空间，所以无法把`Bar`当作一个类型声明使用。
+
+```ts
+class Foo { }
+const Bar = Foo;
+let bar: Bar; // Error: “Bar”表示值，但在此处用作类型
+```
+
+> 正确写法
+
+通过使用`import`关键字
+
+```ts
+namespace importing {
+    export class Foo { }
+}
+
+import Bar = importing.Foo;
+let bar: Bar; // ok
+```
+
+
+
+#### 2）捕获变量的类型
+
+通过`typeof`捕获变量类型，可以在类型注解中使用变量。
+
+```ts
+let foo = 123;
+let bar: typeof foo; // 'bar' 类型与 'foo' 类型相同（在这里是： 'number'）
+
+bar = 456; // ok
+bar = '789'; // Error: 不能将类型“string”分配给类型“number”。
+```
+
+
+
+#### 3）捕获类成员的类型
+
+通过先声明变量然后通过`typeof`捕获类成员的类型：
+
+```ts
+class Foo {
+    foo: number; // 我们想要捕获的类型
+}
+
+declare let _foo: Foo;
+
+// 与之前做法相同
+let bar: typeof _foo.foo;
+```
+
+
+
+#### 4）捕获字符串类型
+
+通过`const`定义变量，通过`typeof`捕获其类型
+
+```ts
+// 捕获字符串的类型与值
+const foo = 'Hello World';
+
+// 使用一个捕获的类型
+let bar: typeof foo;
+
+// bar 仅能被赋值 'Hello World'
+bar = 'Hello World'; // ok
+bar = 'anything else'; // Error 不能将类型“"anything else"”分配给类型“"Hello World"”
+```
+
+
+
+#### 5）捕获键的名称
+
+通过`keyof`捕获一个类型的键，通过`typeof`捕获键的类型：
+
+```ts
+const colors = {
+    red: 'red',
+    blue: 'blue'
+  };
+  
+  type Colors = keyof typeof colors;
+  
+  let color: Colors; // color 的类型是 'red' | 'blue'
+  color = 'red'; // ok
+  color = 'blue'; // ok
+  color = 'anythingElse'; // Error 不能将类型“"anythingElse"”分配给类型“"red" | "blue"”
+```
+
 
 
 ### 22. 异常处理
 
+​	JS有一个`Error`的类，用于处理异常。可以通过`throw`关键字来抛出错误。然后通过`try/catch`块来捕获错误。
 
+```js
+try {
+    throw new Error('Something bad happened');
+} catch (e) {
+    console.log(e); // Something bad happened
+}
+```
+
+#### 1）错误子类型
+
+除了内置的`Error`类外，还有一些额外的内置错误，都继承于`Error`类；
+
+> **RangeError**: 数字类型变量或者参数超出其有效范围报错
+
+```ts
+// 使用过多参数调用 console
+console.log.apply(console, new Array(1000000000)); // RangeError: 数组长度无效
+```
+
+![image-20220426202632775](https://cdn.jsdelivr.net/gh/option-star/imgs/202204262026989.png)
+
+
+
+> **ReferenceError**: 引用无效报错
+
+```ts
+'use strict';
+console.log(notValidVar); // ReferenceError: notValidVar 未定义
+```
+
+![image-20220426202814697](https://cdn.jsdelivr.net/gh/option-star/imgs/202204262028801.png)
+
+
+
+> **SyntaxError**: 解析无效JavaScript代码
+
+```ts
+1 *** 3   // SyntaxError: 无效的标记 *
+```
+
+![image-20220426202931280](https://cdn.jsdelivr.net/gh/option-star/imgs/202204262029381.png)
+
+> **URLError**: 传入无效参数至`encodeURL`和`decodeURL()`
+
+```ts
+decodeURI('%'); // URIError: URL 异常
+```
+
+![image-20220426203216990](https://cdn.jsdelivr.net/gh/option-star/imgs/202204262032099.png)
+
+
+
+#### 2）使用Error
+
+> 错误示范
+
+​	仅仅抛出一个原始字符串，这样会导致极差的调试体验，并且在分析日志时，变得错综复杂
+
+```ts
+try {
+    throw 'Something bad happened';
+} catch (e) {
+    console.log(e); // Something bad happened
+}
+```
+
+> 正确示范
+
+通过`Error`对象，能自动跟踪堆栈的属性构建以及生成位置
+
+```ts
+try {
+    throw new Error('Something bad happened');
+} catch (e) {
+    console.log(e); 
+}
+```
+
+![image-20220426204722070](https://cdn.jsdelivr.net/gh/option-star/imgs/202204262047179.png)
+
+
+
+#### 3）你并不需要throw抛出一个错误
+
+​	`Error`对象作为传递的参数。用第一个参数作为错误对象进行回调处理。
+
+```ts
+function myFunction (callback: (e: Error)) {
+  doSomethingAsync(function () {
+    if (somethingWrong) {
+      callback(new Error('This is my error'));
+    } else {
+      callback();
+    }
+  })
+}
+```
+
+
+
+
+
+#### 4）示例
+
+> **不清除从哪里抛出错误**
+
+```ts
+try {
+  const foo = runTask1();
+  const bar = runTask2();
+} catch (e) {
+  console.log('Error:', e);
+}
+```
+
+
+
+> **优雅地捕获错误**
+
+```ts
+let foo: number; // Notice 使用 let 并且显式注明类型注解
+
+try {
+  foo = runTask1();
+} catch (e) {
+  console.log('Error:', e);
+}
+
+try {
+  const bar = runTask2(foo);
+} catch (e) {
+  console.log('Error:', e);
+}
+```
+
+
+
+> **没有在类型系统中很好地表示**
+
+```ts
+function validate(
+  value: number
+): {
+  error?: string;
+} {
+  if (value < 0 || value > 100) {
+    return { error: 'Invalid value' };
+  }
+}
+```
+
+
+
+:::tip
+
+**TIP**
+
+除非你想用以非常通用（try/catch）的方式处理错误，否则不要抛出错误。
+
+:::
 
 
 
 ### 23. 混合
 
+:::tip
 
+**混合**是一个函数：
+
+- 传入一个构造函数
+- 创建一个带新功能，并且扩展构造函数的新类
+- 返回这个新类。
+
+:::
+
+```ts
+// 所有 mixins 都需要
+type Constructor<T = {}> = new (...args: any[]) => T;
+
+/////////////
+// mixins 例子
+////////////
+
+// 添加属性的混合例子
+function TimesTamped<TBase extends Constructor>(Base: TBase) {
+  return class extends Base {
+    timestamp = Date.now();
+  };
+}
+
+// 添加属性和方法的混合例子
+function Activatable<TBase extends Constructor>(Base: TBase) {
+  return class extends Base {
+    isActivated = false;
+
+    activate() {
+      this.isActivated = true;
+    }
+
+    deactivate() {
+      this.isActivated = false;
+    }
+  };
+}
+
+///////////
+// 组合类
+///////////
+
+// 简单的类
+class User {
+  name = '';
+}
+
+// 添加 TimesTamped 的 User
+const TimestampedUser = TimesTamped(User);
+
+// Tina TimesTamped 和 Activatable 的类
+const TimestampedActivatableUser = TimesTamped(Activatable(User));
+
+//////////
+// 使用组合类
+//////////
+
+const timestampedUserExample = new TimestampedUser();
+console.log(timestampedUserExample.timestamp);
+
+const timestampedActivatableUserExample = new TimestampedActivatableUser();
+console.log(timestampedActivatableUserExample.timestamp);
+console.log(timestampedActivatableUserExample.isActivated);
+```
+
+#### 1）创建一个构造函数
+
+混合一个类，并且使用新功能扩展它。
+
+定义构造函数的类型：
+
+```ts
+type Constructor<T = {}> = new (...args: any[]) => T;
+```
+
+
+
+#### 2）扩展一个类并且返回它
+
+```ts
+// 添加属性的混合例子
+function TimesTamped<TBase extends Constructor>(Base: TBase) {
+  return class extends Base {
+    timestamp = Date.now();
+  };
+}
+```
 
 
 
 ### 24. ThisType
 
+通过 `ThisType` 我们可以在对象字面量中键入 `this`，并提供通过上下文类型控制 `this` 类型的便捷方式。它只有在 `--noImplicitThis` 的选项下才有效。
 
+现在，在对象字面量方法中的 `this` 类型，将由以下决定：
+
+- 如果这个方法显式指定了 `this` 参数，那么 `this` 具有该参数的类型。（下例子中 `bar`）
+- 否则，如果方法由带 `this` 参数的签名进行上下文键入，那么 `this` 具有该参数的类型。（下例子中 `foo`）
+- 否则，如果 `--noImplicitThis` 选项已经启用，并且对象字面量中包含由 `ThisType<T>` 键入的上下文类型，那么 `this` 的类型为 `T`。
+- 否则，如果 `--noImplicitThis` 选项已经启用，并且对象字面量中不包含由 `ThisType<T>` 键入的上下文类型，那么 `this` 的类型为该上下文类型。
+- 否则，如果 `--noImplicitThis` 选项已经启用，`this` 具有该对象字面量的类型。
+- 否则，`this` 的类型为 `any`。
+
+一些例子：
+
+> 举例
+
+```ts
+// Compile with --noImplicitThis
+
+type Point = {
+  x: number;
+  y: number;
+  moveBy(dx: number, dy: number): void;
+};
+
+let p: Point = {
+  x: 10,
+  y: 20,
+  moveBy(dx, dy) {
+    this.x += dx; // this has type Point
+    this.y += dy; // this has type Point
+  }
+};
+
+let foo = {
+  x: 'hello',
+  f(n: number) {
+    this; // { x: string, f(n: number): void }
+  }
+};
+
+let bar = {
+  x: 'hello',
+  f(this: { message: string }) {
+    this; // { message: string }
+  }
+};
+```
+
+类似的方式，当使用 `--noImplicitThis` 时，函数表达式赋值给 `obj.xxx` 或者 `obj[xxx]` 的目标时，在函数中 `this` 的类型将会是 `obj`：
+
+```ts
+// Compile with --noImplicitThis
+
+obj.f = function(n) {
+  return this.x - n; // 'this' has same type as 'obj'
+};
+
+obj['f'] = function(n) {
+  return this.x - n; // 'this' has same type as 'obj'
+};
+```
+
+通过 API 转换参数的形式来生成 `this` 的值的情景下，可以通过创建一个新的 `ThisType<T>` 标记接口，可用于在上下文中表明转换后的类型。尤其是当字面量中的上下文类型为 `ThisType<T>` 或者是包含 `ThisType<T>` 的交集时，显得尤为有效，对象字面量方法中 `this` 的类型即为 `T`。
+
+```ts
+// Compile with --noImplicitThis
+
+type ObjectDescriptor<D, M> = {
+  data?: D;
+  methods?: M & ThisType<D & M>; // Type of 'this' in methods is D & M
+};
+
+function makeObject<D, M>(desc: ObjectDescriptor<D, M>): D & M {
+  let data: object = desc.data || {};
+  let methods: object = desc.methods || {};
+  return { ...data, ...methods } as D & M;
+}
+
+let obj = makeObject({
+  data: { x: 0, y: 0 },
+  methods: {
+    moveBy(dx: number, dy: number) {
+      this.x += dx; // Strongly typed this
+      this.y += dy; // Strongly typed this
+    }
+  }
+});
+
+obj.x = 10;
+obj.y = 20;
+obj.moveBy(5, 5);
+```
+
+在上面的例子中，`makeObject` 参数中的对象属性 `methods` 具有包含 `ThisType<D & M>` 的上下文类型，因此对象中 `methods` 属性下的方法的 `this` 类型为 `{ x: number, y: number } & { moveBy(dx: number, dy: number): number }`。
+
+`ThisType<T>` 的接口，在 `lib.d.ts` 只是被声明为空的接口，除了可以在对象字面量上下文中可以被识别以外，该接口的作用等同于任意空接口。
 
 
 
 ## 三、JSX
 
+### 1. 支持JSX
+
+TypeScript支持JSX转换和代码分析。
+
+> JSX的作用
+
+- 使用相同代码，既能检查你的JS, 同时检查你的HTML视图层部分
+- 让视图层了解运行 时的上下文
+- 复用JS设计模式维护HTML部分，代替创建新的可替代品
+
+这能够减少错误的可能性，并且增强用户界面的可维护性。
+
+
+
+### 2. React JSX
+
+#### 1）建立
+
+- 使用文件后缀 `.tsx`（替代 `.ts`）；
+- 在你的 `tsconfig.json` 配置文件的 `compilerOptions` 里设置选项 `"jsx": "react"`；
+- 在你的项目里为 `JSX` 和 `React` 安装声明文件：`npm i -D @types/react @types/react-dom`；
+- 导入 `react` 到你的 `.tsx` 文件（`import * as React from 'react'`）。
+
+
+
+#### 2）HTML标签 vs 组件
+
+​	渲染HTML标签与组件，源码层面区别在于`React.createElement('div')` vs `React.createElement(MyComponent)`. 采用哪种方式解析取决于首字母大小写。
+
+
+
+#### 3）类型检查
+
+
+
+### 3. 非React JSX
+
+
+
 
 
 ## 四、TypeScript错误提示
 
+### 1. 捕获不能有类型注解的简短变量
+
+例子：
+
+```ts
+try {
+  something();
+} catch (e) {
+  // 捕获不能有类型注解的简短变量
+  // ...
+}
+```
+
+TypeScript 正在保护你免受 JavaScript 代码的侵害，取而代之，使用类型保护：
+
+```ts
+try {
+  something();
+} catch (e) {
+  // 捕获不能有类型注解的简短变量
+  if (e instanceof Error) {
+    // do...
+  }
+}
+```
+
+### 2. 接口`ElementClass` 不能同时扩展类型别名 `Component` 和 `Component`
+
+当在编译上下文中同时含有两个 `react.d.ts`（`@types/react/index.d.ts`）会发生这种情况。
+
+修复：
+
+- 删除 `node_modules` 和任何 `package-lock`（或者 `yarn lock`），然后再一次 `npm install`；
+- 如果这不能工作，查找无效的模块（你所使用的所用用到了 `react.d.ts` 模块应该作为 `peerDependency` 而不是作为 `dependency` 使用）并且把这个报告给相关模块。
+
 
 
 ## 五、TIPs
+
+### 1. 基于字符串的枚举
+
+​	在公共的键下收集一些字符串的集合，可以通过字符串字面量类型与联合类型组合使用创建基于字符串枚举类型的方式。
 
 
 
