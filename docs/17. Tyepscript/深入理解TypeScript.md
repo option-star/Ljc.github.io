@@ -5218,13 +5218,737 @@ try {
 
 ​	在公共的键下收集一些字符串的集合，可以通过字符串字面量类型与联合类型组合使用创建基于字符串枚举类型的方式。
 
+### 2. 名义化类型
+
+> **概念**
+
+**名义化类型**：尽管变量具有相同的结构，也需要把它们视为不同的类型
+
+#### 1) 使用字面量类型
+
+> **实现**
+
+```ts
+// 泛型 Id 类型
+type Id<T extends string> = {
+  type: T;
+  value: string;
+};
+
+// 特殊的 Id 类型
+type FooId = Id<'foo'>;
+type BarId = Id<'bar'>;
+
+// 可选：构造函数
+const createFoo = (value: string): FooId => ({ type: 'foo', value });
+const createBar = (value: string): BarId => ({ type: 'bar', value });
+
+let foo = createFoo('sample');
+let bar = createBar('sample');
+console.log(foo, bar);
+
+foo = bar; // Error 不能将类型“"bar"”分配给类型“"foo"”
+foo = foo; // Okey
+```
+
+> **优点**
+
+- 不需要类型断言
+
+> **缺点**
+
+- 需要服务器序列化支持
 
 
-## 六、编译原理
+
+#### 2) 使用枚举
+
+> **枚举性质**
+
+​	如果两个枚举命名不同，则类型不同
 
 
 
-## 七、FAQs
+> **示例**
+
+```ts
+// FOO
+enum FooIdBrand {
+  _ = ''
+}
+type FooId = FooIdBrand & string;
+
+// BAR
+enum BarIdBrand {
+  _ = ''
+}
+type BarId = BarIdBrand & string;
+
+// user
+
+let fooId: FooId;
+let barId: BarId;
+
+// 类型安全
+fooId = barId; // error 不能将类型“BarIdBrand”分配给类型“FooIdBrand”。
+barId = fooId; // error 不能将类型“FooIdBrand”分配给类型“BarIdBrand”。
+
+// 创建一个新的
+fooId = 'foo' as FooId;
+barId = 'bar' as BarId;
+
+// 两种类型都与基础兼容
+let str: string;
+str = fooId;
+str = barId;
+```
+
+
+
+> **注意**
+
+```ts
+{ _ = '' }
+```
+
+​	其作用强制推断出这是基于字符串的枚举，而不是一个数字类型的枚举。否则直接`{}`默认为数字类型枚举
+
+
+
+#### 3) 使用接口
+
+> **实现思路**
+
+- 在类型上添加一个不用的属性，用来打破类型的兼容性。
+- 在新建或向下转换类型的时候使用断言。
+
+**注意**： 不用属性的命名： 使用`_`前缀和`Brand`后缀
+
+> **示例**
+
+```ts
+// FOO
+interface FooId extends String {
+  _fooIdBrand: string; // 防止类型错误
+}
+
+// BAR
+interface BarId extends String {
+  _barIdBrand: string; // 防止类型错误
+}
+
+// 使用
+let fooId: FooId;
+let barId: BarId;
+
+// 类型安全
+fooId = barId; // error 类型 "BarId" 中缺少属性 "_fooIdBrand"，但类型 "FooId" 中需要该属性。
+barId = fooId; // error 类型 "FooId" 中缺少属性 "_barIdBrand"，但类型 "BarId" 中需要该属性。
+fooId = <FooId>barId; // error 类型 "BarId" 中缺少属性 "_fooIdBrand"，但类型 "FooId" 中需要该属性。
+barId = <BarId>fooId; // error 类型 "FooId" 中缺少属性 "_barIdBrand"，但类型 "BarId" 中需要该属性。
+ 
+// 创建新的
+fooId = 'foo' as any;
+barId = 'bar' as any;
+
+// 如果你需要以字符串作为基础
+var str: string;
+str = fooId as any;
+str = barId as any;
+```
+
+
+
+### 3. 状态函数
+
+**状态函数**: 其他语言，通过使用`static`关键字来增加函数变量的生命周期，使其超出函数的调用范围。而JS中，可通过使用包裹着本地变量的抽象变量来实现。
+
+> C语言实现
+
+```c
+void called () {
+    static count = 0;
+    count++;
+    printf("Called : %d", count);
+}
+
+int main () {
+    called(); // Called : 1
+    called(); // Called : 2
+    return 0;
+}
+```
+
+> JS实现
+
+```ts
+const { called } = new class {
+  count = 0;
+  called = () => {
+    this.count++;
+    console.log(`Called : ${this.count}`);
+  };
+}();
+
+called(); // Called : 1
+called(); // Called : 2
+```
+
+
+
+### 4. Bind是有害的
+
+> **原因**
+
+在`lib.d.ts`中`bind`的定义：
+
+```ts
+bind(thisArg: any, ...argArray: any[]): any
+```
+
+​	由于`bind`的返回值是`any`，回导致在原始函数调用签名上将会完全失去类型的安全检查。
+
+> **示例**
+
+```ts
+function twoParams(a: number, b: number) {
+  return a + b;
+}
+
+let curryOne = twoParams.bind(null, 123);
+curryOne(456); // ok
+curryOne('456'); // ok
+```
+
+​	如上所示，失去了类型的安全检查。
+
+
+
+> **解决** ： 使用类型注解的箭头函数
+
+```ts
+function twoParams(a: number, b: number) {
+  return a + b;
+}
+
+let curryOne = (x: number) => twoParams(123, x);
+curryOne(456); // ok
+curryOne('456'); // Error
+```
+
+
+
+> **类成员的应用**
+
+```ts
+// 错误示范
+class Adder {
+  constructor(public a: string) {}
+
+  add(b: string): string {
+    return this.a + b;
+  }
+}
+
+function useAdd(add: (x: number) => number) {
+  return add(456);
+}
+
+let adder = new Adder('mary had a little 🐑');
+useAdd(adder.add.bind(adder)); // 没有编译的错误
+useAdd(x => adder.add(x)); // Error: number 不能分配给 string
+```
+
+```ts
+// 解决方法1
+class Adder {
+  constructor(public a: string) {}
+
+  // 此时，这个函数可以安全传递
+  add = (b: string): string => {
+    return this.a + b;
+  };
+}
+```
+
+```ts
+// 解决方法2 ： 通过手动指定要绑定的变量的类型
+const add: typeof adder.add = adder.add.bind(adder);
+```
+
+### 5. 柯里化
+
+使用一系列的箭头函数：
+
+```ts
+// 一个柯里化函数
+let add = (x: number) => (y: number) => x + y;
+
+// 简单使用
+add(123)(456);
+
+// 部分应用
+let add123 = add(123);
+
+// fully apply the function
+add123(456);
+```
+
+
+
+### 6. 泛型的示例化类型
+
+**目标**： 想要一个类： `Foo<number>`
+
+```ts
+class Foo<T> {
+  foo: T;
+}
+```
+
+
+
+#### 1) 具体类型替代泛型
+
+通过拷贝到新变量里，并且用具体类型代替泛型的类型注解。
+
+```ts
+class Foo<T> {
+  foo: T;
+}
+
+const FooNumber = Foo as { new (): Foo<number> }; // ref 1
+```
+
+
+
+#### 2) 继承
+
+```ts
+class FooNumber extends Foo<number> {}
+```
+
+:::warning
+
+​	如果基类上使用修饰器，继承类可能没有与基类相同的行为（不再被修饰器包裹）
+
+:::
+
+
+
+#### 4) 断言模式
+
+通过该方式，并不会产生一个单独的类
+
+```ts
+function id<T>(x: T) {
+  return x;
+}
+
+const idNum = id as { (x: number): number };
+```
+
+
+
+### 7. 对象字面量的惰性初始化
+
+> **问题**：
+
+```ts
+let foo = {};
+foo.bar = 123; // Error: Property 'bar' does not exist on type '{}'
+foo.bas = 'Hello World'; // Error: Property 'bas' does not exist on type '{}'
+```
+
+> **原因**：
+
+​	在TypeScript中，在解析`let foo = {}`这段赋值语句时，会进行“类型推断”：它会认为等号左边`foo`的类型即为等号右边`{}`的类型。由于`{}`本没有任何属性，所以会报错。
+
+> **最好解决方案**： 在赋值的同时，添加属性及其对应的值
+
+```ts
+let foo = {
+  bar: 123,
+  bas: 'Hello World'
+};
+```
+
+
+
+> **快速解决方案**: 类型断言
+
+```ts
+let foo = {} as any;
+foo.bar = 123;
+foo.bas = 'Hello World';
+```
+
+
+
+> **折中解决方案** : 创建`interface`，可确保类型安全
+
+```ts
+interface Foo {
+  bar: number;
+  bas: string;
+}
+
+let foo = {} as Foo;
+foo.bar = 123;
+foo.bas = 'Hello World';
+
+// 然后我们尝试这样做：
+foo.bar = 'Hello Stranger'; // 错误：你可能把 `bas` 写成了 `bar`，不能为数字类型的属性赋值字符串
+```
+
+### 8. 类是有用的
+
+> **错误示范**：
+
+```ts
+let someProperty;
+
+function foo() {
+  // 一些初始化代码
+}
+
+foo();
+someProperty = 123; // 其他初始化代码
+
+// 一些其它未导出
+
+// later
+export function someMethod() {}
+```
+
+> **通过类来组织代码**
+
+```ts
+class Foo {
+  public someProperty;
+
+  constructor() {
+    // 一些初始化内容
+  }
+
+  public someMethod() {
+    // ..code
+  }
+
+  public someUtility() {
+    // .. code
+  }
+}
+
+export = new Foo();
+```
+
+
+
+### 9. `export default`被认为是有害的
+
+> **不推荐写法**
+
+```ts
+// foo.ts
+class Foo {}
+export default Foo;
+```
+
+```ts
+// bar.ts
+import Foo from './foo';
+```
+
+> **推荐写法**
+
+```ts
+// foo.ts
+export class Foo {}
+```
+
+```ts
+// bar.ts
+import { Foo } from './Foo';
+```
+
+
+
+> **原因**：
+
+#### 1) 可发现性差
+
+​	默认导出的可发现性非常差，你不能智能的辨别一个模块它是否有默认导出。
+
+
+
+#### 2) 自动完成
+
+​	可通过在`import { /* here */ } from './foo'`的`here`位置获取模块的信息。
+
+
+
+#### 3) CommonJS互用
+
+​	对于必须使用 `const { default } = require('module/foo')` 而不是 `const { Foo } = require('module/foo')` 的 CommonJS 的用户来说，这会是一个糟糕的体验。当你导入一个模块时，你很可能想重命名 `default` 作为导入的名字。
+
+
+
+#### 4) 防止拼写错误
+
+​	当你在开发时使用 `import Foo from './foo'` 时，并不会得到有关于拼写的任何错误，其他人可能会这么写 `import foo from './foo'`；
+
+
+
+#### 5) 动态导入
+
+在动态的 `import` 中，默认导出会以 `default` 的名字暴露自己，如：
+
+```ts
+const HighChart = await import('https://code.highcharts.com/js/es-modules/masters/highcharts.src.js');
+HighChart.default.chart('container', { ... }); // Notice `.default`
+```
+
+
+
+#### 6) 再次导出
+
+​	再次导出是没必要的，但是在 `npm` 包的根文件 `index` 却是很常见。如：`import Foo from './foo'；export { Foo }`（默认导出）VS `export * from './foo'` （命名导出）。
+
+
+
+### 10. 减少`setter`属性的使用
+
+```ts
+class Foo {
+  a: number;
+  b: number;
+  set bar(value: { a: number; b: number }) {
+    this.a = value.a;
+    this.b = value.b;
+  }
+}
+
+let foo = new Foo();
+```
+
+​	这并不是 `setter` 的一个好的使用场景，当开发人员阅读第一段代码时，不知道将要更改的所有内容的上下文。然而，当开发者使用 `foo.setBar(value)`，他可能会意识到在 `foo` 里可能会引起一些改变。
+
+### 11. 创建数组
+
+> **创建**
+
+```ts
+const foo: string[] = [];
+```
+
+
+
+> **填充数据**： `Array.prototype.fill`
+
+```ts
+const foo: string[] = new Array(3).fill('');
+console.log(foo); // 会输出 ['','','']
+```
+
+### 12. 谨慎使用`--outFile`
+
+应该谨慎使用 `--outFile` 选项：
+
+- 运行时的错误；
+- 快速编译；
+- 全局作用域；
+- 难以分析；
+- 难以扩展；
+- `_references`；
+- 代码重用；
+- 多目标；
+- 单独编译；
+
+> **具体详细看[这里](https://jkchao.github.io/typescript-book-chinese/tips/outFileCaution.html#%E8%BF%90%E8%A1%8C%E6%97%B6%E7%9A%84%E9%94%99%E8%AF%AF)**
+
+
+
+### 13. 静态构造函数
+
+TS中的`class`没有静态构造函数的功能，但可以通过调用自己来获取相同的效果：
+
+```ts
+class MyClass {
+  static initalize() {
+    //
+  }
+}
+
+MyClass.initalize();
+```
+
+
+
+### 14. 单例模式
+
+> **作用**：
+
+解决所有代码必须写到`class`中的问题。
+
+> **实现** ： `namespace`
+
+```ts
+namespace Singleton {
+  // .. 其他初始化的代码
+
+  export function someMethod() {}
+}
+
+// 使用
+Singleton.someMethod();
+```
+
+
+
+> **实现**： `export`
+
+```ts
+// someFile.ts
+// ... any one time initialization goes here ...
+export function someMethod() {}
+
+// Usage
+import { someMethod } from './someFile';
+```
+
+
+
+### 15. 函数参数
+
+> 函数参数： 形式一
+
+```ts
+function foo(flagA: boolean, flagB: boolean) {
+  // 函数主体
+}
+```
+
+**缺点**： 很容易错误的调用它，如 `foo(flagB, flagA)`，并且你并不会从编译器得到想要的帮助。
+
+> 函数参数： 形式二
+
+```ts
+function foo(config: { flagA: boolean; flagB: boolean }) {
+  const { flagA, flagB } = config;
+}
+```
+
+**优点**： 有利于发现错误及代码审查。
+
+
+
+#### 16. Truthy
+
+> 除`0`意外的数字，被推断为`true`
+
+```ts
+if (123) {
+  // 将会被推断出 `true`
+  console.log('Any number other than 0 is truthy');
+}
+```
+
+> `!!`转化为布尔类型
+
+```ts
+// ReactJS
+{
+  !!someName && <div>{someName}</div>;
+}
+```
+
+
+
+#### 16. 构建环境切换
+
+通过`webpack`进行环境切换
+
+```ts
+/**
+ * This interface makes sure we don't miss adding a property to both `prod` and `test`
+ */
+interface Config {
+  someItem: string;
+}
+
+/**
+ * We only export a single thing. The config.
+ */
+export let config: Config;
+
+/**
+ * `process.env.NODE_ENV` definition is driven from webpack
+ *
+ * The whole `else` block will be removed in the emitted JavaScript
+ *  for a production build
+ */
+if (process.env.NODE_ENV === 'production') {
+  config = {
+    someItem: 'prod'
+  };
+  console.log('Running in prod');
+} else {
+  config = {
+    someItem: 'test'
+  };
+  console.log('Running in test');
+}
+```
+
+
+
+### 16. 类型安全的`Event Emitter`
+
+通常来说，在 Node.js 与传统的 JavaScript 里，你有一个单一的 Event Emitter，你可以用它来为不同的事件添加监听器。
+
+```ts
+const emitter = new EventEmitter();
+
+// Emit
+emitter.emit('foo', foo);
+emitter.emit('bar', bar);
+
+// Listen
+emitter.on('foo', foo => console.log(foo));
+emitter.on('bar', bar => console.log(bar));
+```
+
+实际上，在 `EventEmitter` 内部以映射数组的形式存储数据：
+
+```ts
+{ foo: [fooListeners], bar: [barListeners] }
+```
+
+为了事件的类型安全，你可以为每个事件类型创建一个 emitter：
+
+```ts
+const onFoo = new TypedEvent<Foo>();
+const onBar = new TypedEvent<Bar>();
+
+// Emit:
+onFoo.emit(foo);
+onBar.emit(bar);
+
+// Listen:
+onFoo.on(foo => console.log(foo));
+onBar.on(bar => console.log(bar));
+```
+
+> **优点**
+
+- 事件的类型，能以变量的形式被发现。
+- Event Emitter 非常容易被重构。
+- 事件数据结构是类型安全的。
+
+
+
+
 
 
 
