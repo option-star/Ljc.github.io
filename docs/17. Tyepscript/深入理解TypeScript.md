@@ -21,17 +21,11 @@ isShowComments: true
 
 #### 1）tsconfig.json
 
-##### 基础
+>  **基础**
 
-​	开始使用 `tsconfig.json` 是一件比较容易的事，你仅仅需要写下：
+​	在项目的根目录下创建`tsconfig.json`, TS将会把此目录和子目录下所有的`.ts`文件作为编译上下文的一部分，还会包含一部分默认的编译选项。
 
-```json
-{}
-```
-
-​	例如，在项目的根目录下创建一个空 JSON 文件。通过这种方式，TypeScript 将 会把此目录和子目录下的所有 .ts 文件作为编译上下文的一部分，它还会包含一部分默认的编译选项。
-
-##### 编译选项
+>  **编译选项**
 
 你可以通过 `compilerOptions` 来定制你的编译选项：
 
@@ -93,20 +87,17 @@ isShowComments: true
 
 
 
-##### TypeScript编译
+> **编译TS**
 
-好的 IDE 支持对 TypeScript 的即时编译。但是，如果你想在使用 `tsconfig.json` 时从命令行手动运行 TypeScript 编译器，你可以通过以下方式：
-
-- 运行 tsc，它会在当前目录或者是父级目录寻找 `tsconfig.json` 文件。
-- 运行 `tsc -p ./path-to-project-directory` 。当然，这个路径可以是绝对路径，也可以是相对于当前目录的相对路径。
-
-​	你甚至可以使用 `tsc -w` 来启用 TypeScript 编译器的观测模式，在检测到文件改动之后，它将重新编译。
+- 运行`tsc`， 查找子级或父级的`tsconfig.json`文件
+- 运行`tsc -p ./path-to-project-directory`
+- 运行`tsc -w` : 启动观测模式，检测文件改动后，重新编译
 
 
 
 #### 2）指定文件
 
-你也可以显式指定需要编译的文件：
+> **显示指定**
 
 ```js
 {
@@ -116,7 +107,7 @@ isShowComments: true
 }
 ```
 
-你还可以使用 `include` 和 `exclude` 选项来指定需要包含的文件和排除的文件：
+> **设置`include`与`exclude`为包含与排除的文件**
 
 ```js
 {
@@ -130,75 +121,40 @@ isShowComments: true
 }
 ```
 
-:::tip
-
-**注意**：
-
-​	使用 `globs`：`**/*` （一个示例用法：`some/folder/**/*`）意味着匹配所有的文件夹和所有文件（扩展名为 `.ts/.tsx`，当开启了 `allowJs: true` 选项时，扩展名可以是 `.js/.jsx`）。
-
-:::
-
 
 
 ### 2. 声明空间
 
-​	在 TypeScript 里存在两种声明空间：类型声明空间与变量声明空间。
-
 #### 1）类型声明空间
 
-类型声明空间包含用来当作类型注解的内容，例如下面的类型声明：
+类型声明空间的值用来当作类型注解的内容。
 
 ```js
+// 类型声明空间
 class Foo {}
 interface Bar {}
 type Bas = {};
-```
 
-你可以将`Foo`、`Bar`、`Bas`作为类型注解使用，示例如下：
-
-```js
+// 类型注解
 let foo: Foo;
 let bar: Bar;
 let bas: Bas;
 ```
 
-注意，尽管你定义了 `interface Bar`，却并不能够把它作为一个变量来使用，因为它没有定义在变量声明空间中。
-
-```ts
-interface Bar {}
-const bar = Bar; // Error: "cannot find name 'Bar'"
-```
-
-​	出现错误提示： `cannot find name 'Bar'` 的原因是名称 `Bar` 并未定义在变量声明空间。这将带领我们进入下一个主题 -- 变量声明空间。
-
 
 
 #### 2）变量声明空间
 
-​	变量声明空间包含可用作变量的内容，在上文中 `Class Foo` 提供了一个类型 `Foo` 到类型声明空间，此外它同样提供了一个变量 `Foo` 到变量声明空间，如下所示：
+变量声明空间的值用来当作变量的内容
 
 ```ts
+// 变量声明空间
 class Foo {}
+
+// 变量
 const someVar = Foo;
 const someOtherVar = 123;
 ```
-
-这很棒，尤其是当你想把一个类来当做变量传递时。
-
-:::warning
-
-​	我们并不能把一些如`interface`定义的内容当作变量使用。
-
-:::
-
-与此相似，一些用 `var` 声明的变量，也只能在变量声明空间使用，不能用作类型注解。
-
-```js
-const foo = 123;
-let bar: foo; // ERROR: "cannot find name 'foo'"
-```
-
-提示 `ERROR: "cannot find name 'foo'"` 原因是，名称 foo 没有定义在类型声明空间里。
 
 
 
@@ -5165,11 +5121,201 @@ TypeScript支持JSX转换和代码分析。
 
 #### 3）类型检查
 
+> **HTML标签**
+
+`react-jsx.d.ts`中定义了所有主要标签的类型。
+
+```ts
+declare namespace JSX {
+  interface IntrinsicElements {
+    a: React.HTMLAttributes;
+    abbr: React.HTMLAttributes;
+    div: React.HTMLAttributes;
+    span: React.HTMLAttributes;
+
+    // 其他
+  }
+}
+```
+
+> **函数式组件**
+
+`React.FunctionComponent`接口定义函数组件。
+
+```ts
+type Props = {
+  foo: string;
+};
+
+const MyComponent: React.FunctionComponent<Props> = props => {
+  return <span>{props.foo}</span>;
+};
+
+<MyComponent foo="bar" />;
+```
+
+> **类组件**
+
+​	根据组件的`props`属性对组件进行类型检查。`react.d.ts`定义了`React.Component<Props, State>`, 可通过`Props`和`State`声明扩展。
+
+```ts
+type Props = {
+  foo: string;
+};
+
+class MyComponent extends React.Component<Props, {}> {
+  render() {
+    return <span>{this.props.foo}</span>;
+  }
+}
+
+<MyComponent foo="bar" />;
+```
 
 
-### 3. 非React JSX
+
+> **接受组件的实例**
+
+`React.ReactElement<T>` : 通过传入`<T/>`, 来注解类组件的实例化结果。
+
+```ts
+class MyAwesomeComponent extends React.Component {
+  render() {
+    return <div>Hello</div>;
+  }
+}
+
+const foo: React.ReactElement<MyAwesomeComponent> = <MyAwesomeComponent />; // Okay
+const bar: React.ReactElement<MyAwesomeComponent> = <NotMyAwesomeComponent />; // Error!
+```
 
 
+
+> **接受一个可以在Props起作用，并使用JSX渲染的组件**
+
+`React.Component<Props>` : 可以接受用作Props类型和使用JSX渲染的组件。
+
+```ts
+const X: React.Component<Props> = foo; // from somewhere
+
+// Render X with some props:
+<X {...props} />;
+```
+
+> **可渲染的接口**
+
+`React.ReactNode` : 接受可渲染的内容
+
+```ts
+type Props = {
+  header: React.ReactNode;
+  body: React.ReactNode;
+};
+
+class MyComponent extends React.Component<Props, {}> {
+  render() {
+    return (
+      <div>
+        {this.props.header}
+        {this.props.body}
+      </div>
+    );
+  }
+}
+
+<MyComponent header={<h1>Header</h1>} body={<i>body</i>} />
+```
+
+
+
+> **泛型组件**
+
+```ts
+// 一个泛型组件
+type SelectProps<T> = { items: T[] };
+class Select<T> extends React.Component<SelectProps<T>, any> {}
+
+// 使用
+const Form = () => <Select<string> items={['a', 'b']} />;
+```
+
+
+
+> **泛型函数**
+
+```ts
+function foo<T>(x: T): T {
+  return x;
+}
+```
+
+**问题**： 不能使用箭头泛型函数
+
+```ts
+const foo = <T>(x: T) => T; // Error: T 标签没有关闭
+```
+
+**解决方法**： 泛型参数使用`extends`
+
+```ts
+const foo = <T extends {}>(x: T) => x;
+```
+
+
+
+> **强类型的Refs**
+
+```ts
+class Example extends React.Component {
+  example() {
+    // ... something
+  }
+
+  render() {
+    return <div>Foo</div>;
+  }
+}
+
+class Use {
+  exampleRef: Example | null = null;
+
+  render() {
+    return <Example ref={exampleRef => (this.exampleRef = exampleRef)} />;
+  }
+}
+```
+
+
+
+#### 4）默认Props
+
+```ts
+class Hello extends React.Component<{
+  /**
+   * @default 'TypeScript'
+   */
+  compiler?: string;
+  framework: string;
+}> {
+  static defaultProps = {
+    compiler: 'TypeScript'
+  };
+  render() {
+    const compiler = this.props.compiler!;
+    return (
+      <div>
+        <div>{compiler}</div>
+        <div>{this.props.framework}</div>
+      </div>
+    );
+  }
+}
+
+ReactDOM.render(
+  <Hello framework="React" />, // TypeScript React
+  document.getElementById('root')
+);
+```
 
 
 
