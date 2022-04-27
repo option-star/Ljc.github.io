@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>CSS09 less | 佳成</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="icon" href="/blog/logo.jfif">
+    <meta name="description" content="生命太短，没有时间留给遗憾，若不是终点，请微笑一直向前。">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    
+    <link rel="preload" href="/blog/assets/css/0.styles.a43a5fd5.css" as="style"><link rel="preload" href="/blog/assets/js/app.ce36d364.js" as="script"><link rel="preload" href="/blog/assets/js/3.69e5ab97.js" as="script"><link rel="preload" href="/blog/assets/js/1.d241725f.js" as="script"><link rel="preload" href="/blog/assets/js/21.c656cbd0.js" as="script"><link rel="preload" href="/blog/assets/js/8.a8350c27.js" as="script"><link rel="prefetch" href="/blog/assets/js/10.09f36fdc.js"><link rel="prefetch" href="/blog/assets/js/100.9a4567d0.js"><link rel="prefetch" href="/blog/assets/js/101.3c662e09.js"><link rel="prefetch" href="/blog/assets/js/102.2b9a34c5.js"><link rel="prefetch" href="/blog/assets/js/103.32fa7ad2.js"><link rel="prefetch" href="/blog/assets/js/104.c286fafc.js"><link rel="prefetch" href="/blog/assets/js/105.c8ddb9c1.js"><link rel="prefetch" href="/blog/assets/js/106.2b785458.js"><link rel="prefetch" href="/blog/assets/js/107.8b77f252.js"><link rel="prefetch" href="/blog/assets/js/108.f50a5f5a.js"><link rel="prefetch" href="/blog/assets/js/109.103bcef3.js"><link rel="prefetch" href="/blog/assets/js/11.7793fe98.js"><link rel="prefetch" href="/blog/assets/js/110.0d5acd40.js"><link rel="prefetch" href="/blog/assets/js/111.5336593d.js"><link rel="prefetch" href="/blog/assets/js/112.a33ab9b5.js"><link rel="prefetch" href="/blog/assets/js/12.d80d454e.js"><link rel="prefetch" href="/blog/assets/js/13.4faf6f3c.js"><link rel="prefetch" href="/blog/assets/js/14.01c9bbf3.js"><link rel="prefetch" href="/blog/assets/js/15.094dd376.js"><link rel="prefetch" href="/blog/assets/js/16.29d9afb6.js"><link rel="prefetch" href="/blog/assets/js/17.51c765dd.js"><link rel="prefetch" href="/blog/assets/js/18.07be4755.js"><link rel="prefetch" href="/blog/assets/js/19.dc3f3f5a.js"><link rel="prefetch" href="/blog/assets/js/20.a3fdceac.js"><link rel="prefetch" href="/blog/assets/js/22.1da9d308.js"><link rel="prefetch" href="/blog/assets/js/23.8d3cf1f8.js"><link rel="prefetch" href="/blog/assets/js/24.fce2db27.js"><link rel="prefetch" href="/blog/assets/js/25.bcb92306.js"><link rel="prefetch" href="/blog/assets/js/26.1c678f57.js"><link rel="prefetch" href="/blog/assets/js/27.2103bdcb.js"><link rel="prefetch" href="/blog/assets/js/28.0dbf1553.js"><link rel="prefetch" href="/blog/assets/js/29.a11b760e.js"><link rel="prefetch" href="/blog/assets/js/30.ff3fe4d4.js"><link rel="prefetch" href="/blog/assets/js/31.ab568cb1.js"><link rel="prefetch" href="/blog/assets/js/32.86fb3e55.js"><link rel="prefetch" href="/blog/assets/js/33.42f05f15.js"><link rel="prefetch" href="/blog/assets/js/34.b4a829e6.js"><link rel="prefetch" href="/blog/assets/js/35.80c0fdeb.js"><link rel="prefetch" href="/blog/assets/js/36.a85c7b9f.js"><link rel="prefetch" href="/blog/assets/js/37.939e919b.js"><link rel="prefetch" href="/blog/assets/js/38.6ae284df.js"><link rel="prefetch" href="/blog/assets/js/39.ae4ac49c.js"><link rel="prefetch" href="/blog/assets/js/4.a9aaef9b.js"><link rel="prefetch" href="/blog/assets/js/40.54b3cd04.js"><link rel="prefetch" href="/blog/assets/js/41.e6bb513c.js"><link rel="prefetch" href="/blog/assets/js/42.50a0c76f.js"><link rel="prefetch" href="/blog/assets/js/43.e8f7ad54.js"><link rel="prefetch" href="/blog/assets/js/44.9b0a4783.js"><link rel="prefetch" href="/blog/assets/js/45.071066a7.js"><link rel="prefetch" href="/blog/assets/js/46.3ee56909.js"><link rel="prefetch" href="/blog/assets/js/47.a9221212.js"><link rel="prefetch" href="/blog/assets/js/48.bfa52697.js"><link rel="prefetch" href="/blog/assets/js/49.848371ed.js"><link rel="prefetch" href="/blog/assets/js/5.6825e976.js"><link rel="prefetch" href="/blog/assets/js/50.864591b1.js"><link rel="prefetch" href="/blog/assets/js/51.c14320a9.js"><link rel="prefetch" href="/blog/assets/js/52.432865c4.js"><link rel="prefetch" href="/blog/assets/js/53.d6923aa6.js"><link rel="prefetch" href="/blog/assets/js/54.3e644e3f.js"><link rel="prefetch" href="/blog/assets/js/55.13ac7014.js"><link rel="prefetch" href="/blog/assets/js/56.3e388e2c.js"><link rel="prefetch" href="/blog/assets/js/57.df4c79cd.js"><link rel="prefetch" href="/blog/assets/js/58.4bef1161.js"><link rel="prefetch" href="/blog/assets/js/59.70613c35.js"><link rel="prefetch" href="/blog/assets/js/6.6b1d65b3.js"><link rel="prefetch" href="/blog/assets/js/60.3150ed3e.js"><link rel="prefetch" href="/blog/assets/js/61.2f67d44b.js"><link rel="prefetch" href="/blog/assets/js/62.d67a1126.js"><link rel="prefetch" href="/blog/assets/js/63.a3ff419d.js"><link rel="prefetch" href="/blog/assets/js/64.5036d8de.js"><link rel="prefetch" href="/blog/assets/js/65.99a6a694.js"><link rel="prefetch" href="/blog/assets/js/66.1426e9b4.js"><link rel="prefetch" href="/blog/assets/js/67.fcf05bf1.js"><link rel="prefetch" href="/blog/assets/js/68.e39132b1.js"><link rel="prefetch" href="/blog/assets/js/69.2e4c6799.js"><link rel="prefetch" href="/blog/assets/js/7.bfc5f1ad.js"><link rel="prefetch" href="/blog/assets/js/70.1c901c73.js"><link rel="prefetch" href="/blog/assets/js/71.8d7d588b.js"><link rel="prefetch" href="/blog/assets/js/72.ee6ba0fb.js"><link rel="prefetch" href="/blog/assets/js/73.7282c958.js"><link rel="prefetch" href="/blog/assets/js/74.a0821211.js"><link rel="prefetch" href="/blog/assets/js/75.c2a3baa5.js"><link rel="prefetch" href="/blog/assets/js/76.5fd0f222.js"><link rel="prefetch" href="/blog/assets/js/77.4f7ff38c.js"><link rel="prefetch" href="/blog/assets/js/78.c0d1ba72.js"><link rel="prefetch" href="/blog/assets/js/79.ed013c37.js"><link rel="prefetch" href="/blog/assets/js/80.e8848415.js"><link rel="prefetch" href="/blog/assets/js/81.d57b0f9b.js"><link rel="prefetch" href="/blog/assets/js/82.75b64303.js"><link rel="prefetch" href="/blog/assets/js/83.c33330f2.js"><link rel="prefetch" href="/blog/assets/js/84.3167f244.js"><link rel="prefetch" href="/blog/assets/js/85.73e92e46.js"><link rel="prefetch" href="/blog/assets/js/86.dd646a22.js"><link rel="prefetch" href="/blog/assets/js/87.7c480915.js"><link rel="prefetch" href="/blog/assets/js/88.c119d757.js"><link rel="prefetch" href="/blog/assets/js/89.400af58e.js"><link rel="prefetch" href="/blog/assets/js/9.522cbdce.js"><link rel="prefetch" href="/blog/assets/js/90.7bd11d4e.js"><link rel="prefetch" href="/blog/assets/js/91.3bc4f2d7.js"><link rel="prefetch" href="/blog/assets/js/92.60d1591e.js"><link rel="prefetch" href="/blog/assets/js/93.dc12917a.js"><link rel="prefetch" href="/blog/assets/js/94.216bf33b.js"><link rel="prefetch" href="/blog/assets/js/95.5199ac5f.js"><link rel="prefetch" href="/blog/assets/js/96.4691ee55.js"><link rel="prefetch" href="/blog/assets/js/97.ccd76182.js"><link rel="prefetch" href="/blog/assets/js/98.2de14a26.js"><link rel="prefetch" href="/blog/assets/js/99.672fd77f.js">
+    <link rel="stylesheet" href="/blog/assets/css/0.styles.a43a5fd5.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container" data-v-1156296a><div data-v-1156296a><div id="loader-wrapper" class="loading-wrapper" data-v-d48f4d20 data-v-1156296a data-v-1156296a><div class="loader-main" data-v-d48f4d20><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div></div> <!----> <!----></div> <div class="password-shadow password-wrapper-out" style="display:none;" data-v-4e82dffc data-v-1156296a data-v-1156296a><h3 class="title" data-v-4e82dffc data-v-4e82dffc>佳成</h3> <p class="description" data-v-4e82dffc data-v-4e82dffc>生命太短，没有时间留给遗憾，若不是终点，请微笑一直向前。</p> <label id="box" class="inputBox" data-v-4e82dffc data-v-4e82dffc><input type="password" value="" data-v-4e82dffc> <span data-v-4e82dffc>Konck! Knock!</span> <button data-v-4e82dffc>OK</button></label> <div class="footer" data-v-4e82dffc data-v-4e82dffc><span data-v-4e82dffc><i class="iconfont reco-theme" data-v-4e82dffc></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-4e82dffc>vuePress-theme-reco</a></span> <span data-v-4e82dffc><i class="iconfont reco-copyright" data-v-4e82dffc></i> <a data-v-4e82dffc><span data-v-4e82dffc>佳成</span>
+            
+          <span data-v-4e82dffc>2021 - </span>
+          2022
+        </a></span></div></div> <div class="hide" data-v-1156296a><header class="navbar" data-v-1156296a><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/blog/" class="home-link router-link-active"><img src="/blog/logo.jfif" alt="佳成" class="logo"> <span class="site-name">佳成</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/blog/" class="nav-link"><i class="iconfont reco-home"></i>
+  主页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      技术
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/categories/01HTML/" class="nav-link"><i class="undefined"></i>
+  01HTML
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/02CSS/" class="nav-link"><i class="undefined"></i>
+  02CSS
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/03JavaScript/" class="nav-link"><i class="undefined"></i>
+  03JavaScript
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/04Vue/" class="nav-link"><i class="undefined"></i>
+  04Vue
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/05工程化/" class="nav-link"><i class="undefined"></i>
+  05工程化
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/06手撕/" class="nav-link"><i class="undefined"></i>
+  06手撕
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/07代码输出/" class="nav-link"><i class="undefined"></i>
+  07代码输出
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/08性能/" class="nav-link"><i class="undefined"></i>
+  08性能
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/09计网/" class="nav-link"><i class="undefined"></i>
+  09计网
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/10浏览器/" class="nav-link"><i class="undefined"></i>
+  10浏览器
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/11安全/" class="nav-link"><i class="undefined"></i>
+  11安全
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/12常见业务/" class="nav-link"><i class="undefined"></i>
+  12常见业务
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/13React/" class="nav-link"><i class="undefined"></i>
+  13React
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/16Node/" class="nav-link"><i class="undefined"></i>
+  16Node
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/17TypeScript/" class="nav-link"><i class="undefined"></i>
+  17TypeScript
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/19面经/" class="nav-link"><i class="undefined"></i>
+  19面经
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/20设计模式/" class="nav-link"><i class="undefined"></i>
+  20设计模式
+</a></li></ul></div></div><div class="nav-item"><a href="/blog/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  标签
+</a></div><div class="nav-item"><a href="/blog/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  时间轴
+</a></div><div class="nav-item"><a href="https://github.com/option-star" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-github"></i>
+  GitHub
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask" data-v-1156296a></div> <aside class="sidebar" data-v-1156296a><div class="personal-info-wrapper" data-v-828910c6 data-v-1156296a><img src="/blog/avatar.png" alt="author-avatar" class="personal-img" data-v-828910c6> <h3 class="name" data-v-828910c6>
+    佳成
+  </h3> <div class="num" data-v-828910c6><div data-v-828910c6><h3 data-v-828910c6>99</h3> <h6 data-v-828910c6>文章</h6></div> <div data-v-828910c6><h3 data-v-828910c6>0</h3> <h6 data-v-828910c6>标签</h6></div></div> <ul class="social-links" data-v-828910c6></ul> <hr data-v-828910c6></div> <nav class="nav-links"><div class="nav-item"><a href="/blog/" class="nav-link"><i class="iconfont reco-home"></i>
+  主页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      技术
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/categories/01HTML/" class="nav-link"><i class="undefined"></i>
+  01HTML
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/02CSS/" class="nav-link"><i class="undefined"></i>
+  02CSS
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/03JavaScript/" class="nav-link"><i class="undefined"></i>
+  03JavaScript
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/04Vue/" class="nav-link"><i class="undefined"></i>
+  04Vue
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/05工程化/" class="nav-link"><i class="undefined"></i>
+  05工程化
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/06手撕/" class="nav-link"><i class="undefined"></i>
+  06手撕
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/07代码输出/" class="nav-link"><i class="undefined"></i>
+  07代码输出
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/08性能/" class="nav-link"><i class="undefined"></i>
+  08性能
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/09计网/" class="nav-link"><i class="undefined"></i>
+  09计网
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/10浏览器/" class="nav-link"><i class="undefined"></i>
+  10浏览器
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/11安全/" class="nav-link"><i class="undefined"></i>
+  11安全
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/12常见业务/" class="nav-link"><i class="undefined"></i>
+  12常见业务
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/13React/" class="nav-link"><i class="undefined"></i>
+  13React
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/16Node/" class="nav-link"><i class="undefined"></i>
+  16Node
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/17TypeScript/" class="nav-link"><i class="undefined"></i>
+  17TypeScript
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/19面经/" class="nav-link"><i class="undefined"></i>
+  19面经
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/20设计模式/" class="nav-link"><i class="undefined"></i>
+  20设计模式
+</a></li></ul></div></div><div class="nav-item"><a href="/blog/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  标签
+</a></div><div class="nav-item"><a href="/blog/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  时间轴
+</a></div><div class="nav-item"><a href="https://github.com/option-star" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-github"></i>
+  GitHub
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav> <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>02 CSS</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/blog/docs/02-css/01cssji-chu.html" class="sidebar-link">CSS01 基础</a></li><li><a href="/blog/docs/02-css/02-gridbu-ju.html" class="sidebar-link">CSS02 grid布局</a></li><li><a href="/blog/docs/02-css/03-flexbu-ju.html" class="sidebar-link">CSS03 flex布局</a></li><li><a href="/blog/docs/02-css/04-chang-jian-ji-qiao.html" class="sidebar-link">CSS04 常见技巧</a></li><li><a href="/blog/docs/02-css/05-hui-zhi-ji-qiao.html" class="sidebar-link">CSS05 绘制技巧</a></li><li><a href="/blog/docs/02-css/06-cssji-zhi-at-rule.html" class="sidebar-link">CSS06 CSS机制</a></li><li><a href="/blog/docs/02-css/07-bfc.html" class="sidebar-link">CSS07 BFC</a></li><li><a href="/blog/docs/02-css/08-zhu-liu-bu-ju.html" class="sidebar-link">CSS07 主流布局</a></li><li><a href="/blog/docs/02-css/09-less.html" aria-current="page" class="active sidebar-link">CSS09 less</a></li></ul></section></li></ul> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-4e82dffc data-v-1156296a><h3 class="title" data-v-4e82dffc data-v-4e82dffc>CSS09 less</h3> <!----> <label id="box" class="inputBox" data-v-4e82dffc data-v-4e82dffc><input type="password" value="" data-v-4e82dffc> <span data-v-4e82dffc>Konck! Knock!</span> <button data-v-4e82dffc>OK</button></label> <div class="footer" data-v-4e82dffc data-v-4e82dffc><span data-v-4e82dffc><i class="iconfont reco-theme" data-v-4e82dffc></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-4e82dffc>vuePress-theme-reco</a></span> <span data-v-4e82dffc><i class="iconfont reco-copyright" data-v-4e82dffc></i> <a data-v-4e82dffc><span data-v-4e82dffc>佳成</span>
+            
+          <span data-v-4e82dffc>2021 - </span>
+          2022
+        </a></span></div></div> <div data-v-1156296a><main class="page"><section><div class="page-title"><h1 class="title">CSS09 less</h1> <div data-v-1ff7123e><i class="iconfont reco-account" data-v-1ff7123e><span data-v-1ff7123e>佳成</span></i> <i class="iconfont reco-date" data-v-1ff7123e><span data-v-1ff7123e>2022/4/23</span></i> <!----> <!----></div></div> <div class="theme-reco-content content__default"><h2 id="_1-变量"><a href="#_1-变量" class="header-anchor">#</a> 1. 变量</h2> <h3 id="_1-属性值变量"><a href="#_1-属性值变量" class="header-anchor">#</a> 1）属性值变量</h3> <blockquote><p>使用</p></blockquote> <div class="language-css line-numbers-mode"><pre class="language-css"><code><span class="token comment">/* Less */</span>
+<span class="token atrule"><span class="token rule">@color</span><span class="token punctuation">:</span> #999<span class="token punctuation">;</span></span>
+<span class="token atrule"><span class="token rule">@bgColor</span><span class="token punctuation">:</span> skyblue<span class="token punctuation">;</span></span>//不要添加引号
+<span class="token atrule"><span class="token rule">@width</span><span class="token punctuation">:</span> 50%<span class="token punctuation">;</span></span>
+<span class="token selector">#wrap</span> <span class="token punctuation">{</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> <span class="token atrule"><span class="token rule">@color</span><span class="token punctuation">;</span></span>
+  <span class="token property">background</span><span class="token punctuation">:</span> <span class="token atrule"><span class="token rule">@bgColor</span><span class="token punctuation">;</span></span>
+  <span class="token property">width</span><span class="token punctuation">:</span> <span class="token atrule"><span class="token rule">@width</span><span class="token punctuation">;</span></span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">/* 生成后的 CSS */</span>
+<span class="token selector">#wrap</span> <span class="token punctuation">{</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> #999<span class="token punctuation">;</span>
+  <span class="token property">background</span><span class="token punctuation">:</span> skyblue<span class="token punctuation">;</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> 50%<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br></div></div><blockquote><p>定义</p></blockquote> <p>​	以<code>@</code>开头定义变量，并且使用时 直接 键入<code>@</code>名称。</p> <blockquote><p>应用</p></blockquote> <p>​	平时工作中，把常用的变量封装到一个文件中，有利于代码组织维护。</p> <div class="language-css line-numbers-mode"><pre class="language-css"><code><span class="token atrule"><span class="token rule">@lightPrimaryColor</span><span class="token punctuation">:</span> #c5cae9<span class="token punctuation">;</span></span>
+<span class="token atrule"><span class="token rule">@textPrimaryColor</span><span class="token punctuation">:</span> #fff<span class="token punctuation">;</span></span>
+<span class="token atrule"><span class="token rule">@accentColor</span><span class="token punctuation">:</span> <span class="token function">rgb</span><span class="token punctuation">(</span>99<span class="token punctuation">,</span> 137<span class="token punctuation">,</span> 185<span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="token atrule"><span class="token rule">@primaryTextColor</span><span class="token punctuation">:</span> #646464<span class="token punctuation">;</span></span>
+<span class="token atrule"><span class="token rule">@secondaryTextColor</span><span class="token punctuation">:</span> #000<span class="token punctuation">;</span></span>
+<span class="token atrule"><span class="token rule">@dividerColor</span><span class="token punctuation">:</span> #b6b6b6<span class="token punctuation">;</span></span>
+<span class="token atrule"><span class="token rule">@borderColor</span><span class="token punctuation">:</span> #dadada<span class="token punctuation">;</span></span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><h3 id="_2-选择器变量"><a href="#_2-选择器变量" class="header-anchor">#</a> 2）选择器变量</h3> <blockquote><p>使用</p></blockquote> <div class="language-js line-numbers-mode"><pre class="language-js"><code><span class="token comment">/* Less */</span>
+@mySelector<span class="token operator">:</span> #wrap<span class="token punctuation">;</span>
+@Wrap<span class="token operator">:</span> wrap<span class="token punctuation">;</span>
+@<span class="token punctuation">{</span>mySelector<span class="token punctuation">}</span><span class="token punctuation">{</span> <span class="token comment">//变量名 必须使用大括号包裹</span>
+  <span class="token literal-property property">color</span><span class="token operator">:</span> #<span class="token number">999</span><span class="token punctuation">;</span>
+  <span class="token literal-property property">width</span><span class="token operator">:</span> <span class="token number">50</span><span class="token operator">%</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token punctuation">.</span>@<span class="token punctuation">{</span>Wrap<span class="token punctuation">}</span><span class="token punctuation">{</span>
+  <span class="token literal-property property">color</span><span class="token operator">:</span>#ccc<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+#@<span class="token punctuation">{</span>Wrap<span class="token punctuation">}</span><span class="token punctuation">{</span>
+  <span class="token literal-property property">color</span><span class="token operator">:</span>#<span class="token number">666</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">/* 生成的 CSS */</span>
+#wrap<span class="token punctuation">{</span>
+  <span class="token literal-property property">color</span><span class="token operator">:</span> #<span class="token number">999</span><span class="token punctuation">;</span>
+  <span class="token literal-property property">width</span><span class="token operator">:</span> <span class="token number">50</span><span class="token operator">%</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token punctuation">.</span>wrap<span class="token punctuation">{</span>
+  <span class="token literal-property property">color</span><span class="token operator">:</span>#ccc<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+#wrap<span class="token punctuation">{</span>
+  <span class="token literal-property property">color</span><span class="token operator">:</span>#<span class="token number">666</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br></div></div><blockquote><p>注意</p></blockquote> <ol><li>变量名必须使用大括号包裹</li></ol> <h3 id="_3-属性键变量"><a href="#_3-属性键变量" class="header-anchor">#</a> 3）属性键变量</h3> <blockquote><p>使用</p></blockquote> <div class="language-css line-numbers-mode"><pre class="language-css"><code><span class="token comment">/* Less */</span>
+<span class="token atrule"><span class="token rule">@borderStyle</span><span class="token punctuation">:</span> border-style<span class="token punctuation">;</span></span>
+<span class="token atrule"><span class="token rule">@Soild</span><span class="token punctuation">:</span>solid<span class="token punctuation">;</span></span>
+<span class="token selector">#wrap</span><span class="token punctuation">{</span>
+  <span class="token selector">@</span><span class="token punctuation">{</span>borderStyle<span class="token punctuation">}</span><span class="token punctuation">:</span> <span class="token atrule"><span class="token rule">@Soild</span><span class="token punctuation">;</span></span>//变量名 必须使用大括号包裹
+<span class="token punctuation">}</span>
+
+<span class="token comment">/* 生成的 CSS */</span>
+<span class="token selector">#wrap</span><span class="token punctuation">{</span>
+  <span class="token property">border-style</span><span class="token punctuation">:</span>solid<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><blockquote><p>注意</p></blockquote> <ol><li>变量名，必须使用大括号包裹</li></ol> <h3 id="_4-url变量"><a href="#_4-url变量" class="header-anchor">#</a> 4）url变量</h3> <blockquote><p>使用</p></blockquote> <div class="language-css line-numbers-mode"><pre class="language-css"><code><span class="token comment">/* Less */</span>
+<span class="token atrule"><span class="token rule">@images</span><span class="token punctuation">:</span> <span class="token string">&quot;../img&quot;</span><span class="token punctuation">;</span></span><span class="token selector">//需要加引号
+body</span> <span class="token punctuation">{</span>
+  <span class="token property">background</span><span class="token punctuation">:</span> <span class="token url"><span class="token function">url</span><span class="token punctuation">(</span><span class="token string url">&quot;@{images}/dog.png&quot;</span><span class="token punctuation">)</span></span><span class="token punctuation">;</span>//变量名 必须使用大括号包裹
+<span class="token punctuation">}</span>
+
+<span class="token comment">/* 生成的 CSS */</span>
+<span class="token selector">body</span> <span class="token punctuation">{</span>
+  <span class="token property">background</span><span class="token punctuation">:</span> <span class="token url"><span class="token function">url</span><span class="token punctuation">(</span><span class="token string url">&quot;../img/dog.png&quot;</span><span class="token punctuation">)</span></span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br></div></div><blockquote><p>注意</p></blockquote> <ul><li>变量名必须使用大括号包裹</li></ul> <h3 id="_5-声明变量"><a href="#_5-声明变量" class="header-anchor">#</a> 5）声明变量</h3> <blockquote><p>格式</p></blockquote> <ul><li>结构： <code>@name: {属性:值}</code></li> <li>使用： <code>@name()</code></li></ul> <blockquote><p>使用</p></blockquote> <div class="language-less line-numbers-mode"><pre class="language-less"><code><span class="token comment">/* Less */</span>
+<span class="token atrule">@background<span class="token punctuation">:</span></span> <span class="token punctuation">{</span><span class="token property">background</span><span class="token punctuation">:</span>red<span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token selector">#main</span><span class="token punctuation">{</span>
+    <span class="token variable">@background</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token atrule">@Rules<span class="token punctuation">:</span></span><span class="token punctuation">{</span>
+    <span class="token property">width</span><span class="token punctuation">:</span> 200px<span class="token punctuation">;</span>
+    <span class="token property">height</span><span class="token punctuation">:</span> 200px<span class="token punctuation">;</span>
+    <span class="token property">border</span><span class="token punctuation">:</span> solid 1px red<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token selector">#con</span><span class="token punctuation">{</span>
+  <span class="token variable">@Rules</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">/* 生成的 CSS */</span>
+<span class="token selector">#main</span><span class="token punctuation">{</span>
+  <span class="token property">background</span><span class="token punctuation">:</span>red<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">#con</span><span class="token punctuation">{</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> 200px<span class="token punctuation">;</span>
+  <span class="token property">height</span><span class="token punctuation">:</span> 200px<span class="token punctuation">;</span>
+  <span class="token property">border</span><span class="token punctuation">:</span> solid 1px red<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br></div></div><h3 id="_6-变量运算"><a href="#_6-变量运算" class="header-anchor">#</a> 6）变量运算</h3> <blockquote><p>使用</p></blockquote> <div class="language-js line-numbers-mode"><pre class="language-js"><code><span class="token comment">/* Less */</span>
+@width<span class="token operator">:</span>300px<span class="token punctuation">;</span>
+@color<span class="token operator">:</span>#<span class="token number">222</span><span class="token punctuation">;</span>
+#wrap<span class="token punctuation">{</span>
+  <span class="token literal-property property">width</span><span class="token operator">:</span>@width<span class="token operator">-</span><span class="token number">20</span><span class="token punctuation">;</span>
+  <span class="token literal-property property">height</span><span class="token operator">:</span>@width<span class="token operator">-</span><span class="token number">20</span><span class="token operator">*</span><span class="token number">5</span><span class="token punctuation">;</span>
+  <span class="token literal-property property">margin</span><span class="token operator">:</span><span class="token punctuation">(</span>@width<span class="token operator">-</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token number">5</span><span class="token punctuation">;</span>
+  <span class="token literal-property property">color</span><span class="token operator">:</span>@color<span class="token operator">*</span><span class="token number">2</span><span class="token punctuation">;</span>
+  background<span class="token operator">-</span>color<span class="token operator">:</span>@color <span class="token operator">+</span> #<span class="token number">111</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">/* 生成的 CSS */</span>
+#wrap<span class="token punctuation">{</span>
+  <span class="token literal-property property">width</span><span class="token operator">:</span>280px<span class="token punctuation">;</span>
+  <span class="token literal-property property">height</span><span class="token operator">:</span>200px<span class="token punctuation">;</span>
+  <span class="token literal-property property">margin</span><span class="token operator">:</span>1400px<span class="token punctuation">;</span>
+  <span class="token literal-property property">color</span><span class="token operator">:</span>#<span class="token number">444</span><span class="token punctuation">;</span>
+  background<span class="token operator">-</span>color<span class="token operator">:</span>#<span class="token number">333</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br></div></div><blockquote><p>注意</p></blockquote> <ul><li>加减法时，以第一个数据单位为基准</li> <li>乘除法时，注意单位一定要统一</li></ul> <h3 id="_7-变量作用域"><a href="#_7-变量作用域" class="header-anchor">#</a> 7）变量作用域</h3> <blockquote><p>使用</p></blockquote> <div class="language-less line-numbers-mode"><pre class="language-less"><code><span class="token comment">/* Less */</span>
+<span class="token variable">@var<span class="token punctuation">:</span></span> <span class="token variable">@a</span><span class="token punctuation">;</span>
+<span class="token variable">@a<span class="token punctuation">:</span></span> 100%<span class="token punctuation">;</span>
+<span class="token selector">#wrap</span> <span class="token punctuation">{</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> <span class="token variable">@var</span><span class="token punctuation">;</span>
+  <span class="token variable">@a<span class="token punctuation">:</span></span> 9%<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">/* 生成的 CSS */</span>
+<span class="token selector">#wrap</span> <span class="token punctuation">{</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> 9%<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br></div></div><blockquote><p>注意</p></blockquote> <ul><li><strong>就近原则</strong></li></ul> <h3 id="_8-用变量去定义变量"><a href="#_8-用变量去定义变量" class="header-anchor">#</a> 8）用变量去定义变量</h3> <div class="language-less line-numbers-mode"><pre class="language-less"><code><span class="token comment">/* Less */</span>
+<span class="token variable">@fnord<span class="token punctuation">:</span></span>  <span class="token string">&quot;I am fnord.&quot;</span><span class="token punctuation">;</span>
+<span class="token variable">@var<span class="token punctuation">:</span></span>    <span class="token string">&quot;fnord&quot;</span><span class="token punctuation">;</span>
+<span class="token selector">#wrap::after</span><span class="token punctuation">{</span>
+  <span class="token property">content</span><span class="token punctuation">:</span> <span class="token variable">@@var</span><span class="token punctuation">;</span> <span class="token comment">//将@var替换为其值 content:@fnord;</span>
+<span class="token punctuation">}</span>
+<span class="token comment">/* 生成的 CSS */</span>
+<span class="token selector">#wrap::after</span><span class="token punctuation">{</span>
+  <span class="token property">content</span><span class="token punctuation">:</span> <span class="token string">&quot;I am fnord.&quot;</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br></div></div><h2 id="_2-嵌套"><a href="#_2-嵌套" class="header-anchor">#</a> 2. 嵌套</h2> <h3 id="_1"><a href="#_1" class="header-anchor">#</a> 1）&amp;</h3> <blockquote><p>定义</p></blockquote> <p>​	&amp;： 代表的上一层选择器的名字</p> <blockquote><p>使用</p></blockquote> <div class="language-less line-numbers-mode"><pre class="language-less"><code><span class="token comment">/* Less */</span>
+<span class="token selector">#header</span><span class="token punctuation">{</span>
+  <span class="token selector">&amp;:after</span><span class="token punctuation">{</span>
+    <span class="token property">content</span><span class="token punctuation">:</span><span class="token string">&quot;Less is more!&quot;</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token selector">.title</span><span class="token punctuation">{</span>
+    <span class="token property">font-weight</span><span class="token punctuation">:</span>bold<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token selector">&amp;_content</span><span class="token punctuation">{</span><span class="token comment">//理解方式：直接把 &amp; 替换成 #header</span>
+    <span class="token property">margin</span><span class="token punctuation">:</span>20px<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token comment">/* 生成的 CSS */</span>
+<span class="token selector">#header::after</span><span class="token punctuation">{</span>
+  <span class="token property">content</span><span class="token punctuation">:</span><span class="token string">&quot;Less is more!&quot;</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">#header .title</span><span class="token punctuation">{</span> <span class="token comment">//嵌套了</span>
+  <span class="token property">font-weight</span><span class="token punctuation">:</span>bold<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">#header_content</span><span class="token punctuation">{</span><span class="token comment">//没有嵌套！</span>
+    <span class="token property">margin</span><span class="token punctuation">:</span>20px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br></div></div><h3 id="_2-媒体查询"><a href="#_2-媒体查询" class="header-anchor">#</a> 2）媒体查询</h3> <blockquote><p>未用less的媒体查询</p></blockquote> <div class="language-css line-numbers-mode"><pre class="language-css"><code><span class="token selector">#wrap</span><span class="token punctuation">{</span>
+  <span class="token property">width</span><span class="token punctuation">:</span>500px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token atrule"><span class="token rule">@media</span> screen <span class="token keyword">and</span> <span class="token punctuation">(</span><span class="token property">max-width</span><span class="token punctuation">:</span>768px<span class="token punctuation">)</span></span><span class="token punctuation">{</span>
+  <span class="token selector">#wrap</span><span class="token punctuation">{</span>
+    <span class="token property">width</span><span class="token punctuation">:</span>100px<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div><blockquote><p>less的媒体查询</p></blockquote> <div class="language-less line-numbers-mode"><pre class="language-less"><code><span class="token comment">/* Less */</span>
+<span class="token selector">#main</span><span class="token punctuation">{</span>
+    <span class="token comment">//something...</span>
+
+    <span class="token atrule">@media screen</span><span class="token punctuation">{</span>
+        <span class="token atrule">@media <span class="token punctuation">(</span>max-width<span class="token punctuation">:</span>768px<span class="token punctuation">)</span></span><span class="token punctuation">{</span>
+          <span class="token property">width</span><span class="token punctuation">:</span>100px<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token atrule">@media tv</span> <span class="token punctuation">{</span>
+      <span class="token property">width</span><span class="token punctuation">:</span>2000px<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">/* 生成的 CSS */</span>
+<span class="token atrule">@media screen and <span class="token punctuation">(</span>maxwidth<span class="token punctuation">:</span>768px<span class="token punctuation">)</span></span><span class="token punctuation">{</span>
+  <span class="token selector">#main</span><span class="token punctuation">{</span>
+      <span class="token property">width</span><span class="token punctuation">:</span>100px<span class="token punctuation">;</span> 
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token atrule">@media tv</span><span class="token punctuation">{</span>
+  <span class="token selector">#main</span><span class="token punctuation">{</span>
+    <span class="token property">width</span><span class="token punctuation">:</span>2000px<span class="token punctuation">;</span> 
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br></div></div><blockquote><p>缺点</p></blockquote> <ul><li>每一个元素都会编译出自己的<code>@media</code>声明，并不会合并</li></ul> <h2 id="_3-混合方法"><a href="#_3-混合方法" class="header-anchor">#</a> 3. 混合方法</h2> <h3 id="_1-无参数方法"><a href="#_1-无参数方法" class="header-anchor">#</a> 1）无参数方法</h3> <div class="language-css line-numbers-mode"><pre class="language-css"><code><span class="token comment">/* Less */</span>
+<span class="token selector">.card()</span> <span class="token punctuation">{</span>
+    <span class="token property">background</span><span class="token punctuation">:</span> #f6f6f6<span class="token punctuation">;</span>
+    <span class="token property">-webkit-box-shadow</span><span class="token punctuation">:</span> 0 1px 2px <span class="token function">rgba</span><span class="token punctuation">(</span>151<span class="token punctuation">,</span> 151<span class="token punctuation">,</span> 151<span class="token punctuation">,</span> .58<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token property">box-shadow</span><span class="token punctuation">:</span> 0 1px 2px <span class="token function">rgba</span><span class="token punctuation">(</span>151<span class="token punctuation">,</span> 151<span class="token punctuation">,</span> 151<span class="token punctuation">,</span> .58<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">#wrap</span><span class="token punctuation">{</span>
+  .<span class="token function">card</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">/* 生成的 CSS */</span>
+<span class="token selector">#wrap</span><span class="token punctuation">{</span>
+  <span class="token property">background</span><span class="token punctuation">:</span> #f6f6f6<span class="token punctuation">;</span>
+  <span class="token property">-webkit-box-shadow</span><span class="token punctuation">:</span> 0 1px 2px <span class="token function">rgba</span><span class="token punctuation">(</span>151<span class="token punctuation">,</span> 151<span class="token punctuation">,</span> 151<span class="token punctuation">,</span> .58<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token property">box-shadow</span><span class="token punctuation">:</span> 0 1px 2px <span class="token function">rgba</span><span class="token punctuation">(</span>151<span class="token punctuation">,</span> 151<span class="token punctuation">,</span> 151<span class="token punctuation">,</span> .58<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br></div></div><blockquote><p>注意</p></blockquote> <ul><li><code>.</code>和<code>#</code>皆可作为方法前缀</li></ul> <h3 id="_2-默认参数方法"><a href="#_2-默认参数方法" class="header-anchor">#</a> 2）默认参数方法</h3> <div class="language-less line-numbers-mode"><pre class="language-less"><code><span class="token comment">/* Less */</span>
+<span class="token selector">.border(<span class="token variable">@a</span>:10px,<span class="token variable">@b</span>:50px,<span class="token variable">@c</span>:30px,<span class="token variable">@color</span>:#000)</span><span class="token punctuation">{</span>
+    <span class="token property">border</span><span class="token punctuation">:</span>solid 1px <span class="token variable">@color</span><span class="token punctuation">;</span>
+    <span class="token property">box-shadow</span><span class="token punctuation">:</span> <span class="token variable">@arguments</span><span class="token punctuation">;</span><span class="token comment">//指代的是 全部参数</span>
+<span class="token punctuation">}</span>
+<span class="token selector">#main</span><span class="token punctuation">{</span>
+    <span class="token mixin-usage function">.border</span><span class="token punctuation">(</span>0px<span class="token punctuation">,</span>5px<span class="token punctuation">,</span>30px<span class="token punctuation">,</span>red<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//必须带着单位</span>
+<span class="token punctuation">}</span>
+<span class="token selector">#wrap</span><span class="token punctuation">{</span>
+    <span class="token mixin-usage function">.border</span><span class="token punctuation">(</span>0px<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">#content</span><span class="token punctuation">{</span>
+  	<span class="token mixin-usage function">.border</span><span class="token punctuation">;</span><span class="token comment">//等价于 .border()</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">/* 生成的 CSS */</span>
+<span class="token selector">#main</span><span class="token punctuation">{</span>
+    <span class="token property">border</span><span class="token punctuation">:</span>solid 1px red<span class="token punctuation">;</span>
+    <span class="token property">box-shadow</span><span class="token punctuation">:</span>0px<span class="token punctuation">,</span>5px<span class="token punctuation">,</span>30px<span class="token punctuation">,</span>red<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">#wrap</span><span class="token punctuation">{</span>
+    <span class="token property">border</span><span class="token punctuation">:</span>solid 1px #000<span class="token punctuation">;</span>
+    <span class="token property">box-shadow</span><span class="token punctuation">:</span> 0px 50px 30px #000<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">#content</span><span class="token punctuation">{</span>
+    <span class="token property">border</span><span class="token punctuation">:</span>solid 1px #000<span class="token punctuation">;</span>
+    <span class="token property">box-shadow</span><span class="token punctuation">:</span> 10px 50px 30px #000<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br></div></div><blockquote><p>注意</p></blockquote> <ul><li>如果没传参数，则使用默认参数</li> <li><code>@arguments</code>: 指代全部参数</li> <li>参数必须带单位</li></ul> <h3 id="_3-方法的匹配模式"><a href="#_3-方法的匹配模式" class="header-anchor">#</a> 3）方法的匹配模式</h3> <div class="language-less line-numbers-mode"><pre class="language-less"><code><span class="token comment">/* Less */</span>
+<span class="token selector">.triangle(top,<span class="token variable">@width</span>:20px,<span class="token variable">@color</span>:#000)</span><span class="token punctuation">{</span>
+    <span class="token property">border-color</span><span class="token punctuation">:</span>transparent  transparent <span class="token variable">@color</span> transparent <span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">.triangle(right,<span class="token variable">@width</span>:20px,<span class="token variable">@color</span>:#000)</span><span class="token punctuation">{</span>
+    <span class="token property">border-color</span><span class="token punctuation">:</span>transparent <span class="token variable">@color</span> transparent  transparent <span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">.triangle(bottom,<span class="token variable">@width</span>:20px,<span class="token variable">@color</span>:#000)</span><span class="token punctuation">{</span>
+    <span class="token property">border-color</span><span class="token punctuation">:</span><span class="token variable">@color</span> transparent  transparent  transparent <span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">.triangle(left,<span class="token variable">@width</span>:20px,<span class="token variable">@color</span>:#000)</span><span class="token punctuation">{</span>
+    <span class="token property">border-color</span><span class="token punctuation">:</span>transparent  transparent  transparent <span class="token variable">@color</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">.triangle(<span class="token variable">@_</span>,<span class="token variable">@width</span>:20px,<span class="token variable">@color</span>:#000)</span><span class="token punctuation">{</span>
+    <span class="token property">border-style</span><span class="token punctuation">:</span> solid<span class="token punctuation">;</span>
+    <span class="token property">border-width</span><span class="token punctuation">:</span> <span class="token variable">@width</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">#main</span><span class="token punctuation">{</span>
+    <span class="token mixin-usage function">.triangle</span><span class="token punctuation">(</span>left<span class="token punctuation">,</span> 50px<span class="token punctuation">,</span> #999<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+<span class="token comment">/* 生成的 CSS */</span>
+<span class="token selector">#main</span><span class="token punctuation">{</span>
+  <span class="token property">border-color</span><span class="token punctuation">:</span>transparent  transparent  transparent #999<span class="token punctuation">;</span>
+  <span class="token property">border-style</span><span class="token punctuation">:</span> solid<span class="token punctuation">;</span>
+  <span class="token property">border-width</span><span class="token punctuation">:</span> 50px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br></div></div><blockquote><p><strong>注意</strong></p></blockquote> <ul><li>第一个参数<code>left</code>会找到方法中匹配程度最高的，如果匹配程度相同，将全部选择，并存在样式覆盖替换</li> <li>如果匹配的参数是变量，则将会匹配，如<code>@_</code></li></ul> <h3 id="_4-方法的命名空间"><a href="#_4-方法的命名空间" class="header-anchor">#</a> 4）方法的命名空间</h3> <div class="language-less line-numbers-mode"><pre class="language-less"><code><span class="token comment">/* Less */</span>
+<span class="token selector">#card()</span><span class="token punctuation">{</span>
+    <span class="token property">background</span><span class="token punctuation">:</span> #723232<span class="token punctuation">;</span>
+    <span class="token selector">.d(<span class="token variable">@w</span>:300px)</span><span class="token punctuation">{</span>
+        <span class="token property">width</span><span class="token punctuation">:</span> <span class="token variable">@w</span><span class="token punctuation">;</span>
+        
+        <span class="token selector">#a(<span class="token variable">@h</span>:300px)</span><span class="token punctuation">{</span>
+            <span class="token property">height</span><span class="token punctuation">:</span> <span class="token variable">@h</span><span class="token punctuation">;</span><span class="token comment">//可以使用上一层传进来的方法</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token selector">#wrap</span><span class="token punctuation">{</span>
+    <span class="token mixin-usage function">#card &gt; .d &gt; #a</span><span class="token punctuation">(</span>100px<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 父元素不能加 括号</span>
+<span class="token punctuation">}</span>
+<span class="token selector">#main</span><span class="token punctuation">{</span>
+    <span class="token mixin-usage function">#card .d</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">#con</span><span class="token punctuation">{</span>
+    <span class="token comment">//不得单独使用命名空间的方法</span>
+    <span class="token comment">//.d() 如果前面没有引入命名空间 #card ，将会报错</span>
+    
+    #card<span class="token punctuation">;</span> <span class="token comment">// 等价于 #card();</span>
+    .<span class="token function">d</span><span class="token punctuation">(</span>20px<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//必须先引入 #card</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">/* 生成的 CSS */</span>
+<span class="token selector">#wrap</span><span class="token punctuation">{</span>
+  <span class="token property">height</span><span class="token punctuation">:</span>100px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">#main</span><span class="token punctuation">{</span>
+  <span class="token property">width</span><span class="token punctuation">:</span>300px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">#con</span><span class="token punctuation">{</span>
+  <span class="token property">width</span><span class="token punctuation">:</span>20px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br></div></div><blockquote><p><strong>注意</strong></p></blockquote> <ul><li>通过<code>&gt;</code>选择器，选择儿子元素</li> <li>在引入命令空间时，如使用<code>&gt;</code>选择器，父元素不能加括号</li> <li>不得单独使用命名空间得方法，必须先引入命名空间，才能使用其中方法。</li> <li>子方法可以是使用上一层传进来的方法</li></ul> <h3 id="_5-方法的条件筛选"><a href="#_5-方法的条件筛选" class="header-anchor">#</a> 5）方法的条件筛选</h3> <p><code>when</code>相当于JS的<code>if else</code>：</p> <div class="language-less line-numbers-mode"><pre class="language-less"><code><span class="token comment">/* Less */</span>
+<span class="token selector">#card</span><span class="token punctuation">{</span>
+    
+    <span class="token comment">// and 运算符 ，相当于 与运算 &amp;&amp;，必须条件全部符合才会执行</span>
+    <span class="token selector">.border(<span class="token variable">@width</span>,<span class="token variable">@color</span>,<span class="token variable">@style</span>) when (<span class="token variable">@width</span>&gt;100px) and(<span class="token variable">@color</span>=#999)</span><span class="token punctuation">{</span>
+        <span class="token property">border</span><span class="token punctuation">:</span><span class="token variable">@style</span> <span class="token variable">@color</span> <span class="token variable">@width</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// not 运算符，相当于 非运算 !，条件为 不符合才会执行</span>
+    <span class="token selector">.background(<span class="token variable">@color</span>) when not (<span class="token variable">@color</span>&gt;=#222)</span><span class="token punctuation">{</span>
+        <span class="token property">background</span><span class="token punctuation">:</span><span class="token variable">@color</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// , 逗号分隔符：相当于 或运算 ||，只要有一个符合条件就会执行</span>
+    <span class="token selector">.font(<span class="token variable">@size</span>:20px) when (<span class="token variable">@size</span>&gt;50px) , (<span class="token variable">@size</span>&lt;100px)</span><span class="token punctuation">{</span>
+        <span class="token property">font-size</span><span class="token punctuation">:</span> <span class="token variable">@size</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token selector">#main</span><span class="token punctuation">{</span>
+    <span class="token mixin-usage function">#card&gt;.border</span><span class="token punctuation">(</span>200px<span class="token punctuation">,</span>#999<span class="token punctuation">,</span>solid<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token mixin-usage function">#card .background</span><span class="token punctuation">(</span>#111<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token mixin-usage function">#card &gt; .font</span><span class="token punctuation">(</span>40px<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">/* 生成后的 CSS */</span>
+<span class="token selector">#main</span><span class="token punctuation">{</span>
+  <span class="token property">border</span><span class="token punctuation">:</span>solid #999 200px<span class="token punctuation">;</span>
+  <span class="token property">background</span><span class="token punctuation">:</span>#111<span class="token punctuation">;</span>
+  <span class="token property">font-size</span><span class="token punctuation">:</span>40px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br></div></div><blockquote><p><strong>注意</strong></p></blockquote> <ul><li><code>=</code> 代表等于</li> <li>除去关键字<code>true</code>以外的值被视为<code>false</code></li></ul> <h3 id="_6-数量不定的参数"><a href="#_6-数量不定的参数" class="header-anchor">#</a> 6）数量不定的参数</h3> <p>接受数量不定的参数，可用<code>...</code></p> <div class="language-ts line-numbers-mode"><pre class="language-ts"><code><span class="token comment">/* Less */</span>
+<span class="token punctuation">.</span><span class="token function">boxShadow</span><span class="token punctuation">(</span><span class="token operator">...</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    box<span class="token operator">-</span>shadow<span class="token operator">:</span> <span class="token decorator"><span class="token at operator">@</span><span class="token function">arguments</span></span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token punctuation">.</span><span class="token function">textShadow</span><span class="token punctuation">(</span><span class="token decorator"><span class="token at operator">@</span><span class="token function">a</span></span><span class="token punctuation">,</span><span class="token operator">...</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    text<span class="token operator">-</span>shadow<span class="token operator">:</span> <span class="token decorator"><span class="token at operator">@</span><span class="token function">arguments</span></span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+#main<span class="token punctuation">{</span>
+    <span class="token punctuation">.</span><span class="token function">boxShadow</span><span class="token punctuation">(</span>1px<span class="token punctuation">,</span>4px<span class="token punctuation">,</span>30px<span class="token punctuation">,</span>red<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">.</span><span class="token function">textShadow</span><span class="token punctuation">(</span>1px<span class="token punctuation">,</span>4px<span class="token punctuation">,</span>30px<span class="token punctuation">,</span>red<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">/* 生成后的 CSS */</span>
+#main<span class="token punctuation">{</span>
+  box<span class="token operator">-</span>shadow<span class="token operator">:</span> 1px 4px 30px red<span class="token punctuation">;</span>
+  text<span class="token operator">-</span>shadow<span class="token operator">:</span> 1px 4px 30px red<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br></div></div><h3 id="_7-方法使用-important"><a href="#_7-方法使用-important" class="header-anchor">#</a> 7）方法使用<code>!important</code></h3> <p>在方法名后，加上关键字。</p> <div class="language-less line-numbers-mode"><pre class="language-less"><code><span class="token comment">/* Less */</span>
+<span class="token selector">.border</span><span class="token punctuation">{</span>
+    <span class="token property">border</span><span class="token punctuation">:</span> solid 1px red<span class="token punctuation">;</span>
+    <span class="token property">margin</span><span class="token punctuation">:</span> 50px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">#main</span><span class="token punctuation">{</span>
+    <span class="token mixin-usage function">.border</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token important">!important</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment">/* 生成后的 CSS */</span>
+<span class="token selector">#main</span> <span class="token punctuation">{</span>
+    <span class="token property">border</span><span class="token punctuation">:</span> solid 1px red <span class="token important">!important</span><span class="token punctuation">;</span>
+    <span class="token property">margin</span><span class="token punctuation">:</span> 50px <span class="token important">!important</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br></div></div><h3 id="_8-循环方法"><a href="#_8-循环方法" class="header-anchor">#</a> 8）循环方法</h3> <p>通过递归实现 循环效果</p> <div class="language-less line-numbers-mode"><pre class="language-less"><code><span class="token comment">/* Less */</span>
+.<span class="token function">generate-columns</span><span class="token punctuation">(</span>4<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token selector">.generate-columns(<span class="token variable">@n</span>, <span class="token variable">@i</span>: 1) when (<span class="token variable">@i</span> =&lt; <span class="token variable">@n</span>)</span> <span class="token punctuation">{</span>
+  <span class="token selector">.column-@{i}</span> <span class="token punctuation">{</span>
+    <span class="token property">width</span><span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token variable">@i</span> <span class="token operator">*</span> 100% <span class="token operator">/</span> <span class="token variable">@n</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  .<span class="token function">generate-columns</span><span class="token punctuation">(</span><span class="token variable">@n</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token variable">@i</span> <span class="token operator">+</span> 1<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment">/* 生成后的 CSS */</span>
+<span class="token selector">.column-1</span> <span class="token punctuation">{</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> 25%<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">.column-2</span> <span class="token punctuation">{</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> 50%<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">.column-3</span> <span class="token punctuation">{</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> 75%<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">.column-4</span> <span class="token punctuation">{</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> 100%<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br></div></div><h3 id="_9-属性拼接方法"><a href="#_9-属性拼接方法" class="header-anchor">#</a> 9）属性拼接方法</h3> <blockquote><p><strong>逗号</strong> ：<code>+</code></p></blockquote> <div class="language-less line-numbers-mode"><pre class="language-less"><code><span class="token comment">/* Less */</span>
+<span class="token selector">.boxShadow()</span> <span class="token punctuation">{</span>
+    <span class="token property">box-shadow+</span><span class="token punctuation">:</span> inset 0 0 10px #555<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">.main</span> <span class="token punctuation">{</span>
+  <span class="token mixin-usage function">.boxShadow</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token property">box-shadow+</span><span class="token punctuation">:</span> 0 0 20px black<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment">/* 生成后的 CSS */</span>
+<span class="token selector">.main</span> <span class="token punctuation">{</span>
+  <span class="token property">box-shadow</span><span class="token punctuation">:</span> inset 0 0 10px #555<span class="token punctuation">,</span> 0 0 20px black<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br></div></div><blockquote><p><strong>空格</strong>： <code>+_</code></p></blockquote> <div class="language-less line-numbers-mode"><pre class="language-less"><code><span class="token comment">/* Less */</span>
+<span class="token selector">.Animation()</span> <span class="token punctuation">{</span>
+  <span class="token property">transform+_</span><span class="token punctuation">:</span> <span class="token function">scale</span><span class="token punctuation">(</span>2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">.main</span> <span class="token punctuation">{</span>
+  <span class="token mixin-usage function">.Animation</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token property">transform+_</span><span class="token punctuation">:</span> <span class="token function">rotate</span><span class="token punctuation">(</span>15deg<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">/* 生成的 CSS */</span>
+<span class="token selector">.main</span> <span class="token punctuation">{</span>
+  <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">scale</span><span class="token punctuation">(</span>2<span class="token punctuation">)</span> <span class="token function">rotate</span><span class="token punctuation">(</span>15deg<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br></div></div><h3 id="_10-示例"><a href="#_10-示例" class="header-anchor">#</a> 10）示例</h3> <div class="language-less line-numbers-mode"><pre class="language-less"><code><span class="token comment">/* Less */</span>
+<span class="token selector">.average(<span class="token variable">@x</span>, <span class="token variable">@y</span>)</span> <span class="token punctuation">{</span>
+  <span class="token variable">@average<span class="token punctuation">:</span></span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token variable">@x</span> <span class="token operator">+</span> <span class="token variable">@y</span><span class="token punctuation">)</span> <span class="token operator">/</span> 2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">div</span> <span class="token punctuation">{</span>
+  <span class="token mixin-usage function">.average</span><span class="token punctuation">(</span>16px<span class="token punctuation">,</span> 50px<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 调用 方法</span>
+  <span class="token property">padding</span><span class="token punctuation">:</span> <span class="token variable">@average</span><span class="token punctuation">;</span>    <span class="token comment">// 使用返回值</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">/* 生成的 CSS */</span>
+<span class="token selector">div</span> <span class="token punctuation">{</span>
+  <span class="token property">padding</span><span class="token punctuation">:</span> 33px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br></div></div><h2 id="_4-继承"><a href="#_4-继承" class="header-anchor">#</a> 4. 继承</h2> <h3 id="_1-extend关键字的使用"><a href="#_1-extend关键字的使用" class="header-anchor">#</a> 1）extend关键字的使用</h3> <div class="language-less line-numbers-mode"><pre class="language-less"><code><span class="token comment">/* Less */</span>
+<span class="token selector">.animation</span><span class="token punctuation">{</span>
+    <span class="token property">transition</span><span class="token punctuation">:</span> all .3s ease<span class="token operator">-</span>out<span class="token punctuation">;</span>
+    <span class="token selector">.hide</span><span class="token punctuation">{</span>
+      <span class="token property">transform</span><span class="token punctuation">:</span><span class="token function">scale</span><span class="token punctuation">(</span>0<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token selector">#main</span><span class="token punctuation">{</span>
+    &amp;<span class="token punctuation">:</span><span class="token function">extend</span><span class="token punctuation">(</span>.animation<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">#con</span><span class="token punctuation">{</span>
+    &amp;<span class="token punctuation">:</span><span class="token function">extend</span><span class="token punctuation">(</span>.animation .hide<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">/* 生成后的 CSS */</span>
+<span class="token selector">.animation,#main</span><span class="token punctuation">{</span>
+  <span class="token property">transition</span><span class="token punctuation">:</span> all .3s ease<span class="token operator">-</span>out<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">.animation .hide , #con</span><span class="token punctuation">{</span>
+    <span class="token property">transform</span><span class="token punctuation">:</span><span class="token function">scale</span><span class="token punctuation">(</span>0<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br></div></div><h3 id="_2-all全局搜索替换"><a href="#_2-all全局搜索替换" class="header-anchor">#</a> 2）all全局搜索替换</h3> <p>使用all选择器匹配到全部声明。</p> <div class="language-less line-numbers-mode"><pre class="language-less"><code><span class="token comment">/* Less */</span>
+<span class="token selector">#main</span><span class="token punctuation">{</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> 200px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">#main</span> <span class="token punctuation">{</span>
+  <span class="token selector">&amp;:after</span> <span class="token punctuation">{</span>
+    <span class="token property">content</span><span class="token punctuation">:</span><span class="token string">&quot;Less is good!&quot;</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token selector">#wrap:extend(#main all)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+<span class="token comment">/* 生成的 CSS */</span>
+<span class="token selector">#main,#wrap</span><span class="token punctuation">{</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> 200px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">#main:after, #wrap:after</span> <span class="token punctuation">{</span>
+    <span class="token property">content</span><span class="token punctuation">:</span> <span class="token string">&quot;Less is good!&quot;</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br></div></div><h3 id="_3-减少代码的重复性"><a href="#_3-减少代码的重复性" class="header-anchor">#</a> 3）减少代码的重复性</h3> <p>​	从表面 看来，extend 与 方法 最大的差别，就是 extend 是同个选择器共用同一个声明，而 方法 是使用自己的声明，这无疑 增加了代码的重复性。</p> <div class="language-less line-numbers-mode"><pre class="language-less"><code><span class="token comment">/* Less */</span>
+<span class="token selector">.Method</span><span class="token punctuation">{</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> 200px<span class="token punctuation">;</span>
+  <span class="token selector">&amp;:after</span> <span class="token punctuation">{</span>
+      <span class="token property">content</span><span class="token punctuation">:</span><span class="token string">&quot;Less is good!&quot;</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token selector">#main</span><span class="token punctuation">{</span>
+  <span class="token mixin-usage function">.Method</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">#wrap</span><span class="token punctuation">{</span>
+  <span class="token mixin-usage function">.Method</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">/* 生成的 CSS */</span>
+<span class="token selector">#main</span><span class="token punctuation">{</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> 200px<span class="token punctuation">;</span>
+  <span class="token selector">&amp;:after</span><span class="token punctuation">{</span>
+    <span class="token property">content</span><span class="token punctuation">:</span><span class="token string">&quot;Less is good!&quot;</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>  
+<span class="token punctuation">}</span>
+<span class="token selector">#wrap</span><span class="token punctuation">{</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> 200px<span class="token punctuation">;</span>
+  <span class="token selector">&amp;:after</span><span class="token punctuation">{</span>
+    <span class="token property">content</span><span class="token punctuation">:</span><span class="token string">&quot;Less is good!&quot;</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>  
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br></div></div><h3 id="_4-注意"><a href="#_4-注意" class="header-anchor">#</a> 4）注意</h3> <ul><li>选择器和扩展之间 是允许有空格的</li></ul> <div class="language-less line-numbers-mode"><pre class="language-less"><code><span class="token property">pre</span><span class="token punctuation">:</span><span class="token property">hover</span><span class="token punctuation">:</span><span class="token function">extend</span><span class="token punctuation">(</span>div pre<span class="token punctuation">)</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><ul><li>可以有多个扩展</li></ul> <div class="language-less line-numbers-mode"><pre class="language-less"><code><span class="token property">pre</span><span class="token punctuation">:</span><span class="token property">hover</span><span class="token punctuation">:</span><span class="token function">extend</span><span class="token punctuation">(</span>div pre<span class="token punctuation">)</span><span class="token punctuation">:</span><span class="token function">extend</span><span class="token punctuation">(</span>.bucket tr<span class="token punctuation">)</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>与以下代码一致</p> <div class="language-less line-numbers-mode"><pre class="language-less"><code><span class="token property">pre</span><span class="token punctuation">:</span><span class="token property">hover</span><span class="token punctuation">:</span><span class="token function">extend</span><span class="token punctuation">(</span>div pre<span class="token punctuation">,</span> .bucket tr<span class="token punctuation">)</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><ul><li>扩展必须写在最后</li> <li>如果一个规则集包含多个选择器，所有选择器都可以使用<code>extend</code>关键字</li></ul> <h2 id="_5-导入"><a href="#_5-导入" class="header-anchor">#</a> 5. 导入</h2> <h3 id="_1-导入less文件-可省略后缀"><a href="#_1-导入less文件-可省略后缀" class="header-anchor">#</a> 1）导入<code>less</code>文件，可省略后缀</h3> <div class="language-less line-numbers-mode"><pre class="language-less"><code>import <span class="token string">&quot;main&quot;</span><span class="token punctuation">;</span> 
+<span class="token comment">//等价于</span>
+import <span class="token string">&quot;main.less&quot;</span><span class="token punctuation">;</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><h3 id="_2-import的位置可以随意放置"><a href="#_2-import的位置可以随意放置" class="header-anchor">#</a> 2）<code>@import</code>的位置可以随意放置</h3> <div class="language-less line-numbers-mode"><pre class="language-less"><code><span class="token selector">#main</span><span class="token punctuation">{</span>
+  <span class="token property">font-size</span><span class="token punctuation">:</span>15px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token variable">@import</span> <span class="token string">&quot;style&quot;</span><span class="token punctuation">;</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><h3 id="_3-reference"><a href="#_3-reference" class="header-anchor">#</a> 3）reference</h3> <p>​	使用<code>@import(reference)</code>导入外部文件，但不会添加把导入的文件编译到最终输出中，只引用。</p> <div class="language-less line-numbers-mode"><pre class="language-less"><code><span class="token comment">/* Less */</span>
+<span class="token variable">@import</span> <span class="token punctuation">(</span>reference<span class="token punctuation">)</span> <span class="token string">&quot;bootstrap.less&quot;</span><span class="token punctuation">;</span> 
+
+<span class="token selector">#wrap:extend(.navbar all)</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><h3 id="_4-once"><a href="#_4-once" class="header-anchor">#</a> 4）once</h3> <p>​	<code>@import</code>语句的默认行为。这表明相同的文件只会被导入一次，而随后的导入文件的重复代码都不会解析。</p> <div class="language-less line-numbers-mode"><pre class="language-less"><code><span class="token variable">@import</span> <span class="token punctuation">(</span>once<span class="token punctuation">)</span> <span class="token string">&quot;foo.less&quot;</span><span class="token punctuation">;</span>
+<span class="token variable">@import</span> <span class="token punctuation">(</span>once<span class="token punctuation">)</span> <span class="token string">&quot;foo.less&quot;</span><span class="token punctuation">;</span> <span class="token comment">// this statement will be ignored</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><h3 id="_5-multiple"><a href="#_5-multiple" class="header-anchor">#</a> 5）multiple</h3> <p>​	使用<code>@import(multiple)</code>允许导入多个同名文件。</p> <div class="language-less line-numbers-mode"><pre class="language-less"><code><span class="token comment">/* Less */</span>
+
+<span class="token comment">// file: foo.less</span>
+<span class="token selector">.a</span> <span class="token punctuation">{</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> green<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment">// file: main.less</span>
+<span class="token variable">@import</span> <span class="token punctuation">(</span>multiple<span class="token punctuation">)</span> <span class="token string">&quot;foo.less&quot;</span><span class="token punctuation">;</span>
+<span class="token variable">@import</span> <span class="token punctuation">(</span>multiple<span class="token punctuation">)</span> <span class="token string">&quot;foo.less&quot;</span><span class="token punctuation">;</span>
+
+<span class="token comment">/* 生成后的 CSS */</span>
+<span class="token selector">.a</span> <span class="token punctuation">{</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> green<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">.a</span> <span class="token punctuation">{</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> green<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br></div></div><h2 id="_6-函数"><a href="#_6-函数" class="header-anchor">#</a> 6. 函数</h2> <h3 id="_1-类型判断"><a href="#_1-类型判断" class="header-anchor">#</a> 1）类型判断</h3> <ul><li><code>isnumber</code> : 判断给定的值是否是一个数字</li> <li><code>iscolor</code>： 判断给定的值是否是一个颜色</li> <li><code>isurl</code>: 判断给定的值是否是一个url</li></ul> <h3 id="_2-颜色操作"><a href="#_2-颜色操作" class="header-anchor">#</a> 2）颜色操作</h3> <ul><li><code>saturate</code> : 增加一定数值的颜色饱和度</li> <li><code>lighten</code>: 增加一定数值的颜色亮度</li> <li><code>darken</code>: 减低一定数值的颜色亮度</li> <li><code>fade</code>: 给颜色设定一定数值的透明度</li> <li><code>mix</code>： 根据比例混合两种颜色</li></ul> <h3 id="_3-数字函数"><a href="#_3-数字函数" class="header-anchor">#</a> 3）数字函数</h3> <blockquote><p><a href="http://lesscss.cn/functions/" target="_blank" rel="noopener noreferrer">更多<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p></blockquote> <ul><li><code>ceil</code>： 向上取整</li> <li><code>floor</code>: 向下取整</li> <li><code>percentage</code>: 将浮点数转换为百分比字符串</li> <li><code>round</code> : 四舍五入</li> <li><code>sqrt</code> : 计算一个数的平方根</li> <li><code>abs</code>: 计算数字的绝对值，原样保持单位</li> <li><code>pow</code>： 计算一个数的乘方</li></ul> <h2 id="参考"><a href="#参考" class="header-anchor">#</a> 参考</h2> <ol><li><a href="https://juejin.cn/post/6844903520441729037#comment" target="_blank" rel="noopener noreferrer">学习Less-看这篇就够了<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li> <li><a href="https://less.bootcss.com/#%E6%A6%82%E8%A7%88" target="_blank" rel="noopener noreferrer">less中文官网<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ol></div></section> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">上次更新: </span> <span class="time">2022/4/27 09:18:43</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev"><a href="/blog/docs/02-css/08-zhu-liu-bu-ju.html" class="prev">
+            CSS07 主流布局
+          </a></span> <!----></p></div> <div class="comments-wrapper"><!----></div> <ul class="side-bar sub-sidebar-wrapper" style="width:12rem;" data-v-70334359><li class="level-2" data-v-70334359><a href="/blog/docs/02-css/09-less.html#_1-变量" class="sidebar-link reco-side-_1-变量" data-v-70334359>1. 变量</a></li><li class="level-3" data-v-70334359><a href="/blog/docs/02-css/09-less.html#_1-属性值变量" class="sidebar-link reco-side-_1-属性值变量" data-v-70334359>1）属性值变量</a></li><li class="level-3" data-v-70334359><a href="/blog/docs/02-css/09-less.html#_2-选择器变量" class="sidebar-link reco-side-_2-选择器变量" data-v-70334359>2）选择器变量</a></li><li class="level-3" data-v-70334359><a href="/blog/docs/02-css/09-less.html#_3-属性键变量" class="sidebar-link reco-side-_3-属性键变量" data-v-70334359>3）属性键变量</a></li><li class="level-3" data-v-70334359><a href="/blog/docs/02-css/09-less.html#_4-url变量" class="sidebar-link reco-side-_4-url变量" data-v-70334359>4）url变量</a></li><li class="level-3" data-v-70334359><a href="/blog/docs/02-css/09-less.html#_5-声明变量" class="sidebar-link reco-side-_5-声明变量" data-v-70334359>5）声明变量</a></li><li class="level-3" data-v-70334359><a href="/blog/docs/02-css/09-less.html#_6-变量运算" class="sidebar-link reco-side-_6-变量运算" data-v-70334359>6）变量运算</a></li><li class="level-3" data-v-70334359><a href="/blog/docs/02-css/09-less.html#_7-变量作用域" class="sidebar-link reco-side-_7-变量作用域" data-v-70334359>7）变量作用域</a></li><li class="level-3" data-v-70334359><a href="/blog/docs/02-css/09-less.html#_8-用变量去定义变量" class="sidebar-link reco-side-_8-用变量去定义变量" data-v-70334359>8）用变量去定义变量</a></li><li class="level-2" data-v-70334359><a href="/blog/docs/02-css/09-less.html#_2-嵌套" class="sidebar-link reco-side-_2-嵌套" data-v-70334359>2. 嵌套</a></li><li class="level-3" data-v-70334359><a href="/blog/docs/02-css/09-less.html#_1" class="sidebar-link reco-side-_1" data-v-70334359>1）&amp;</a></li><li class="level-3" data-v-70334359><a href="/blog/docs/02-css/09-less.html#_2-媒体查询" class="sidebar-link reco-side-_2-媒体查询" data-v-70334359>2）媒体查询</a></li><li class="level-2" data-v-70334359><a href="/blog/docs/02-css/09-less.html#_3-混合方法" class="sidebar-link reco-side-_3-混合方法" data-v-70334359>3. 混合方法</a></li><li class="level-3" data-v-70334359><a href="/blog/docs/02-css/09-less.html#_1-无参数方法" class="sidebar-link reco-side-_1-无参数方法" data-v-70334359>1）无参数方法</a></li><li class="level-3" data-v-70334359><a href="/blog/docs/02-css/09-less.html#_2-默认参数方法" class="sidebar-link reco-side-_2-默认参数方法" data-v-70334359>2）默认参数方法</a></li><li class="level-3" data-v-70334359><a href="/blog/docs/02-css/09-less.html#_3-方法的匹配模式" class="sidebar-link reco-side-_3-方法的匹配模式" data-v-70334359>3）方法的匹配模式</a></li><li class="level-3" data-v-70334359><a href="/blog/docs/02-css/09-less.html#_4-方法的命名空间" class="sidebar-link reco-side-_4-方法的命名空间" data-v-70334359>4）方法的命名空间</a></li><li class="level-3" data-v-70334359><a href="/blog/docs/02-css/09-less.html#_5-方法的条件筛选" class="sidebar-link reco-side-_5-方法的条件筛选" data-v-70334359>5）方法的条件筛选</a></li><li class="level-3" data-v-70334359><a href="/blog/docs/02-css/09-less.html#_6-数量不定的参数" class="sidebar-link reco-side-_6-数量不定的参数" data-v-70334359>6）数量不定的参数</a></li><li class="level-3" data-v-70334359><a href="/blog/docs/02-css/09-less.html#_7-方法使用-important" class="sidebar-link reco-side-_7-方法使用-important" data-v-70334359>7）方法使用!important</a></li><li class="level-3" data-v-70334359><a href="/blog/docs/02-css/09-less.html#_8-循环方法" class="sidebar-link reco-side-_8-循环方法" data-v-70334359>8）循环方法</a></li><li class="level-3" data-v-70334359><a href="/blog/docs/02-css/09-less.html#_9-属性拼接方法" class="sidebar-link reco-side-_9-属性拼接方法" data-v-70334359>9）属性拼接方法</a></li><li class="level-3" data-v-70334359><a href="/blog/docs/02-css/09-less.html#_10-示例" class="sidebar-link reco-side-_10-示例" data-v-70334359>10）示例</a></li><li class="level-2" data-v-70334359><a href="/blog/docs/02-css/09-less.html#_4-继承" class="sidebar-link reco-side-_4-继承" data-v-70334359>4. 继承</a></li><li class="level-3" data-v-70334359><a href="/blog/docs/02-css/09-less.html#_1-extend关键字的使用" class="sidebar-link reco-side-_1-extend关键字的使用" data-v-70334359>1）extend关键字的使用</a></li><li class="level-3" data-v-70334359><a href="/blog/docs/02-css/09-less.html#_2-all全局搜索替换" class="sidebar-link reco-side-_2-all全局搜索替换" data-v-70334359>2）all全局搜索替换</a></li><li class="level-3" data-v-70334359><a href="/blog/docs/02-css/09-less.html#_3-减少代码的重复性" class="sidebar-link reco-side-_3-减少代码的重复性" data-v-70334359>3）减少代码的重复性</a></li><li class="level-3" data-v-70334359><a href="/blog/docs/02-css/09-less.html#_4-注意" class="sidebar-link reco-side-_4-注意" data-v-70334359>4）注意</a></li><li class="level-2" data-v-70334359><a href="/blog/docs/02-css/09-less.html#_5-导入" class="sidebar-link reco-side-_5-导入" data-v-70334359>5. 导入</a></li><li class="level-3" data-v-70334359><a href="/blog/docs/02-css/09-less.html#_1-导入less文件-可省略后缀" class="sidebar-link reco-side-_1-导入less文件-可省略后缀" data-v-70334359>1）导入less文件，可省略后缀</a></li><li class="level-3" data-v-70334359><a href="/blog/docs/02-css/09-less.html#_2-import的位置可以随意放置" class="sidebar-link reco-side-_2-import的位置可以随意放置" data-v-70334359>2）@import的位置可以随意放置</a></li><li class="level-3" data-v-70334359><a href="/blog/docs/02-css/09-less.html#_3-reference" class="sidebar-link reco-side-_3-reference" data-v-70334359>3）reference</a></li><li class="level-3" data-v-70334359><a href="/blog/docs/02-css/09-less.html#_4-once" class="sidebar-link reco-side-_4-once" data-v-70334359>4）once</a></li><li class="level-3" data-v-70334359><a href="/blog/docs/02-css/09-less.html#_5-multiple" class="sidebar-link reco-side-_5-multiple" data-v-70334359>5）multiple</a></li><li class="level-2" data-v-70334359><a href="/blog/docs/02-css/09-less.html#_6-函数" class="sidebar-link reco-side-_6-函数" data-v-70334359>6. 函数</a></li><li class="level-3" data-v-70334359><a href="/blog/docs/02-css/09-less.html#_1-类型判断" class="sidebar-link reco-side-_1-类型判断" data-v-70334359>1）类型判断</a></li><li class="level-3" data-v-70334359><a href="/blog/docs/02-css/09-less.html#_2-颜色操作" class="sidebar-link reco-side-_2-颜色操作" data-v-70334359>2）颜色操作</a></li><li class="level-3" data-v-70334359><a href="/blog/docs/02-css/09-less.html#_3-数字函数" class="sidebar-link reco-side-_3-数字函数" data-v-70334359>3）数字函数</a></li><li class="level-2" data-v-70334359><a href="/blog/docs/02-css/09-less.html#参考" class="sidebar-link reco-side-参考" data-v-70334359>参考</a></li></ul></main> <!----></div></div></div></div><div class="global-ui"><div class="back-to-ceiling" style="right:1rem;bottom:6rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;display:none;" data-v-c6073ba8 data-v-c6073ba8><svg t="1574745035067" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5404" class="icon" data-v-c6073ba8><path d="M526.60727968 10.90185116a27.675 27.675 0 0 0-29.21455937 0c-131.36607665 82.28402758-218.69155461 228.01873535-218.69155402 394.07834331a462.20625001 462.20625001 0 0 0 5.36959153 69.94390903c1.00431239 6.55289093-0.34802892 13.13561351-3.76865779 18.80351572-32.63518765 54.11355614-51.75690182 118.55860487-51.7569018 187.94566865a371.06718723 371.06718723 0 0 0 11.50484808 91.98906777c6.53300375 25.50556257 41.68394495 28.14064038 52.69160883 4.22606766 17.37162448-37.73630017 42.14135425-72.50938081 72.80769204-103.21549295 2.18761121 3.04276886 4.15646224 6.24463696 6.40373557 9.22774369a1871.4375 1871.4375 0 0 0 140.04691725 5.34970492 1866.36093723 1866.36093723 0 0 0 140.04691723-5.34970492c2.24727335-2.98310674 4.21612437-6.18497483 6.3937923-9.2178004 30.66633723 30.70611158 55.4360664 65.4791928 72.80769147 103.21549355 11.00766384 23.91457269 46.15860503 21.27949489 52.69160879-4.22606768a371.15156223 371.15156223 0 0 0 11.514792-91.99901164c0-69.36717486-19.13165746-133.82216804-51.75690182-187.92578088-3.42062944-5.66790279-4.76302748-12.26056868-3.76865837-18.80351632a462.20625001 462.20625001 0 0 0 5.36959269-69.943909c-0.00994388-166.08943902-87.32547796-311.81420293-218.6915546-394.09823051zM605.93803103 357.87693858a93.93749974 93.93749974 0 1 1-187.89594924 6.1e-7 93.93749974 93.93749974 0 0 1 187.89594924-6.1e-7z" p-id="5405" data-v-c6073ba8></path><path d="M429.50777625 765.63860547C429.50777625 803.39355007 466.44236686 1000.39046097 512.00932183 1000.39046097c45.56695499 0 82.4922232-197.00623328 82.5015456-234.7518555 0-37.75494459-36.9345906-68.35043303-82.4922232-68.34111062-45.57627738-0.00932239-82.52019037 30.59548842-82.51086798 68.34111062z" p-id="5406" data-v-c6073ba8></path></svg></div><!----><div id="live2d-widget" class="live2d-widget-container" style="position:fixed;right:65px;bottom:0px;width:250px;height:300px;z-index:99999;opacity:0.8;pointer-events:none;"><!----></div></div></div>
+    <script src="/blog/assets/js/app.ce36d364.js" defer></script><script src="/blog/assets/js/3.69e5ab97.js" defer></script><script src="/blog/assets/js/1.d241725f.js" defer></script><script src="/blog/assets/js/21.c656cbd0.js" defer></script><script src="/blog/assets/js/8.a8350c27.js" defer></script>
+  </body>
+</html>
